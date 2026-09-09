@@ -5,10 +5,10 @@
 (function () {
   const NAV = [
     { key: "home", label: "数据中心", href: "index.html" },
-    { key: "process_ext", label: "过程指标", href: "https://420408ff824544f1af0b277e7a0c4859.app.workbuddy.link", ext: true },
-    { key: "sales_ext", label: "销售日报", href: "https://a9d72b7f2e1b4c99ac17bfba931f7a07.app.codebuddy.work/", ext: true },
-    { key: "annual_ext", label: "年度分析", href: "https://f47801f24a134f728a61cdded459194e.app.workbuddy.link", ext: true },
-    { key: "inventory_ext", label: "库存", href: "https://974a140778c749d188c2ce6cbdd34405.app.workbuddy.link", ext: true },
+    { key: "process_ext", label: "过程指标", href: "https://kaka147427334.github.io/dongguan-process-metrics/", ext: true },
+    { key: "sales_ext", label: "销售日报", href: "https://kaka147427334.github.io/dongguan-sales-dashboard/", ext: true },
+    { key: "annual_ext", label: "年度分析", href: "https://kaka147427334.github.io/dongguan-annual-sales/", ext: true },
+    { key: "inventory_ext", label: "库存", href: "https://kaka147427334.github.io/dongguan-inventory/", ext: true },
     { key: "leads_ext", label: "线索", href: "https://01e43646424c46049c0281f954b5d6d5.bj3.agentos-app.net/", ext: true },
     { key: "model4wd_ext", label: "四轮驱动", href: "https://dorameimeimon.github.io/leapmotor-south-dashboard/", ext: true },
     { key: "testdrive_ext", label: "试驾勤勉度", href: "https://dorameimeimon.github.io/leapmotor-test-drive-dashboard/", ext: true },
