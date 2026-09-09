@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>销售看板 · 零跑东莞数据中心</title>
+  <link rel="stylesheet" href="shared.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div id="topbar-root"></div>
+  <script>window.PAGE_KEY = "sales";</script>
+
+  <div class="wrap">
+    <section class="hero">
+      <h1>销售看板</h1>
+      <div class="sub">东莞区域 ｜ 数据截止 2026-08-31（月度进度 100%）</div>
+      <div class="meta-row">
+        <span class="pill"><span class="live-dot"></span>状态：<b>真实数据</b></span>
+        <span class="pill">来源：<b>销量看板链接（直接抓取）</b></span>
+        <span class="pill">区域：<b>东莞 · 方任昊</b></span>
+      </div>
+    </section>
+
+    <div class="note"><b>说明：</b>"本月锁单(东莞)"已与<b>六量六率（过程数据）</b>及<b>日报周度数据</b>核对一致——六量六率 2026-08 当期净增锁单合计 <b>825</b> 台（含高胜车城店共 14 家门店）；日报 W1–W5 周度锁单 [69,150,218,210,229] 合计 876，量级吻合。门店表<b>锁单</b>列已按六量六率逐项刷新。交付 / 库存 / 城市份额 / 周度(W1–W5) 仍取自销量看板链接（app.codebuddy.work）原抓取口径；"达成率①②"为原表两列达成率（锁单段/交付段）。</div>
+
+    <section class="section">
+      <div class="kpi-grid">
+        <div class="kpi"><div class="label">本月交付(东莞)</div><div class="val">519 <span style="font-size:14px;color:var(--text-faint)">台</span></div><div class="delta up">月度累计</div></div>
+        <div class="kpi"><div class="label">本月锁单(东莞)</div><div class="val">825 <span style="font-size:14px;color:var(--text-faint)">台</span></div><div class="delta up">六量六率·当期净增锁单</div></div>
+        <div class="kpi"><div class="label">在库车辆</div><div class="val">876 <span style="font-size:14px;color:var(--text-faint)">台</span></div><div class="delta up">区域合计</div></div>
+        <div class="kpi"><div class="label">交付城市份额</div><div class="val">88.6 <span style="font-size:14px;color:var(--text-faint)">%</span></div><div class="delta up">占东莞</div></div>
+        <div class="kpi"><div class="label">锁单城市份额</div><div class="val">86.0 <span style="font-size:14px;color:var(--text-faint)">%</span></div><div class="delta up">占东莞</div></div>
+        <div class="kpi"><div class="label">最新周订单(W5)</div><div class="val">229 <span style="font-size:14px;color:var(--text-faint)">台</span></div><div class="delta up">8.24-8.31</div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head" style="border-left:none;padding-left:0;">
+        <h2 style="font-size:18px;">销售分布</h2>
+        <div class="dim-toggle">
+          <button class="dt-btn" data-dim="store">分门店</button>
+          <button class="dt-btn" data-dim="group">分集团</button>
+        </div>
+      </div>
+      <div class="chart-grid">
+        <div class="panel">
+          <h3 id="delH3">门店本月交付排名</h3>
+          <div class="sub">月度累计交付（台）</div>
+          <div class="chart-box tall"><canvas id="cDel"></canvas></div>
+        </div>
+        <div class="panel">
+          <h3>周度锁单趋势（东莞）</h3>
+          <div class="sub">W1–W5 周度锁单（日报口径，台）</div>
+          <div class="chart-box tall"><canvas id="cTrend"></canvas></div>
+        </div>
+        <div class="panel">
+          <h3 id="invH3">门店库存对比</h3>
+          <div class="sub">当前在库（台）</div>
+          <div class="chart-box"><canvas id="cInv"></canvas></div>
+        </div>
+        <div class="panel">
+          <h3 id="shareH3">门店交付城市份额</h3>
+          <div class="sub">占东莞交付比例（%）</div>
+          <div class="chart-box"><canvas id="cShare"></canvas></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>明细</h2>
+        <div class="dim-toggle" style="margin-left:auto">
+          <button class="dt-btn" data-dim="store">分门店</button>
+          <button class="dt-btn" data-dim="group">分集团</button>
+        </div>
+      </div>
+      <div class="panel full" id="storePanel">
+        <h3>门店明细</h3>
+        <div class="sub">月累计锁单 / 本月交付 / 库存 / 城市份额 / 周度订单(W1–W5) / 达成率(原表)</div>
+        <table class="tbl">
+          <thead><tr><th>门店</th><th class="num">月累计锁单</th><th class="num">本月交付</th><th class="num">库存</th><th class="num">交付城市份额</th><th class="num">W1</th><th class="num">W2</th><th class="num">W3</th><th class="num">W4</th><th class="num">W5</th><th class="num">达成率①(锁)</th><th class="num">达成率②(交)</th></tr></thead>
+          <tbody id="sTbody"></tbody>
+        </table>
+      </div>
+      <div class="panel full" id="groupPanel" style="display:none">
+        <h3>集团明细</h3>
+        <div class="sub">按经销商集团聚合 ｜ 锁单=六量六率·当期净增锁单；交付/库存=销量看板口径</div>
+        <table class="tbl">
+          <thead><tr><th>集团</th><th class="num">门店数</th><th class="num">月累计锁单</th><th class="num">本月交付</th><th class="num">库存</th><th class="num">交付城市份额</th><th class="num">W1–W5合计</th></tr></thead>
+          <tbody id="gTbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="note"><b>如何更新：</b>对方在销量看板更新后，把链接再发我（或我按此链接定期自动抓取），即可刷新本页，数据中心链接不变。也可把"东莞城市库存看板""六量六率周报"等发我，继续补全库存/过程类看板。</div>
+  </div>
+
+  <div id="footer-root"></div>
+  <script src="shared.js"></script>
+  <script>
+    // 数据：name, 月累计锁单, 本月交付, 库存, 达成率①(锁), 达成率②(交), 交付城市份额%, W1,W2,W3,W4,W5
+    // 锁单列 = 六量六率 2026-08 当期净增锁单（与过程指标看板一致）；高胜车城店据六量六率补入（锁单10）
+    // 交付/库存/份额/W周 = 销量看板链接原抓取口径
+    const STORES = [
+      ["东城店",61,25,79,20,36,78.3,7,17,22,18,15],
+      ["松山湖店",72,24,76,14,38,47.4,6,11,20,15,24],
+      ["石排大道店",73,40,74,16,43,47.3,8,12,18,17,19],
+      ["常朗路店",103,59,105,35,56,54.3,8,18,28,29,22],
+      ["企石店",10,5,10,10,9,80.0,0,0,4,2,4],
+      ["厚街店",31,18,33,9,17,75.8,2,3,7,8,13],
+      ["大岭山镇店",30,20,33,14,20,54.5,1,6,6,6,14],
+      ["长安振安东路店",46,25,52,16,34,55.8,7,8,14,13,10],
+      ["莞太路店",144,69,151,57,65,47.0,11,28,36,37,39],
+      ["虎门车城店",97,57,104,30,47,69.2,9,16,23,24,32],
+      ["高埗车城店",0,39,0,0,0,"-",0,0,0,0,0],
+      ["塘厦车城店",4,61,4,2,12,50.0,0,1,0,2,1],
+      ["寮步车城店",144,77,155,48,83,62.6,10,30,40,39,36],
+      ["高胜车城店",10,0,0,0,0,"-",0,0,0,0,0]
+    ];
+
+    Chart.defaults.color = "#5b6470"; Chart.defaults.font.family = "-apple-system, 'PingFang SC', sans-serif";
+    const sortDel = [...STORES].sort((a,b)=>b[2]-a[2]);
+    const totalDel = STORES.reduce((a,s)=>a+(+s[2]),0);
+
+    // 集团聚合（东唐/一维/东富/华跃/骏威）
+    const gAgg = {}; window.GROUPS.forEach(g=> gAgg[g]={lock:0,del:0,inv:0,w:0,n:0});
+    STORES.forEach(s=>{ const g=window.groupOf(s[0]); gAgg[g].lock+=+s[1]; gAgg[g].del+=+s[2]; gAgg[g].inv+=+s[3]; gAgg[g].w+=(+s[7])+(+s[8])+(+s[9])+(+s[10])+(+s[11]); gAgg[g].n++; });
+    const gDel = window.GROUPS.map(g=>gAgg[g].del);
+    const gInv = window.GROUPS.map(g=>gAgg[g].inv);
+    const gShare = window.GROUPS.map(g=> totalDel? +(gAgg[g].del/totalDel*100).toFixed(1):0);
+    const gColors = window.GROUPS.map(g=> window.GROUP_COLOR[g] || "#818cf8");
+
+    const delChart = new Chart(document.getElementById("cDel"), { type:"bar",
+      data:{ labels:sortDel.map(s=>s[0]), datasets:[{ label:"本月交付", data:sortDel.map(s=>s[2]), backgroundColor:sortDel.map(s=>s[2]>=50?"#00B42A":"#fbbf24"), borderRadius:6 }] },
+      options:{ plugins:{legend:{display:false}}, scales:{ x:{grid:{display:false},ticks:{maxRotation:55,minRotation:35,font:{size:10}}}, y:{grid:{color:"rgba(16,24,40,.06)"},beginAtZero:true} } } });
+
+    new Chart(document.getElementById("cTrend"), { type:"line",
+      data:{ labels:["W1","W2","W3","W4","W5"], datasets:[{ label:"东莞周订单", data:[69,150,218,210,229], borderColor:"#00B42A", backgroundColor:"rgba(0,180,42,.12)", fill:true, tension:.3, pointRadius:4, borderWidth:2.5 }] },
+      options:{ plugins:{legend:{display:false}}, scales:{ x:{grid:{color:"rgba(16,24,40,.06)"}}, y:{grid:{color:"rgba(16,24,40,.06)"},beginAtZero:true} } } });
+
+    const invChart = new Chart(document.getElementById("cInv"), { type:"bar",
+      data:{ labels:STORES.map(s=>s[0]), datasets:[{ label:"库存", data:STORES.map(s=>s[3]), backgroundColor:"#38bdf8", borderRadius:6 }] },
+      options:{ plugins:{legend:{display:false}}, scales:{ x:{grid:{display:false},ticks:{maxRotation:55,minRotation:35,font:{size:10}}}, y:{grid:{color:"rgba(16,24,40,.06)"},beginAtZero:true} } } });
+
+    const shareChart = new Chart(document.getElementById("cShare"), { type:"bar",
+      data:{ labels:STORES.map(s=>s[0]), datasets:[{ label:"交付城市份额%", data:STORES.map(s=>typeof s[6]==="number"?s[6]:0), backgroundColor:"#818cf8", borderRadius:6 }] },
+      options:{ plugins:{legend:{display:false}}, scales:{ x:{grid:{display:false},ticks:{maxRotation:55,minRotation:35,font:{size:10}}}, y:{grid:{color:"rgba(16,24,40,.06)"},beginAtZero:true} } } });
+
+    // 门店明细表
+    const tb = document.getElementById("sTbody");
+    STORES.forEach(s=>{
+      tb.insertAdjacentHTML("beforeend",
+        `<tr><td>${s[0]}</td><td class="num">${s[1]}</td><td class="num">${s[2]}</td><td class="num">${s[3]}</td><td class="num">${s[6]}%</td><td class="num">${s[7]}</td><td class="num">${s[8]}</td><td class="num">${s[9]}</td><td class="num">${s[10]}</td><td class="num">${s[11]}</td><td class="num">${s[4]}</td><td class="num">${s[5]}</td></tr>`);
+    });
+
+    // 集团明细表
+    const gt = document.getElementById("gTbody");
+    window.GROUPS.forEach(g=>{ const a=gAgg[g];
+      gt.insertAdjacentHTML("beforeend",
+        `<tr><td>${g}</td><td class="num">${a.n}</td><td class="num">${a.lock}</td><td class="num">${a.del}</td><td class="num">${a.inv}</td><td class="num">${gShare[window.GROUPS.indexOf(g)]}%</td><td class="num">${a.w}</td></tr>`);
+    });
+
+    window.onDimChange = function(dim){
+      const group = dim === "group";
+      document.getElementById("storePanel").style.display = group ? "none" : "";
+      document.getElementById("groupPanel").style.display = group ? "" : "none";
+      // 交付
+      delChart.data.labels = group ? window.GROUPS : sortDel.map(s=>s[0]);
+      delChart.data.datasets[0].data = group ? gDel : sortDel.map(s=>s[2]);
+      delChart.data.datasets[0].backgroundColor = group ? gColors : sortDel.map(s=>s[2]>=50?"#00B42A":"#fbbf24");
+      delChart.update();
+      document.getElementById("delH3").textContent = group ? "集团本月交付排名" : "门店本月交付排名";
+      // 库存
+      invChart.data.labels = group ? window.GROUPS : STORES.map(s=>s[0]);
+      invChart.data.datasets[0].data = group ? gInv : STORES.map(s=>s[3]);
+      invChart.data.datasets[0].backgroundColor = group ? gColors : "#38bdf8";
+      invChart.update();
+      document.getElementById("invH3").textContent = group ? "集团库存对比" : "门店库存对比";
+      // 份额
+      shareChart.data.labels = group ? window.GROUPS : STORES.map(s=>s[0]);
+      shareChart.data.datasets[0].data = group ? gShare : STORES.map(s=>typeof s[6]==="number"?s[6]:0);
+      shareChart.data.datasets[0].backgroundColor = group ? gColors : "#818cf8";
+      shareChart.update();
+      document.getElementById("shareH3").textContent = group ? "集团交付城市份额" : "门店交付城市份额";
+    };
+    window.onDimChange(window.getDim());
+  </script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>潜客看板 · 方任昊/东莞</title>
+  <link rel="stylesheet" href="shared.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div id="topbar-root"></div>
+  <script>window.PAGE_KEY = "leads";</script>
+
+  <div class="wrap">
+    <section class="hero">
+      <h1>潜客（线索）看板</h1>
+      <div class="sub">方任昊 / 东莞区域 ｜ 对比区间：2026-08-01~30 vs 2026-07-01~30</div>
+      <div class="meta-row">
+        <span class="pill"><span class="live-dot"></span>状态：<b>真实数据</b></span>
+        <span class="pill">来源：<b>导出的对比分析.docx</b></span>
+        <span class="pill">范围：<b>零售经理 方任昊 · 11 家东莞门店</b></span>
+      </div>
+    </section>
+
+    <div class="note">
+      <b>口径：</b>数据为"当月累计"，对比期为上月同期（同日序号对齐），两区间快照相减得区间合计，全部车系合并，仅筛选零售经理 方任昊（共 11 家门店）。本看板由导出的 Word 对比分析自动解析生成。
+    </div>
+
+    <div class="note" style="background:rgba(0,180,42,.08);border-color:rgba(0,180,42,.28);color:#16631f">
+      <b>全链路转化已上线：</b>含到店率 / 试驾率 / 锁单率 / 交付率 的<b>「六量六率 · 过程指标看板」</b>已接入真实数据（东莞 14 门店 / 10 渠道 / 14 车系），<a href="process.html" style="color:var(--accent-2);font-weight:700">点此查看 →</a>
+    </div>
+
+    <section class="section">
+      <div class="kpi-grid">
+        <div class="kpi"><div class="label">总潜客(8月)</div><div class="val">29,427</div><div class="delta up">▲ +1.1%</div></div>
+        <div class="kpi"><div class="label">环比净增</div><div class="val">+330</div><div class="delta up">▲ 7月 29,097</div></div>
+        <div class="kpi"><div class="label">上升门店</div><div class="val">7 <span style="font-size:14px;color:var(--text-faint)">/11</span></div><div class="delta up">▲ 多</div></div>
+        <div class="kpi"><div class="label">下降门店</div><div class="val">4 <span style="font-size:14px;color:var(--text-faint)">/11</span></div><div class="delta down">▼ 少</div></div>
+        <div class="kpi"><div class="label">最大升渠道</div><div class="val" style="font-size:18px">懂车帝 +962</div><div class="delta up">▲ +18.2%</div></div>
+        <div class="kpi"><div class="label">最大降渠道</div><div class="val" style="font-size:18px">新媒体 −520</div><div class="delta down">▼ −6.2%</div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="chart-grid">
+        <div class="panel full">
+          <h3>渠道维度变化（7月 vs 8月，全部车系）</h3>
+          <div class="sub">单位：潜客量</div>
+          <div class="chart-box tall"><canvas id="cCh"></canvas></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head" style="border-left:none;padding-left:0;"><h2 style="font-size:18px;">门店潜客</h2>
+        <div class="dim-toggle">
+          <button class="dt-btn" data-dim="store">分门店</button>
+          <button class="dt-btn" data-dim="group">分集团</button>
+        </div>
+      </div>
+      <div class="chart-grid">
+        <div class="panel full">
+          <h3 id="storeRankH3">门店潜客排名（按 8月降序）</h3>
+          <div class="sub">单位：潜客量 ｜ 绿=上升 / 红=下降</div>
+          <div class="chart-box tall"><canvas id="cStore"></canvas></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>门店明细</h2><span class="hint">7月 → 8月 潜客及趋势</span>
+        <div class="dim-toggle" style="margin-left:auto">
+          <button class="dt-btn" data-dim="store">分门店</button>
+          <button class="dt-btn" data-dim="group">分集团</button>
+        </div>
+      </div>
+      <div class="panel full">
+        <table class="tbl">
+          <thead><tr><th>门店</th><th>城市</th><th class="num">7月</th><th class="num">8月</th><th class="num">变化</th><th>趋势</th></tr></thead>
+          <tbody id="storeTbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" id="drillSection">
+      <div class="panel full">
+        <h3>门店渠道拆解（下钻）<span class="tag g">真实</span></h3>
+        <div class="sub">选择门店查看上升 / 下降渠道明细（下降原因原表待填写，已保留空位）</div>
+        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:14px">
+          <label style="color:var(--text-dim);font-size:13px">门店：</label>
+          <select id="storeSel" style="background:var(--bg-soft);color:var(--text);border:1px solid var(--border-strong);border-radius:9px;padding:8px 12px;font-size:14px;min-width:260px"></select>
+        </div>
+        <div class="kpi-grid" style="grid-template-columns:repeat(2,1fr);gap:16px">
+          <div class="panel" style="border-color:rgba(0,180,42,.3)">
+            <h3 style="color:var(--good)">▲ 上升渠道</h3>
+            <div class="sub" id="upCount"></div>
+            <table class="tbl"><thead><tr><th>渠道</th><th class="num">7月</th><th class="num">8月</th><th class="num">变化</th></tr></thead><tbody id="upBody"></tbody></table>
+          </div>
+          <div class="panel" style="border-color:rgba(248,113,113,.3)">
+            <h3 style="color:var(--bad)">▼ 下降渠道</h3>
+            <div class="sub" id="downCount"></div>
+            <table class="tbl"><thead><tr><th>渠道</th><th class="num">7月</th><th class="num">8月</th><th class="num">变化</th><th>原因/动作</th></tr></thead><tbody id="downBody"></tbody></table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="note"><b>如何更新：</b>每月（或对方更新后）从该潜客看板导出新的"对比分析.docx"发给我，我自动解析并重刷本页，数据中心链接不变。</div>
+  </div>
+
+  <div id="footer-root"></div>
+  <script src="shared.js"></script>
+  <script>
+    // ===== 真实数据（来自 方任昊_2026-08-30对比分析.docx）=====
+    const CH = [
+      ["懂车帝-卖车通",5291,6253,962,18.2],["官方渠道",1220,1712,492,40.3],
+      ["其他",32,304,272,850.0],["汽车之家-车商汇",2638,2877,239,9.1],
+      ["垂媒增量",517,659,142,27.5],["老客户转介绍",16,17,1,6.3],
+      ["总部活动",0,0,0,0],["总部投放",126,95,-31,-24.6],
+      ["区域活动",2678,2364,-314,-11.7],["易车网-易卖通",6119,5696,-423,-6.9],
+      ["自然到店",2091,1601,-490,-23.4],["新媒体",8369,7849,-520,-6.2]
+    ];
+    const STORES = [
+      ["东莞体验中心厚街店","东莞市",2501,2844,343],["东莞零跑中心长安振安东路店","东莞市",1910,2236,326],
+      ["东莞体验中心高胜车城店","东莞市",1092,1264,172],["东莞体验中心石排大道店","东莞市",2189,2339,150],
+      ["东莞零跑中心虎门车城店","东莞市",3482,3624,142],["东莞体验中心东城店","东莞市",2058,2110,52],
+      ["东莞零跑中心寮步车城店","东莞市",3762,3794,32],["东莞零跑中心莞太路店","东莞市",4384,4287,-97],
+      ["东莞体验中心松山湖店","东莞市",2548,2421,-127],["东莞零跑中心常朗路店","东莞市",2951,2624,-327],
+      ["东莞体验中心大岭山镇店","东莞市",2220,1884,-336]
+    ];
+    // 门店渠道拆解：[渠道, 上月, 本月, 变化]
+    const DETAIL = {
+      "东莞体验中心厚街店":{up:[["易车网-易卖通",306,512,206],["新媒体",1032,1200,168],["其他",7,89,82],["官方渠道",70,138,68],["汽车之家-车商汇",201,224,23]],down:[["自然到店",214,108,-106],["区域活动",249,176,-73],["懂车帝-卖车通",372,357,-15],["总部投放",9,2,-7],["老客户转介绍",3,0,-3]]},
+      "东莞零跑中心长安振安东路店":{up:[["懂车帝-卖车通",375,543,168],["汽车之家-车商汇",182,242,60],["新媒体",692,745,53],["官方渠道",86,139,53],["垂媒增量",32,49,17],["总部投放",18,28,10],["区域活动",165,171,6],["其他",1,6,5],["老客户转介绍",0,1,1]],down:[["易车网-易卖通",303,265,-38],["自然到店",56,47,-9]]},
+      "东莞体验中心高胜车城店":{up:[["懂车帝-卖车通",32,241,209],["汽车之家-车商汇",186,207,21],["垂媒增量",34,44,10],["官方渠道",5,10,5],["自然到店",0,2,2]],down:[["易车网-易卖通",828,759,-69],["总部投放",7,1,-6]]},
+      "东莞体验中心石排大道店":{up:[["易车网-易卖通",481,547,66],["官方渠道",101,155,54],["汽车之家-车商汇",204,238,34],["新媒体",435,463,28],["其他",1,8,7],["懂车帝-卖车通",512,517,5],["垂媒增量",24,28,4],["老客户转介绍",2,4,2]],down:[["自然到店",222,176,-46],["总部投放",19,15,-4]]},
+      "东莞零跑中心虎门车城店":{up:[["汽车之家-车商汇",244,410,166],["新媒体",1045,1183,138],["懂车帝-卖车通",973,1042,69],["官方渠道",91,136,45],["区域活动",278,303,25],["其他",11,29,18],["垂媒增量",41,51,10],["老客户转介绍",0,2,2]],down:[["自然到店",322,134,-188],["易车网-易卖通",462,325,-137],["总部投放",15,9,-6]]},
+      "东莞体验中心东城店":{up:[["新媒体",582,725,143],["官方渠道",68,122,54],["垂媒增量",53,104,51],["懂车帝-卖车通",377,412,35],["汽车之家-车商汇",202,223,21],["其他",4,12,8],["区域活动",167,174,7]],down:[["易车网-易卖通",482,227,-255],["总部投放",15,8,-7],["自然到店",106,103,-3],["老客户转介绍",2,0,-2]]},
+      "东莞零跑中心寮步车城店":{up:[["官方渠道",191,302,111],["易车网-易卖通",726,799,73],["垂媒增量",85,112,27],["其他",0,25,25],["区域活动",416,421,5]],down:[["懂车帝-卖车通",686,585,-101],["新媒体",861,803,-58],["汽车之家-车商汇",386,352,-34],["自然到店",400,385,-15],["总部投放",7,6,-1]]},
+      "东莞零跑中心莞太路店":{up:[["懂车帝-卖车通",579,992,413],["其他",1,53,52],["官方渠道",160,183,23],["汽车之家-车商汇",245,257,12]],down:[["新媒体",1716,1414,-302],["易车网-易卖通",813,669,-144],["区域活动",455,356,-99],["自然到店",318,268,-50],["总部投放",10,8,-2]]},
+      "东莞体验中心松山湖店":{up:[["官方渠道",118,171,53],["易车网-易卖通",612,653,41],["汽车之家-车商汇",200,230,30],["其他",4,25,21],["垂媒增量",32,46,14],["自然到店",80,83,3]],down:[["新媒体",612,469,-143],["懂车帝-卖车通",686,587,-99],["区域活动",193,152,-41],["总部投放",10,5,-5],["老客户转介绍",1,0,-1]]},
+      "东莞零跑中心常朗路店":{up:[["懂车帝-卖车通",361,575,214],["其他",2,48,46],["易车网-易卖通",498,508,10],["垂媒增量",71,74,3],["老客户转介绍",2,3,1]],down:[["新媒体",618,387,-231],["区域活动",459,301,-158],["汽车之家-车商汇",359,254,-105],["自然到店",324,240,-84],["官方渠道",244,223,-21],["总部投放",13,11,-2]]},
+      "东莞体验中心大岭山镇店":{up:[["懂车帝-卖车通",338,402,64],["官方渠道",86,133,47],["区域活动",108,122,14],["汽车之家-车商汇",229,240,11],["其他",1,9,8],["垂媒增量",22,28,6],["自然到店",49,55,6],["老客户转介绍",0,1,1]],down:[["新媒体",776,460,-316],["易车网-易卖通",608,432,-176],["总部投放",3,2,-1]]}
+    };
+
+    // ===== 图表 =====
+    Chart.defaults.color = "#5b6470"; Chart.defaults.font.family = "-apple-system, 'PingFang SC', sans-serif";
+    new Chart(document.getElementById("cCh"), {
+      type: "bar",
+      data: { labels: CH.map(c=>c[0]), datasets: [
+        { label:"7月", data: CH.map(c=>c[1]), backgroundColor:"#6b7c95", borderRadius:6 },
+        { label:"8月", data: CH.map(c=>c[2]), backgroundColor:"#00B42A", borderRadius:6 },
+      ]},
+      options: { plugins:{ legend:{ position:"top" } }, scales:{ x:{ grid:{display:false}, ticks:{ maxRotation:60, minRotation:45, font:{size:11} } }, y:{ grid:{color:"rgba(16,24,40,.06)"}, beginAtZero:true } } },
+    });
+    const storeChart = new Chart(document.getElementById("cStore"), {
+      type: "bar",
+      data: { labels: STORES.map(s=>s[0].replace("东莞","")), datasets: [
+        { label:"7月", data: STORES.map(s=>s[2]), backgroundColor:"#6b7c95", borderRadius:6 },
+        { label:"8月", data: STORES.map(s=>s[3]), backgroundColor: STORES.map(s=>s[4]>=0?"#00B42A":"#f87171"), borderRadius:6 },
+      ]},
+      options: { plugins:{ legend:{ position:"top" } }, scales:{ x:{ grid:{display:false}, ticks:{ maxRotation:50, minRotation:30, font:{size:10} } }, y:{ grid:{color:"rgba(16,24,40,.06)"}, beginAtZero:true } } },
+    });
+
+    // 集团聚合（11 家门店 → 5 集团）
+    const gAgg = {}; window.GROUPS.forEach(g=> gAgg[g]={m7:0,m8:0});
+    STORES.forEach(s=>{ const g=window.groupOf(s[0]); gAgg[g].m7+=s[2]; gAgg[g].m8+=s[3]; });
+
+    // ===== 门店明细表 =====
+    const tb = document.getElementById("storeTbody");
+    function fillStoreTable(dim){
+      tb.innerHTML = "";
+      if(dim==="group"){
+        window.GROUPS.forEach(g=>{ const a=gAgg[g]; const ch=a.m8-a.m7; const up=ch>=0;
+          tb.insertAdjacentHTML("beforeend", `<tr><td>${g}</td><td>东莞市</td><td class="num">${a.m7.toLocaleString()}</td><td class="num">${a.m8.toLocaleString()}</td><td class="num">${up?"+":""}${ch}</td><td>${up?'<span class="tag g">▲ 上升</span>':'<span class="tag r">▼ 下降</span>'}</td></tr>`);
+        });
+      } else {
+        STORES.forEach(s=>{ const up=s[4]>=0;
+          tb.insertAdjacentHTML("beforeend", `<tr><td>${s[0]}</td><td>${s[1]}</td><td class="num">${s[2].toLocaleString()}</td><td class="num">${s[3].toLocaleString()}</td><td class="num">${up?"+":""}${s[4]}</td><td>${up?'<span class="tag g">▲ 上升</span>':'<span class="tag r">▼ 下降</span>'}</td></tr>`);
+        });
+      }
+    }
+
+    window.onDimChange = function(dim){
+      const group = dim==="group";
+      storeChart.data.labels = group ? window.GROUPS : STORES.map(s=>s[0].replace("东莞",""));
+      storeChart.data.datasets[0].data = group ? window.GROUPS.map(g=>gAgg[g].m7) : STORES.map(s=>s[2]);
+      storeChart.data.datasets[1].data = group ? window.GROUPS.map(g=>gAgg[g].m8) : STORES.map(s=>s[3]);
+      if(group) storeChart.data.datasets[1].backgroundColor = window.GROUPS.map(g=> (gAgg[g].m8-gAgg[g].m7)>=0?"#00B42A":"#f87171");
+      else storeChart.data.datasets[1].backgroundColor = STORES.map(s=>s[4]>=0?"#00B42A":"#f87171");
+      storeChart.update();
+      document.getElementById("storeRankH3").textContent = group ? "集团潜客排名（按 8月降序）" : "门店潜客排名（按 8月降序）";
+      document.getElementById("drillSection").style.display = group ? "none" : "";
+      fillStoreTable(dim);
+    };
+    fillStoreTable(window.getDim());
+    window.onDimChange(window.getDim());
+
+    // ===== 下钻 =====
+    const sel = document.getElementById("storeSel");
+    STORES.forEach(s=> sel.insertAdjacentHTML("beforeend", `<option value="${s[0]}">${s[0]}</option>`));
+    function renderDetail(name){
+      const d = DETAIL[name];
+      document.getElementById("upCount").textContent = `共 ${d.up.length} 个渠道上升`;
+      document.getElementById("downCount").textContent = `共 ${d.down.length} 个渠道下降（原因待填写）`;
+      document.getElementById("upBody").innerHTML = d.up.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1]}</td><td class="num">${r[2]}</td><td class="num" style="color:var(--good)">+${r[3]}</td></tr>`).join("");
+      document.getElementById("downBody").innerHTML = d.down.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1]}</td><td class="num">${r[2]}</td><td class="num" style="color:var(--bad)">${r[3]}</td><td style="color:var(--text-faint)">—</td></tr>`).join("");
+    }
+    sel.addEventListener("change", e=> renderDetail(e.target.value));
+    renderDetail(STORES[0][0]);
+  </script>
+</body>
+</html>

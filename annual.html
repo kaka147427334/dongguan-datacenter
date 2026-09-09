@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>销售数据看板（订单+交付） · 零跑东莞数据中心</title>
+  <link rel="stylesheet" href="shared.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div id="topbar-root"></div>
+  <script>window.PAGE_KEY = "annual";</script>
+
+  <div class="wrap">
+    <section class="hero">
+      <h1>销售数据看板（订单 + 交付）</h1>
+      <div class="sub">2026 年 1–8 月 ｜ 车型 / 门店 / 月度 ｜ 订单与交付双维度真实数据</div>
+      <div class="meta-row">
+        <span class="pill"><span class="live-dot"></span>更新：<b>2026-09-01 15:34</b></span>
+        <span class="pill">区域：<b>东莞市</b></span>
+        <span class="pill">数据：<b>真实 · 已接入（订单+交付）</b></span>
+        <span class="pill">区间：<b>2026-01 ~ 2026-08</b></span>
+      </div>
+    </section>
+
+    <div class="note"><b>说明：</b>本页已合并「订单」与「交付」两套真实数据，构成完整的销售数据看板。<b>订单</b>来自「东莞销售车型分析」在线链接（2026-09-01 07:31，1–8月累计 5,165 单）；<b>交付</b>来自交付订单明细 Excel（2026-09-01 导入，1/1–8/31 共 4,908 台，全部「交车完成」）。两者口径不同：订单=锁单量，交付=实际交车量，故「交付/订单累计比」≠交付率，仅反映同期的订单转化进度。下次更新把对应链接/文件发我即可自动重刷。
+    <br><b>锁单口径提示：</b>本页「累计订单 5,165」为 <b>2026 年 1–8 月累计</b>（来自销量看板链接）；而「销售看板」页的「本月锁单 825」为 <b>2026-08 单月</b>的六量六率当期净增锁单（与过程指标看板一致）。两者维度不同（累计 vs 单月、销量看板 vs 六量六率），请勿直接相减比较。</div>
+
+    <section class="section">
+      <div class="section-head"><h2>总览 KPI</h2><span class="hint">2026 年 1–8 月累计</span></div>
+      <div class="kpi-grid">
+        <div class="kpi"><div class="label">累计订单</div><div class="val">5,165</div><div class="delta up">单（锁单）</div></div>
+        <div class="kpi"><div class="label">累计交付</div><div class="val">4,908</div><div class="delta up">台（已交车）</div></div>
+        <div class="kpi"><div class="label">交付 / 订单累计比</div><div class="val">95.0 <span style="font-size:14px;color:var(--text-faint)">%</span></div><div class="delta up">同期转化进度</div></div>
+        <div class="kpi"><div class="label">在售车系</div><div class="val">17</div><div class="delta up">个</div></div>
+        <div class="kpi"><div class="label">覆盖门店</div><div class="val">14</div><div class="delta up">家</div></div>
+        <div class="kpi"><div class="label">交付峰值月</div><div class="val">845 <span style="font-size:14px;color:var(--text-faint)">台</span></div><div class="delta up">6 月最高</div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>月度趋势：订单 vs 交付</h2><span class="hint">2026 年逐月</span></div>
+      <div class="panel full">
+        <h3>月度 订单 / 交付 <span class="tag g">真实</span></h3>
+        <div class="sub">柱=订单（单） ｜ 线=交付（台）</div>
+        <div class="chart-box"><canvas id="cMonth"></canvas></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>车型维度：订单 vs 交付</h2><span class="hint">按车系（增程归一）</span>
+        <div class="dim-toggle" style="margin-left:auto">
+          <button class="dt-btn" data-dim="store">分门店</button>
+          <button class="dt-btn" data-dim="group">分集团</button>
+        </div>
+      </div>
+      <div class="panel full">
+        <h3>车型 订单 / 交付对比 <span class="tag g">真实</span></h3>
+        <div class="sub">各车系累计订单与交付（台）</div>
+        <div class="chart-box tall"><canvas id="cModelCombo"></canvas></div>
+      </div>
+      <div class="panel">
+        <h3 id="storeOrdH3">门店订单排名 <span class="tag g">真实</span></h3>
+        <div class="sub">各门店累计订单（台）</div>
+        <div class="chart-box tall"><canvas id="cStore"></canvas></div>
+      </div>
+      <div class="panel">
+        <h3 id="storeDelH3">门店交付排名 <span class="tag g">真实</span></h3>
+        <div class="sub">各门店累计交付（台）</div>
+        <div class="chart-box tall"><canvas id="cStoreDel"></canvas></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>周度订单趋势</h2><span class="hint">按自然周（ISO Week）</span></div>
+      <div class="panel full">
+        <h3>周度订单趋势 <span class="tag g">真实</span></h3>
+        <div class="sub">按自然周（ISO Week）的订单量</div>
+        <div class="chart-box"><canvas id="cWeek"></canvas></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>车型交付明细</h2><span class="hint">订单 / 交付 / 转化比</span></div>
+      <div class="panel full">
+        <table class="tbl">
+          <thead><tr><th>车系</th><th class="num">累计订单</th><th class="num">累计交付</th><th class="num">交付/订单</th></tr></thead>
+          <tbody id="dModelTbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>门店交付明细</h2><span class="hint">按累计交付降序</span>
+        <div class="dim-toggle" style="margin-left:auto">
+          <button class="dt-btn" data-dim="store">分门店</button>
+          <button class="dt-btn" data-dim="group">分集团</button>
+        </div>
+      </div>
+      <div class="panel full">
+        <table class="tbl">
+          <thead><tr><th>门店</th><th class="num">累计交付</th><th class="num">占交付总量</th></tr></thead>
+          <tbody id="dStoreTbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>车型订单明细</h2><span class="hint">按累计订单降序</span></div>
+      <div class="panel full">
+        <table class="tbl">
+          <thead><tr><th>车系</th><th class="num">累计订单</th><th class="num">占总量</th></tr></thead>
+          <tbody id="oModelTbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>门店订单明细</h2><span class="hint">按累计订单降序</span>
+        <div class="dim-toggle" style="margin-left:auto">
+          <button class="dt-btn" data-dim="store">分门店</button>
+          <button class="dt-btn" data-dim="group">分集团</button>
+        </div>
+      </div>
+      <div class="panel full">
+        <table class="tbl">
+          <thead><tr><th>门店</th><th class="num">累计订单</th><th class="num">占总量</th></tr></thead>
+          <tbody id="oStoreTbody"></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <div id="footer-root"></div>
+  <script src="shared.js"></script>
+  <script>
+const A = {"data_update": "2026-09-01 07:31", "total": 5165, "by_model": {"A10": 1196, "C10": 750, "B10": 477, "C11": 432, "B01": 379, "D19R": 352, "C16": 334, "C16R": 254, "C10R": 245, "LAFA5": 225, "C11R": 173, "D19": 170, "LAFA5U": 85, "D99R": 41, "A05": 20, "D99": 20, "T03": 12}, "by_store": {"东莞零跑中心寮步车城店": 890, "东莞零跑中心莞太路店": 843, "东莞零跑中心常朗路店": 719, "东莞零跑中心虎门车城店": 578, "东莞体验中心石排大道店": 460, "东莞体验中心松山湖店": 433, "东莞体验中心东城店": 303, "东莞零跑中心长安振安东路店": 235, "东莞体验中心厚街店": 217, "东莞零跑中心塘厦车城店": 193, "东莞体验中心大岭山镇店": 164, "东莞体验中心高埗车城店": 100, "东莞体验中心高胜车城店": 18, "东莞体验中心企石店": 12}, "by_month": {"2026-01": 341, "2026-02": 197, "2026-03": 638, "2026-04": 850, "2026-05": 912, "2026-06": 670, "2026-07": 711, "2026-08": 846}, "by_week": {"2026-W01": 41, "2026-W02": 68, "2026-W03": 84, "2026-W04": 122, "2026-W05": 55, "2026-W06": 88, "2026-W07": 30, "2026-W08": 2, "2026-W09": 60, "2026-W10": 82, "2026-W11": 116, "2026-W12": 162, "2026-W13": 206, "2026-W14": 168, "2026-W15": 212, "2026-W16": 240, "2026-W17": 222, "2026-W18": 279, "2026-W19": 249, "2026-W20": 137, "2026-W21": 149, "2026-W22": 166, "2026-W23": 167, "2026-W24": 123, "2026-W25": 180, "2026-W26": 145, "2026-W27": 193, "2026-W28": 168, "2026-W29": 165, "2026-W30": 135, "2026-W31": 155, "2026-W32": 135, "2026-W33": 225, "2026-W34": 207, "2026-W35": 207, "2026-W36": 22}, "store_short": {"东莞零跑中心寮步车城店": "寮步车城", "东莞零跑中心莞太路店": "莞太路", "东莞零跑中心虎门车城店": "虎门车城", "东莞零跑中心常朗路店": "常朗路", "东莞体验中心石排大道店": "石排大道", "东莞体验中心松山湖店": "松山湖", "东莞零跑中心长安振安东路店": "长安振安东路", "东莞体验中心厚街店": "厚街", "东莞体验中心东城店": "东城", "东莞体验中心大岭山镇店": "大岭山", "东莞零跑中心塘厦车城店": "塘厦车城", "东莞体验中心企石店": "企石", "东莞体验中心高胜车城店": "高胜车城", "东莞体验中心高埗车城店": "高埗车城"}};
+
+// 交付明细（来自交付订单明细 Excel，2026-09-01 导入）
+const DELIVERY = {
+  update: "2026-09-01 15:34",
+  total: 4908,
+  by_month: [319, 207, 477, 558, 836, 845, 839, 827],
+  // [车系, 累计订单, 累计交付]
+  combo_model: [["A10", 1196, 1133], ["C10", 750, 729], ["B10", 477, 455], ["C11", 432, 414], ["B01", 379, 364], ["D19R", 352, 334], ["C16", 334, 309], ["C16R", 254, 239], ["C10R", 245, 235], ["LAFA5", 225, 210], ["C11R", 173, 172], ["D19", 170, 161], ["LAFA5U", 85, 84], ["D99R", 41, 32], ["A05", 20, 11], ["D99", 20, 14], ["T03", 12, 12]],
+  // [门店简称, 累计交付]
+  store: [["零零后", 850], ["骋力", 789], ["东朋", 687], ["华鑫达", 558], ["东程", 432], ["东领", 411], ["东金", 284], ["宏维", 226], ["力维领跑", 200], ["智威", 193], ["挚维", 152], ["骏远", 100], ["东新", 15], ["东锦", 11]]
+};
+
+    Chart.defaults.color = "#5b6470"; Chart.defaults.font.family = "-apple-system, 'PingFang SC', sans-serif";
+    const grid = { x:{ grid:{color:"rgba(16,24,40,.06)"} }, y:{ grid:{color:"rgba(16,24,40,.06)"}, beginAtZero:true } };
+    const ML = ["1月","2月","3月","4月","5月","6月","7月","8月"];
+
+    // 月度 订单 vs 交付（柱+线）
+    new Chart(document.getElementById("cMonth"), { type:"bar",
+      data:{ labels:ML, datasets:[
+        { type:"bar", label:"订单", data:A.by_month ? Object.values(A.by_month) : [341,197,638,850,912,670,711,846], backgroundColor:"rgba(0,180,42,.55)", borderRadius:6, order:2 },
+        { type:"line", label:"交付", data:DELIVERY.by_month, borderColor:"#fbbf24", backgroundColor:"rgba(251,191,36,.15)", fill:true, tension:.3, pointRadius:4, borderWidth:2.5, order:1 }
+      ]},
+      options:{ plugins:{legend:{position:"top"}}, scales:grid } });
+
+    // 车型 订单 vs 交付（横向分组）
+    new Chart(document.getElementById("cModelCombo"), { type:"bar",
+      data:{ labels:DELIVERY.combo_model.map(x=>x[0]), datasets:[
+        { label:"订单", data:DELIVERY.combo_model.map(x=>x[1]), backgroundColor:"#38bdf8", borderRadius:4 },
+        { label:"交付", data:DELIVERY.combo_model.map(x=>x[2]), backgroundColor:"#fbbf24", borderRadius:4 }
+      ]},
+      options:{ indexAxis:"y", plugins:{legend:{position:"top"}}, scales:{ x:grid.y, y:{grid:{display:false},ticks:{font:{size:11}}} } } });
+
+    // 门店订单排名
+    const sk = Object.entries(A.by_store).sort((a,b)=>b[1]-a[1]);
+    const sh = A.store_short;
+    const storeChart = new Chart(document.getElementById("cStore"), { type:"bar",
+      data:{ labels:sk.map(x=>sh[x[0]]||x[0]), datasets:[{ label:"累计", data:sk.map(x=>x[1]), backgroundColor:"#818cf8", borderRadius:5 }] },
+      options:{ indexAxis:"y", plugins:{legend:{display:false}}, scales:{ x:grid.y, y:{grid:{display:false},ticks:{font:{size:11}}} } } });
+
+    // 门店交付排名
+    const storeDelChart = new Chart(document.getElementById("cStoreDel"), { type:"bar",
+      data:{ labels:DELIVERY.store.map(x=>x[0]), datasets:[{ label:"累计", data:DELIVERY.store.map(x=>x[1]), backgroundColor:"#00B42A", borderRadius:5 }] },
+      options:{ indexAxis:"y", plugins:{legend:{display:false}}, scales:{ x:grid.y, y:{grid:{display:false},ticks:{font:{size:11}}} } } });
+
+    // 按集团聚合（订单=年度链接；交付=交付 Excel 母公司→集团映射）
+    const orderByGroup = {}; window.GROUPS.forEach(g=>orderByGroup[g]=0);
+    Object.entries(A.by_store).forEach(([full,v])=>{ orderByGroup[window.groupOf(full)] += v; });
+    const delByGroup = {}; window.GROUPS.forEach(g=>delByGroup[g]=0);
+    DELIVERY.store.forEach(([name,v])=>{ delByGroup[window.groupOf(name)] += v; });
+    const gColors = window.GROUPS.map(g=> window.GROUP_COLOR[g] || "#818cf8");
+
+    // 周度订单
+    const wk = Object.entries(A.by_week), wk_l = wk.map(x=>x[0]), wk_v = wk.map(x=>x[1]);
+    new Chart(document.getElementById("cWeek"), { type:"line",
+      data:{ labels:wk_l, datasets:[{ label:"周订单", data:wk_v, borderColor:"#fbbf24", backgroundColor:"rgba(251,191,36,.12)", fill:true, tension:.3, pointRadius:2, borderWidth:2 }] },
+      options:{ plugins:{legend:{display:false}}, scales:{ x:{grid:{display:false},ticks:{maxRotation:60,minRotation:45,font:{size:9}}}, y:grid.y } } });
+
+    // 表格：车型交付明细
+    const dmt = document.getElementById("dModelTbody");
+    DELIVERY.combo_model.forEach(([m,o,d])=>{
+      const ratio = o ? (d/o*100).toFixed(1) : "-";
+      dmt.insertAdjacentHTML("beforeend", `<tr><td>${m}</td><td class="num">${o}</td><td class="num">${d}</td><td class="num">${ratio}%</td></tr>`);
+    });
+    // 表格：车型订单明细
+    const omt = document.getElementById("oModelTbody");
+    Object.entries(A.by_model).sort((a,b)=>b[1]-a[1]).forEach(([m,v])=>{
+      omt.insertAdjacentHTML("beforeend", `<tr><td>${m}</td><td class="num">${v}</td><td class="num">${(v/A.total*100).toFixed(1)}%</td></tr>`);
+    });
+
+    // 门店交付 / 订单 明细表（支持集团切换）
+    const dst = document.getElementById("dStoreTbody");
+    const ost = document.getElementById("oStoreTbody");
+    function fillStoreDel(dim){
+      dst.innerHTML = "";
+      if(dim==="group"){
+        window.GROUPS.forEach(g=>{ const v=delByGroup[g]; dst.insertAdjacentHTML("beforeend", `<tr><td>${g}</td><td class="num">${v}</td><td class="num">${(v/DELIVERY.total*100).toFixed(1)}%</td></tr>`); });
+      } else {
+        DELIVERY.store.forEach(([s,v])=>{ dst.insertAdjacentHTML("beforeend", `<tr><td>${s}</td><td class="num">${v}</td><td class="num">${(v/DELIVERY.total*100).toFixed(1)}%</td></tr>`); });
+      }
+    }
+    function fillStoreOrd(dim){
+      ost.innerHTML = "";
+      if(dim==="group"){
+        window.GROUPS.forEach(g=>{ const v=orderByGroup[g]; ost.insertAdjacentHTML("beforeend", `<tr><td>${g}</td><td class="num">${v}</td><td class="num">${(v/A.total*100).toFixed(1)}%</td></tr>`); });
+      } else {
+        sk.forEach(([full,v])=>{ ost.insertAdjacentHTML("beforeend", `<tr><td>${sh[full]||full}</td><td class="num">${v}</td><td class="num">${(v/A.total*100).toFixed(1)}%</td></tr>`); });
+      }
+    }
+    window.onDimChange = function(dim){
+      const group = dim==="group";
+      storeChart.data.labels = group ? window.GROUPS : sk.map(x=>sh[x[0]]||x[0]);
+      storeChart.data.datasets[0].data = group ? window.GROUPS.map(g=>orderByGroup[g]) : sk.map(x=>x[1]);
+      storeChart.data.datasets[0].backgroundColor = group ? gColors : "#818cf8";
+      storeChart.update();
+      document.getElementById("storeOrdH3").firstChild.textContent = group ? "集团订单排名 " : "门店订单排名 ";
+      storeDelChart.data.labels = group ? window.GROUPS : DELIVERY.store.map(x=>x[0]);
+      storeDelChart.data.datasets[0].data = group ? window.GROUPS.map(g=>delByGroup[g]) : DELIVERY.store.map(x=>x[1]);
+      storeDelChart.data.datasets[0].backgroundColor = group ? gColors : "#00B42A";
+      storeDelChart.update();
+      document.getElementById("storeDelH3").firstChild.textContent = group ? "集团交付排名 " : "门店交付排名 ";
+      fillStoreDel(dim); fillStoreOrd(dim);
+    };
+    window.onDimChange(window.getDim());
+  </script>
+</body>
+</html>
