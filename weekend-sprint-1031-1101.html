@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>华南大区·周末订单冲刺（10.31–11.1）</title>
+<style>
+  :root{
+    --navy:#0d1b2a; --navy2:#152c44; --gold:#f0a832; --gold-d:#c9820e;
+    --red:#c0392b; --red-d:#96281b; --green:#1e8e5a; --teal:#0f766e;
+    --ink:#22303f; --gray:#6b7a8c; --line:#e4e9ef; --bg:#f4f6f9;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif; background:var(--bg); color:var(--ink); line-height:1.65;}
+  .page{width:900px; max-width:100%; margin:0 auto; background:#fff;}
+  body.plain{background:#fff;}
+
+  /* ===== hero ===== */
+  .hero{background:linear-gradient(135deg,#0d1b2a 0%,#152c44 70%,#1c3a57 100%); color:#fff; padding:26px 34px 22px; position:relative; overflow:hidden;}
+  .hero::after{content:""; position:absolute; right:-60px; top:-60px; width:260px; height:260px; border-radius:50%; background:radial-gradient(circle,rgba(240,168,50,.25),transparent 70%);}
+  .hero h1{font-size:27px; letter-spacing:1px; display:flex; align-items:center; gap:12px; flex-wrap:wrap;}
+  .hero h1 .badge{font-size:12.5px; background:var(--gold); color:#3a2a05; font-weight:800; border-radius:6px; padding:3px 10px; letter-spacing:0;}
+  .hero .meta{margin-top:8px; font-size:12.5px; color:#9db2c7; display:flex; gap:14px; flex-wrap:wrap;}
+  .hero .meta b{color:#ffd98a;}
+  .hero .slogan{margin-top:12px; font-size:14px; color:#e8eef5;}
+  .hero .slogan b{color:var(--gold);}
+
+  /* ===== 定调条 ===== */
+  .keynote{margin:18px 34px 0; background:#fff8e8; border:1px solid #f3ddb0; border-left:5px solid var(--gold); border-radius:10px; padding:13px 18px; font-size:13.5px;}
+  .keynote b.t{color:var(--gold-d); font-size:14px;}
+  .keynote p{margin-top:5px; color:#5a4a20;}
+  .keynote p b{color:var(--red);}
+
+  /* ===== 章节标题 ===== */
+  .sec{margin:26px 34px 0;}
+  .sec-h{display:flex; align-items:center; gap:10px; border-bottom:2px solid var(--navy); padding-bottom:7px; margin-bottom:12px;}
+  .sec-h .no{background:var(--navy); color:#fff; font-weight:800; font-size:14px; border-radius:6px; padding:2px 10px;}
+  .sec-h h2{font-size:17px; color:var(--navy);}
+  .sec-h .tag{margin-left:auto; font-size:12px; color:#fff; background:var(--red); border-radius:20px; padding:3px 12px; font-weight:700;}
+  .sec-h .tag.gold{background:var(--gold); color:#3a2a05;}
+  .sec-h .tag.gray{background:#8296a9;}
+
+  /* ===== 表格 ===== */
+  table{width:100%; border-collapse:collapse; font-size:12.8px;}
+  th{background:var(--navy); color:#fff; padding:8px 10px; text-align:left; font-size:12.5px; font-weight:700;}
+  td{padding:9px 10px; border-bottom:1px solid var(--line); vertical-align:top;}
+  tr:nth-child(even) td{background:#f8fafc;}
+  td .name{font-weight:800; color:var(--navy); font-size:13px;}
+  td .win{color:var(--red); font-weight:800; white-space:nowrap;}
+  td .how{color:#3d4d5f;}
+  td .how b{color:var(--red);}
+
+  /* ===== 权益三卡 ===== */
+  .cards3{display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px;}
+  .pcard{border-radius:12px; padding:14px 16px; color:#fff; position:relative; overflow:hidden;}
+  .pcard h3{font-size:15px;}
+  .pcard .amt{font-size:31px; font-weight:800; margin:4px 0 2px;}
+  .pcard .amt small{font-size:13px; font-weight:600;}
+  .pcard .mdl{font-size:12px; opacity:.92;}
+  .pcard .dl{margin-top:7px; font-size:11.5px; background:rgba(255,255,255,.18); border-radius:6px; padding:3px 8px; display:inline-block; font-weight:700;}
+  .c-red{background:linear-gradient(135deg,#c0392b,#96281b);}
+  .c-navy{background:linear-gradient(135deg,#1c3a57,#0d1b2a);}
+  .c-gold{background:linear-gradient(135deg,#e0912a,#b96f0a);}
+
+  /* ===== 两天对照 ===== */
+  .twodays{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  .day{border-radius:12px; overflow:hidden; border:1.5px solid var(--line);}
+  .day .dh{padding:11px 16px; color:#fff;}
+  .day .dh h3{font-size:16px;}
+  .day .dh p{font-size:12px; opacity:.92; margin-top:2px;}
+  .d31 .dh{background:linear-gradient(135deg,#c0392b,#8f2418);}
+  .d11 .dh{background:linear-gradient(135deg,#1e8e5a,#14663f);}
+  .day ul{list-style:none; padding:11px 14px; background:#fff;}
+  .day li{font-size:12.6px; padding:6px 0 6px 20px; position:relative; border-bottom:1px dashed #eef1f5;}
+  .day li:last-child{border-bottom:none;}
+  .day li::before{content:"▸"; position:absolute; left:4px; color:var(--gray);}
+  .d31 li::before{color:var(--red);}
+  .d11 li::before{color:var(--green);}
+  .day li b{color:var(--navy);}
+  .day .foot{padding:8px 14px; font-size:12px; font-weight:700;}
+  .d31 .foot{background:#fdf0ee; color:var(--red); border-top:1px solid #f3d4cf;}
+  .d11 .foot{background:#edf7f2; color:var(--green); border-top:1px solid #cfe8db;}
+
+  /* ===== 四段打法 ===== */
+  .quad{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+  .q{border:1.5px solid var(--line); border-radius:10px; padding:12px 15px; background:#fff;}
+  .q .qt{display:flex; align-items:center; gap:8px; font-weight:800; color:var(--red); font-size:13.5px;}
+  .q .qt .dot{width:9px; height:9px; border-radius:50%; background:var(--red);}
+  .q p{font-size:12.4px; color:#3d4d5f; margin-top:5px;}
+  .q .say{margin-top:6px; font-size:12.2px; background:#fdf6ec; border-left:3px solid var(--gold); padding:5px 9px; border-radius:0 6px 6px 0; color:#6a501a;}
+
+  /* ===== 口径 ===== */
+  .caliber{display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px;}
+  .cb{background:#f2f6fa; border:1px solid var(--line); border-radius:9px; padding:10px 12px; font-size:12px; color:#3d4d5f;}
+  .cb b{color:var(--navy); display:block; margin-bottom:3px; font-size:12.5px;}
+  .cb.hot{background:#fdf0ee; border-color:#f3d4cf;}
+  .cb.hot b{color:var(--red);}
+
+  /* ===== 时间轴 ===== */
+  .tl{list-style:none;}
+  .tl li{display:flex; gap:14px; padding:8px 0; border-bottom:1px dashed var(--line); font-size:12.8px;}
+  .tl li:last-child{border-bottom:none;}
+  .tl .t{width:118px; flex-shrink:0; font-weight:800; color:var(--navy);}
+  .tl .t.hot{color:var(--red);}
+  .tl .d{flex:1;}
+  .tl .who{width:110px; flex-shrink:0; color:var(--gray); font-size:11.8px; text-align:right;}
+
+  /* ===== 储备转化 ===== */
+  .reserve{background:#f0f7f4; border:1px solid #cfe8db; border-left:5px solid var(--green); border-radius:10px; padding:13px 18px; font-size:13px; color:#2b4a3b;}
+  .reserve b{color:var(--green);}
+  .reserve ol{margin:6px 0 0 20px; font-size:12.6px;}
+  .reserve li{margin-bottom:4px;}
+
+  /* ===== 总结 ===== */
+  .summary{margin:26px 34px 0; background:var(--navy); border-radius:12px; padding:16px 20px; color:#e8eef5; font-size:13.5px;}
+  .summary b.t{color:var(--gold); font-size:14px; display:block; margin-bottom:6px;}
+  .summary p b{color:#ffd98a;}
+  .summary p{margin-bottom:4px;}
+
+  footer{padding:16px 34px 26px; display:flex; justify-content:space-between; font-size:11.5px; color:#8b99a8;}
+  .dn{display:none;}
+  body.plain .dn{display:none;}
+</style>
+</head>
+<body>
+<script>if (location.search.indexOf('plain=1') >= 0) document.body.classList.add('plain');</script>
+<div class="page">
+
+  <div class="hero">
+    <h1>华南大区 · 周末订单冲刺（10.31–11.1）<span class="badge">收官日 × 开门红</span></h1>
+    <div class="meta">
+      <span>整理日 <b>2026-10-30</b></span>
+      <span>10.31（六）＝ <b>10月收官 · 全线政策归零日</b></span>
+      <span>11.1（日）＝ <b>11月开门红第一天</b></span>
+    </div>
+    <div class="slogan">本周核心定调：<b>10.31 抢收——把能锁的单全部锁掉；11.1 开门红——储备客户全量转化</b></div>
+  </div>
+
+  <div class="keynote">
+    <b class="t">这两天不是普通周末，是"关闸日 + 开门日"的接力</b>
+    <p>10月31日 24:00：双节返场专项权益、A05 打榜赛、<b>双月批交返利、零售运营激励、各板块订单考核</b>全部截止——不补发、不延期、不追溯，以锁单时间为准。逼不下来的单不强求，<b>当场转储备</b>；11月1日开门红，把这两天攒下的客户一早全部约回来，第一时间转化。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sec-h"><span class="no">1</span><h2>经销商端：三张政策牌，10.31 晚全部归零</h2><span class="tag">10.31 截止</span></div>
+    <div class="cards3">
+      <div class="pcard c-red">
+        <h3>双节返场专项权益</h3>
+        <div class="amt">1000<small>/台</small></div>
+        <div class="mdl">27款 B01 全系 · B10 全系</div>
+        <div class="amt">1500<small>/台</small></div>
+        <div class="mdl">C10 / C11 / C16 / D19 / D99</div>
+        <div class="amt">2000<small>/台</small></div>
+        <div class="mdl">现款 Lafa5 全系（含 Ultra）"敢上场"基金</div>
+        <div class="dl">10.31 24:00 关闸 · 尾款抵扣券发购车人 App</div>
+      </div>
+      <div class="pcard c-gold">
+        <h3>A05 打榜赛</h3>
+        <div class="amt">最高 2000<small>元锁单激励</small></div>
+        <div class="mdl">打榜赛 <b>10.31 截止</b>；库存天数与锁单量一起考核，降库与锁单同步做</div>
+        <div class="dl" style="margin-top:14px;">最后一天 · 差一台就差一个档位</div>
+      </div>
+      <div class="pcard c-navy">
+        <h3>交付达成绑零售运营 + 双月批交返利</h3>
+        <div class="amt">2,712<small>元/台（100%档）</small></div>
+        <div class="mdl">90%档 1,400 元 / 80%档 800 元</div>
+        <div class="amt" style="font-size:24px;">−880<small>元/台（80%以下倒贴）</small></div>
+        <div class="mdl">双月批交返利、零售运营激励、各板块订单考核<b style="color:#ffd98a;">均 10.31 截止</b></div>
+        <div class="dl">100% 比 90% 一档之差 14.52 万</div>
+      </div>
+    </div>
+    <table style="margin-top:12px;">
+      <tr><th style="width:130px;">政策（现状）</th><th style="width:120px;">时间窗</th><th>10.31 当天怎么用</th></tr>
+      <tr><td><span class="name">专项权益锁定</span></td><td class="win">10.31 24:00 止</td><td class="how">客户八成在担心"车还没到、钱没到位"——直接讲：<b>31日24点前锁单，11月交付照样享</b>。政策先锁住，车下个月提。</td></tr>
+      <tr><td><span class="name">A05 降库收口</span></td><td class="win">10.31 止</td><td class="how">优先清在库现车（按颜色/配置先卖库存车），锁单与降库一天完成，<b>别让 2,000 元最后拿不稳</b>。</td></tr>
+      <tr><td><span class="name">Lafa5 清库专项</span></td><td>延续至 11 月底</td><td class="how">下月底广州车展新款上市，现款只剩一个月；2000 元基金 + 定向清库 + 优先试驾，<b>本周就是现款最后的政策高点</b>。</td></tr>
+      <tr><td><span class="name">国补 / 地补</span></td><td class="win">额度告急</td><td class="how">以旧换新资金用完即止，补贴以发票上传为准；<b>10月锁的单赶在额度耗尽前开票</b>，越晚越悬。</td></tr>
+    </table>
+  </div>
+
+  <div class="sec">
+    <div class="sec-h"><span class="no">2</span><h2>客户端：三个"今天就锁"的理由</h2><span class="tag">10.31 专供</span></div>
+    <table>
+      <tr><th style="width:150px;">理由</th><th>跟客户怎么说</th><th style="width:110px;">紧迫度</th></tr>
+      <tr><td><span class="name">政策先锁、11月照享</span></td><td class="how">"31号24点前锁单，交付可以放11月——<b>政策先占住，车下个月提</b>。"把"再等等"变成"今天就定"。</td><td class="win">当晚归零</td></tr>
+      <tr><td><span class="name">新款等得到，政策等不到</span></td><td class="how">等新款/等降价的最后一轮：现款 Lafa5 2000 元基金全系最高，<b>31号之后归零</b>。</td><td class="win">最后一晚</td></tr>
+      <tr><td><span class="name">补贴不等人</span></td><td class="how">国补+地补额度告急、以发票上传为准；<b>今年不会复刻去年"31日结束"的宽限</b>，晚定就赶不上。</td><td class="win">随时关闸</td></tr>
+    </table>
+  </div>
+
+  <div class="sec">
+    <div class="sec-h"><span class="no">3</span><h2>两天分工：10.31 抢收日 vs 11.1 开门红日</h2><span class="tag gold">一天一打法</span></div>
+    <div class="twodays">
+      <div class="day d31">
+        <div class="dh"><h3>10.31（六）抢收日</h3><p>只做一件事：把能锁的单全部锁掉</p></div>
+        <ul>
+          <li><b>试驾未锁单名单全量外呼</b>：一个不许漏，先约到店、不到店转视频看车</li>
+          <li><b>比价、观望客户全部邀约到店</b>：今天必须见到人，不能只发微信</li>
+          <li><b>财务、金融、上单全员待命到零点</b>：锁单不过夜，卡流程的单店长亲自盯</li>
+          <li><b>A05 打榜最后一冲</b>：库存现车优先，锁单与降库同步收口</li>
+          <li><b>今晚 20:00 各店报数</b>：触达数 / 到店数 / 锁单数，每段结束报数</li>
+          <li><b>24:00 前完成全部可锁订单</b>；锁不下来的当场转储备登记</li>
+        </ul>
+        <div class="foot">口径红线：只认锁单时间 · 券到 App 才算到账 · 不含大客户直销/试驾车订单</div>
+      </div>
+      <div class="day d11">
+        <div class="dh"><h3>11.1（日）开门红日</h3><p>把储备客户全部约回来，11月第一枪</p></div>
+        <ul>
+          <li><b>储备名单早会全量分单</b>：10.31 没逼下来的客户，逐户定人定时回访</li>
+          <li><b>上午集中邀约到店</b>：开门红专属活动（延续"国庆返场"主题），到店礼/试驾礼/订单礼三礼齐备</li>
+          <li><b>11月政策衔接第一轮宣贯</b>：新政策第一时间话术统一，不允许门店自由发挥</li>
+          <li><b>交付冲刺启动</b>：10月锁单客户逐台排产排交付，11月第一时间开票上牌</li>
+          <li><b>Lafa5 清库转段</b>：政策基金虽止，现车清库继续，新款上市前守住价格</li>
+          <li><b>18:00 各店报开门红战报</b>：新增订单 / 到店 / 试驾 / 交付排程</li>
+        </ul>
+        <div class="foot">目标：开门红当天新增订单不低于 10月周末日均水平，抢占 11 月节奏</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-h"><span class="no">4</span><h2>10.31 最后一天，按四段打</h2><span class="tag">每段结束报数</span></div>
+    <div class="quad">
+      <div class="q">
+        <div class="qt"><span class="dot"></span>今天 12:00 前</div>
+        <p>把"试驾过、没锁单"名单全部拉出来，一个不许漏，逐个打电话，先约今晚到店。</p>
+        <div class="say">"车您都试过了，就差下定这一步。31号24点前锁单，车11月提，这 1500 先锁住。"</div>
+      </div>
+      <div class="q">
+        <div class="qt"><span class="dot"></span>今天 20:00 前</div>
+        <p>比价、观望客户全部邀约到店，不到店的转视频看车；今天必须见到人，不能只发微信。</p>
+        <div class="say">"价您慢慢谈，政策31号24点关闸，不补不延。您今晚过来，我把方案算死。"</div>
+      </div>
+      <div class="q">
+        <div class="qt"><span class="dot"></span>明天白天</div>
+        <p>等新款、等降价的客户最后一轮：新款等得到，政策等不到。现款 Lafa5 2000 元基金全系最高。</p>
+        <div class="say">"新款可以等，这 2000 等不了，月底归零。今天定，还赶得上下个月交付。"</div>
+      </div>
+      <div class="q">
+        <div class="qt"><span class="dot"></span>明天 24:00 前</div>
+        <p>财务、金融、上单人员全员待命到零点，锁单不过夜。谁的单卡在流程上，店长亲自盯。</p>
+        <div class="say">"最后一天，只做一件事：把能锁的单全部锁掉。"</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-h"><span class="no">5</span><h2>三条口径，说错一句就是客诉</h2><span class="tag gray">全员背熟</span></div>
+    <div class="caliber">
+      <div class="cb hot"><b>只认锁单时间</b>31日24:00前完成锁单即可，交付可在11月；过期锁单不补。</div>
+      <div class="cb"><b>券到 App 才算到账</b>尾款抵扣券发放至购车人 App，必须提醒客户查收。</div>
+      <div class="cb"><b>订单类型要对</b>不含大客户直销订单、试驾车订单，报错类型审核不过。</div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-h"><span class="no">6</span><h2>储备转化：逼不下来的，一个都不丢</h2><span class="tag gold">通向开门红</span></div>
+    <div class="reserve">
+      <b>10.31 当晚锁不下来的客户，当场完成储备登记（四要素缺一不可）：</b>
+      <ol>
+        <li><b>异议类型</b>：比价 / 等新款 / 等降价 / 商量 / 预算——如实记录；</li>
+        <li><b>回访时点</b>：约定到店/电话的具体时间（默认 11.1 开门红活动邀约）；</li>
+        <li><b>意向车型与配置</b>：现车有货的优先排，11.1 直接安排试驾；</li>
+        <li><b>责任人</b>：销售顾问本人，小区经理早会逐条点检。</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-h"><span class="no">7</span><h2>周末关键节点</h2><span class="tag gray">时刻表</span></div>
+    <ul class="tl">
+      <li><span class="t hot">10.31 全天</span><span class="d">三张政策牌全量外呼＋邀约到店；A05 打榜最后冲刺；现车订单集中锁单</span><span class="who">全体销售 + 店长</span></li>
+      <li><span class="t hot">10.31 20:00</span><span class="d">各店报数：触达数 / 到店数 / 锁单数；缺口门店店长现场调度</span><span class="who">小区经理</span></li>
+      <li><span class="t hot">10.31 24:00</span><span class="d">政策全线关闸；完成全部可锁订单；储备名单当晚汇总到大区</span><span class="who">店长 + 财务</span></li>
+      <li><span class="t">11.1 早会</span><span class="d">储备名单分单到人；开门红活动布置点检（主题/礼品/氛围三条）</span><span class="who">小区经理 + 店长</span></li>
+      <li><span class="t">11.1 全天</span><span class="d">开门红活动开跑；储备客户集中到店试驾转化；11月政策第一轮宣贯</span><span class="who">全体</span></li>
+      <li><span class="t">11.1 18:00</span><span class="d">各店报开门红战报：新增订单 / 到店 / 试驾 / 交付排程</span><span class="who">小区经理</span></li>
+    </ul>
+  </div>
+
+  <div class="summary">
+    <b class="t">一句话总结</b>
+    <p><b>10.31 抢收</b>——专项权益、A05 打榜、双月批交返利、零售运营、各板块订单考核当晚全部归零：只认锁单时间，100%档和90%档差14.52万，把能锁的单全部锁掉；</p>
+    <p><b>11.1 开门红</b>——逼不下来的当场转储备，四要素登记、早会分单、上午集中邀约，开门红当天把这两天攒的客户全部转化，抢占11月节奏。</p>
+  </div>
+
+  <footer>
+    <span>零跑汽车 · 华南大区零售管理 ｜ 依据《2026年中秋国庆双节返场专项权益通知》及 10 月各板块考核口径整理，具体以政策原文为准</span>
+    <span>更新至 2026-10-30</span>
+  </footer>
+</div>
+</body>
+</html>
