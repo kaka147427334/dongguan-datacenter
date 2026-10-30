@@ -61,6 +61,13 @@
   .c-red{background:linear-gradient(135deg,#c0392b,#96281b);}
   .c-navy{background:linear-gradient(135deg,#1c3a57,#0d1b2a);}
   .c-gold{background:linear-gradient(135deg,#e0912a,#b96f0a);}
+  .pcard table.mini{width:100%; border-collapse:collapse; margin-top:8px; font-size:11.5px;}
+  .pcard table.mini th{background:rgba(255,255,255,.16); padding:4px 6px; font-size:11px; font-weight:700; color:#fff; text-align:center;}
+  .pcard table.mini td{padding:4px 6px; text-align:center; border-bottom:1px solid rgba(255,255,255,.14); color:#eaf0f6;}
+  .pcard table.mini tr:last-child td{border-bottom:none;}
+  .pcard table.mini tr.hi td{background:rgba(240,168,50,.28); font-weight:800; color:#fff;}
+  .pcard table.mini tr.bad td{background:rgba(192,57,43,.42); font-weight:800; color:#ffd9d4;}
+  .pcard .note{margin-top:7px; font-size:11px; color:#ffd98a; line-height:1.5;}
 
   /* ===== 两天对照 ===== */
   .twodays{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
@@ -162,11 +169,16 @@
       </div>
       <div class="pcard c-navy">
         <h3>交付达成绑零售运营 + 双月批交返利</h3>
-        <div class="amt">2,712<small>元/台（100%档）</small></div>
-        <div class="mdl">90%档 1,400 元 / 80%档 800 元</div>
-        <div class="amt" style="font-size:24px;">−880<small>元/台（80%以下倒贴）</small></div>
-        <div class="mdl">双月批交返利、零售运营激励、各板块订单考核<b style="color:#ffd98a;">均 10.31 截止</b></div>
-        <div class="dl">100% 比 90% 一档之差 14.52 万</div>
+        <div class="mdl" style="margin-top:3px;">测算基准：<b style="color:#ffd98a;">单月交付目标 100 台门店</b> · 单月测算</div>
+        <table class="mini">
+          <tr><th>达成档</th><th>交付台数</th><th>单台返利</th><th>单月合计</th></tr>
+          <tr class="hi"><td>100%</td><td>100 台</td><td>2,712 元</td><td>27.12 万</td></tr>
+          <tr><td>90%</td><td>90 台</td><td>1,400 元</td><td>12.60 万</td></tr>
+          <tr><td>80%</td><td>80 台</td><td>800 元</td><td>6.40 万</td></tr>
+          <tr class="bad"><td>80% 以下</td><td>79 台</td><td>−880 元</td><td>−6.95 万</td></tr>
+        </table>
+        <div class="note">100% 比 90% 一档之差 <b>14.52 万</b>；掉到 80% 以下，直接倒贴 6.95 万。</div>
+        <div class="dl">双月批交返利 · 零售运营 · 各板块订单考核：均 10.31 截止</div>
       </div>
     </div>
     <table style="margin-top:12px;">
