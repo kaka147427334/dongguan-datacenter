@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>零跑经销商月度考核得分计算器</title>
+<style>
+  :root{
+    --navy:#0b1f33; --navy2:#122b45; --teal:#00c2a8; --teal-d:#00997f;
+    --orange:#ff8a3d; --red:#ff5a5a; --green:#3ecf8e; --gray:#8fa3b8;
+    --card:#ffffff; --bg:#f2f5f9; --line:#e3e9f0; --ink:#1a2b3c;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif; background:var(--bg); color:var(--ink); line-height:1.6;}
+  .hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 60%,#16405f 100%); color:#fff; padding:26px 20px 22px; text-align:center;}
+  .hero h1{font-size:24px; letter-spacing:1px;}
+  .hero p{margin-top:6px; font-size:13px; color:#9fb8cf;}
+  .hero .formula{display:inline-block; margin-top:12px; background:rgba(0,194,168,.14); border:1px solid rgba(0,194,168,.45); color:#7ff0df; border-radius:8px; padding:8px 14px; font-size:13.5px; font-weight:600;}
+  .wrap{max-width:1080px; margin:0 auto; padding:20px 16px 40px;}
+  .grid{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  @media (max-width:860px){ .grid{grid-template-columns:1fr;} }
+  .card{background:var(--card); border-radius:14px; box-shadow:0 2px 10px rgba(16,42,67,.07); padding:18px 20px; border-top:4px solid var(--teal);}
+  .card h2{font-size:16px; display:flex; align-items:center; gap:8px;}
+  .card h2 .max{font-size:12px; background:var(--teal); color:#fff; border-radius:20px; padding:2px 10px; font-weight:600;}
+  .card .rule{font-size:12px; color:#6b7c8f; margin:6px 0 12px; background:#f4f8fb; border-left:3px solid var(--teal); padding:6px 10px; border-radius:0 6px 6px 0;}
+  .field{margin-bottom:10px;}
+  .field label{display:block; font-size:13px; color:#33475c; margin-bottom:3px; font-weight:600;}
+  .field input[type=number], .field select{width:100%; padding:8px 10px; border:1.5px solid var(--line); border-radius:8px; font-size:15px; background:#fbfdfe;}
+  .field input:focus, .field select:focus{outline:none; border-color:var(--teal);}
+  .field .hint{font-size:11.5px; color:#8fa3b8; margin-top:2px;}
+  .inline{display:flex; gap:10px;}
+  .inline .field{flex:1;}
+  .coef-opt{display:grid; grid-template-columns:1fr 1fr; gap:8px;}
+  .coef-opt label{border:1.5px solid var(--line); border-radius:8px; padding:8px 10px; font-size:13px; cursor:pointer; display:block; font-weight:600; color:#33475c;}
+  .coef-opt input{margin-right:6px; accent-color:var(--teal);}
+  .coef-opt label.on{border-color:var(--teal); background:#e6faf6; color:var(--teal-d);}
+  .zero-flag{display:flex; align-items:center; gap:8px; margin-top:8px; background:#fff2f2; border:1px solid #ffd6d6; border-radius:8px; padding:7px 10px; font-size:12.5px; color:#c0392b;}
+  .zero-flag input{accent-color:var(--red); transform:scale(1.2);}
+  .sub{font-size:13px; margin-top:10px; padding:8px 12px; border-radius:8px; background:#f4f8fb; display:flex; justify-content:space-between; align-items:center;}
+  .sub b{font-size:18px; color:var(--teal-d);}
+  .sub.warn b{color:var(--red);}
+  .result{position:sticky; top:14px; background:linear-gradient(135deg,var(--navy) 0%,#16405f 100%); color:#fff; border-radius:14px; padding:22px; box-shadow:0 6px 18px rgba(11,31,51,.28);}
+  .result h2{font-size:15px; color:#9fb8cf; font-weight:600; letter-spacing:1px;}
+  .big{font-size:56px; font-weight:800; line-height:1.15; margin:6px 0 2px;}
+  .big small{font-size:20px; color:#9fb8cf; font-weight:600;}
+  .coefline{font-size:13px; color:#7ff0df; margin-bottom:14px;}
+  .bars{margin-top:4px;}
+  .bar-row{display:flex; align-items:center; gap:8px; margin-bottom:9px; font-size:12.5px;}
+  .bar-row .nm{width:96px; color:#c7d8e8; flex-shrink:0;}
+  .bar-row .track{flex:1; height:10px; background:rgba(255,255,255,.12); border-radius:6px; overflow:hidden;}
+  .bar-row .fill{height:100%; border-radius:6px; background:var(--teal); transition:width .3s;}
+  .bar-row .val{width:56px; text-align:right; color:#fff; font-weight:700; flex-shrink:0;}
+  .bar-row .capval{color:#9fb8cf; font-size:11px;}
+  .total-line{border-top:1px dashed rgba(255,255,255,.25); margin-top:12px; padding-top:12px; display:flex; justify-content:space-between; font-size:14px; color:#c7d8e8;}
+  .total-line b{color:#7ff0df; font-size:16px;}
+  .notes{margin-top:26px;}
+  .notes h3{font-size:15px; margin-bottom:10px; color:var(--navy);}
+  .notes ol{margin-left:20px; font-size:13px; color:#4a5d72;}
+  .notes li{margin-bottom:6px;}
+  .notes .src{margin-top:12px; font-size:12px; color:#8fa3b8;}
+  footer{max-width:1080px; margin:0 auto; padding:0 16px 30px; font-size:11.5px; color:#9aaaba; text-align:center;}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>🧮 零跑经销商月度考核得分计算器</h1>
+  <p>（零跑中心、城展、商超适用）· 填入本月数据，自动估算得分</p>
+  <div class="formula">月度考核得分 = 分组销售 + 人员配备 + 潜客到店 + 到店交付（满分 100 分）｜ 实发激励 = 得分 × 线下检核系数</div>
+</div>
+
+<div class="wrap">
+  <div class="grid">
+    <!-- 左列：四个计分模块 -->
+    <div>
+      <!-- 1 线下检核系数 -->
+      <div class="card" style="margin-bottom:16px;">
+        <h2>① 潜客流程执行 → 线下检核系数 <span class="max">乘数项</span></h2>
+        <div class="rule">以潜客流程执行得分进行全国排名计算系数：前 20% → <b>1</b>；21%~40% → <b>0.8</b>；41%~70% → <b>0.5</b>；后 30% → <b>0</b>（实发归零）。若暂不确定排名，可先按 1 估算。</div>
+        <div class="coef-opt" id="coefGroup">
+          <label class="on"><input type="radio" name="coef" value="1" checked>前 20%（系数 1）</label>
+          <label><input type="radio" name="coef" value="0.8">21%~40%（系数 0.8）</label>
+          <label><input type="radio" name="coef" value="0.5">41%~70%（系数 0.5）</label>
+          <label><input type="radio" name="coef" value="0">后 30%（系数 0）</label>
+        </div>
+      </div>
+
+      <!-- 2 分组销售 -->
+      <div class="card" style="margin-bottom:16px;">
+        <h2>② 分组销售 <span class="max">满分 20 分</span></h2>
+        <div class="rule">通过线下检核及零小跑系统记录，针对「分流问询及分配、客流登记一致、可售车系新增标签合规」三项内容打分。</div>
+        <div class="inline">
+          <div class="field">
+            <label>分流问询及分配（得分）</label>
+            <input type="number" id="fz1" value="0" min="0" step="0.5">
+          </div>
+          <div class="field">
+            <label>客流登记一致（得分）</label>
+            <input type="number" id="fz2" value="0" min="0" step="0.5">
+          </div>
+          <div class="field">
+            <label>可售车系新增标签合规（得分）</label>
+            <input type="number" id="fz3" value="0" min="0" step="0.5">
+          </div>
+        </div>
+        <div class="sub"><span>三项合计（超出按 20 封顶）</span><b id="fzScore">0</b></div>
+      </div>
+
+      <!-- 3 人员配备 -->
+      <div class="card" style="margin-bottom:16px;">
+        <h2>③ 人员配备 <span class="max">满分 20 分</span></h2>
+        <div class="rule">重点认证考核岗位（体验主管、旗舰组体验工程师、展厅管理专员、零跑教练、DCC 调整 DCC、零跑专员）每缺编 1 人扣 10 分；一线考核岗位（体验工程师、交付工程师）每缺编 1 人扣 5 分，扣完为止。</div>
+        <div class="inline">
+          <div class="field">
+            <label>重点岗位缺编人数</label>
+            <input type="number" id="ryA" value="0" min="0" step="1">
+            <div class="hint">每缺 1 人扣 10 分</div>
+          </div>
+          <div class="field">
+            <label>一线岗位缺编人数</label>
+            <input type="number" id="ryB" value="0" min="0" step="1">
+            <div class="hint">每缺 1 人扣 5 分</div>
+          </div>
+        </div>
+        <div class="sub" id="rySub"><span>扣 20 - 10×重点缺编 - 5×一线缺编（扣完为止）</span><b id="ryScore">20</b></div>
+      </div>
+    </div>
+
+    <div>
+      <!-- 4 潜客到店率 -->
+      <div class="card" style="margin-bottom:16px;">
+        <h2>④ 潜客到店率 <span class="max">满分 30 分</span></h2>
+        <div class="rule">潜客到店率 = 当月到店数 ÷ 门店当月新增潜客；得分 = 到店率 ÷ 目标值 × 30（目标值 = 当月排名前 10 门店到店率均值），一般超目标按满分 30 封顶。全国排名末尾 15% 的门店当月 0 分。</div>
+        <div class="inline">
+          <div class="field">
+            <label>当月到店数</label>
+            <input type="number" id="qkArrive" value="0" min="0" step="1">
+          </div>
+          <div class="field">
+            <label>当月新增潜客</label>
+            <input type="number" id="qkNew" value="0" min="0" step="1">
+          </div>
+        </div>
+        <div class="field" style="margin-top:6px;">
+          <label>目标值（前 10 门店到店率均值，如 0.55 表示 55%）</label>
+          <input type="number" id="qkTarget" value="0.55" min="0" step="0.01">
+        </div>
+        <label class="zero-flag"><input type="checkbox" id="qkBottom">我的到店率在全国排名末尾 15%（当月 0 分）</label>
+        <div class="sub" id="qkSub"><span>到店率 ÷ 目标值 × 30</span><b id="qkScore">0</b></div>
+      </div>
+
+      <!-- 5 到店交付率 -->
+      <div class="card">
+        <h2>⑤ 到店交付率 <span class="max">满分 30 分</span></h2>
+        <div class="rule">到店交付率 = 当月交付数 ÷ 潜客到店数；得分 = 交付率 ÷ 目标值 × 30 + K（偏科指数扣分）。全国排名末尾 15% 的门店当月 0 分。</div>
+        <div class="inline">
+          <div class="field">
+            <label>当月交付数</label>
+            <input type="number" id="djDeliver" value="0" min="0" step="1">
+          </div>
+          <div class="field">
+            <label>潜客到店数</label>
+            <input type="number" id="djArrive" value="0" min="0" step="1">
+          </div>
+        </div>
+        <div class="inline" style="margin-top:6px;">
+          <div class="field">
+            <label>目标值（前 10 门店交付率均值，如 0.35 表示 35%）</label>
+            <input type="number" id="djTarget" value="0.35" min="0" step="0.01">
+          </div>
+          <div class="field">
+            <label>K：偏科指数扣分</label>
+            <input type="number" id="djK" value="0" min="0" step="0.5">
+          </div>
+        </div>
+        <label class="zero-flag"><input type="checkbox" id="djBottom">我的交付率在全国排名末尾 15%（当月 0 分）</label>
+        <div class="sub" id="djSub"><span>交付率 ÷ 目标值 × 30 − K</span><b id="djScore">0</b></div>
+      </div>
+    </div>
+
+    <!-- 右侧结果 -->
+    <div>
+      <div class="result">
+        <h2>预估月度考核得分</h2>
+        <div class="big"><span id="totalScore">0</span><small> / 100 分</small></div>
+        <div class="coefline">× 线下检核系数 <b id="coefShow">1</b> → 实发档位得分 <b id="finalScore">0</b></div>
+        <div class="bars">
+          <div class="bar-row"><span class="nm">分组销售</span><span class="track"><span class="fill" id="barFz"></span></span><span class="val"><span id="vFz">0</span><span class="capval">/20</span></span></div>
+          <div class="bar-row"><span class="nm">人员配备</span><span class="track"><span class="fill" id="barRy"></span></span><span class="val"><span id="vRy">20</span><span class="capval">/20</span></span></div>
+          <div class="bar-row"><span class="nm">潜客到店</span><span class="track"><span class="fill" id="barQk"></span></span><span class="val"><span id="vQk">0</span><span class="capval">/30</span></span></div>
+          <div class="bar-row"><span class="nm">到店交付</span><span class="track"><span class="fill" id="barDj"></span></span><span class="val"><span id="vDj">0</span><span class="capval">/30</span></span></div>
+        </div>
+        <div class="total-line"><span>四项合计（满分 100）</span><b id="totalLine">0 分</b></div>
+        <div class="total-line"><span>末位 15% 归零项</span><b id="zeroLine">无</b></div>
+      </div>
+
+      <div class="card notes" style="margin-top:16px; border-top-color:var(--orange);">
+        <h3>📌 销售客诉满意度（负激励，不计入 100 分）</h3>
+        <div class="rule" style="border-left-color:var(--orange);">门店销售客诉负激励金额 = 72 小时超时销售类工单负激励 + 有责溢出负激励 + 承诺未兑现负激励 + D 系销售满意度负激励 + 服务态度类负激励。<b>此项为金额扣罚，不占考核得分，但直接影响实收。</b></div>
+      </div>
+
+      <div class="card notes" style="margin-top:16px;">
+        <h3>💡 使用说明</h3>
+        <ol>
+          <li>四个计分模块按左侧/上方顺序填入本月实际数据，右侧得分实时更新。</li>
+          <li>「目标值」请向区域经理索取当月排名前 10 门店的均值；到店率/交付率超目标按 30 分封顶估算。</li>
+          <li>线下检核系数按上月在「潜客流程执行」的全国排名档位选择，最终激励按得分 × 系数计发。</li>
+          <li>若勾选「末尾 15%」，该项当月计 0 分，无论公式结果多高。</li>
+        </ol>
+        <div class="src">规则来源：《2026年10月零售运营管理激励政策》（五）计分标准 · 本工具仅供门店自行估算，最终得分以总部核算为准。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>零跑华南区域 · 经销商月度考核得分自算工具 · 数据仅在本页本地计算，不会上传</footer>
+
+<script>
+function cap(v, max){ return Math.max(0, Math.min(v, max)); }
+function num(id){ var v = parseFloat(document.getElementById(id).value); return isNaN(v) ? 0 : v; }
+
+function calc(){
+  // 系数
+  var coef = parseFloat(document.querySelector('input[name="coef"]:checked').value);
+  document.getElementById('coefShow').textContent = coef;
+
+  // 分组销售
+  var fz = cap(num('fz1') + num('fz2') + num('fz3'), 20);
+  document.getElementById('fzScore').textContent = fz;
+  document.getElementById('vFz').textContent = fz;
+  document.getElementById('barFz').style.width = (fz/20*100) + '%';
+
+  // 人员配备
+  var ry = cap(20 - 10*num('ryA') - 5*num('ryB'), 20);
+  document.getElementById('ryScore').textContent = ry;
+  document.getElementById('rySub').classList.toggle('warn', ry < 20);
+  document.getElementById('vRy').textContent = ry;
+  document.getElementById('barRy').style.width = (ry/20*100) + '%';
+
+  // 潜客到店率
+  var qkRate = num('qkNew') > 0 ? num('qkArrive')/num('qkNew') : 0;
+  var qk = num('qkTarget') > 0 ? cap(qkRate/num('qkTarget')*30, 30) : 0;
+  if (document.getElementById('qkBottom').checked) qk = 0;
+  document.getElementById('qkScore').textContent = qk;
+  document.getElementById('qkSub').classList.toggle('warn', qk === 0);
+  document.getElementById('vQk').textContent = qk;
+  document.getElementById('barQk').style.width = (qk/30*100) + '%';
+
+  // 到店交付率
+  var djRate = num('djArrive') > 0 ? num('djDeliver')/num('djArrive') : 0;
+  var dj = num('djTarget') > 0 ? cap(djRate/num('djTarget')*30 - num('djK'), 30) : 0;
+  if (dj < 0) dj = 0;
+  if (document.getElementById('djBottom').checked) dj = 0;
+  document.getElementById('djScore').textContent = dj;
+  document.getElementById('djSub').classList.toggle('warn', dj === 0);
+  document.getElementById('vDj').textContent = dj;
+  document.getElementById('barDj').style.width = (dj/30*100) + '%';
+
+  // 汇总
+  var total = fz + ry + qk + dj;
+  var final = total * coef;
+  document.getElementById('totalScore').textContent = Math.round(total*10)/10;
+  document.getElementById('totalLine').textContent = Math.round(total*10)/10 + ' 分';
+  document.getElementById('finalScore').textContent = Math.round(final*10)/10;
+
+  var zeros = [];
+  if (document.getElementById('qkBottom').checked) zeros.push('潜客到店');
+  if (document.getElementById('djBottom').checked) zeros.push('到店交付');
+  document.getElementById('zeroLine').textContent = zeros.length ? zeros.join('、') + '（当月 0 分）' : '无';
+  if (coef === 0) document.getElementById('zeroLine').textContent += (zeros.length ? '；' : '') + '检核排名后 30%（系数 0）';
+}
+
+// 事件绑定
+var inputs = document.querySelectorAll('input[type=number], input[type=checkbox]');
+for (var i=0; i<inputs.length; i++){ inputs[i].addEventListener('input', calc); }
+var radios = document.querySelectorAll('input[name=coef]');
+for (var j=0; j<radios.length; j++){
+  radios[j].addEventListener('change', function(){
+    var ls = document.querySelectorAll('#coefGroup label');
+    for (var k=0; k<ls.length; k++) ls[k].classList.remove('on');
+    this.closest('label').classList.add('on');
+    calc();
+  });
+}
+calc();
+</script>
+</body>
+</html>
