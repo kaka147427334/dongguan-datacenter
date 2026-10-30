@@ -104,6 +104,33 @@
   .cb.hot{background:#fdf0ee; border-color:#f3d4cf;}
   .cb.hot b{color:var(--red);}
 
+  /* ===== 内部抓手：调增调减 + 灵活激励 ===== */
+  .tbl-note{font-size:12.4px; color:#3d4d5f; margin-bottom:9px;}
+  .tbl-note b{color:var(--red);}
+  table.mgr td{text-align:center; font-size:12.6px;}
+  table.mgr th{text-align:center;}
+  table.mgr td.mgrname{text-align:left; font-weight:800; color:var(--navy);}
+  table.mgr td.mgrname small{color:var(--gray); font-weight:600;}
+  tr.grp td{padding:5px 10px; font-weight:800; font-size:12.2px; border-bottom:none;}
+  tr.grp.g-up td{background:#fdf0ee; color:var(--red);}
+  tr.grp.g-dn td{background:#edf7f2; color:var(--green);}
+  td.adj{font-weight:800; font-size:13.5px;}
+  td.adj.up{color:var(--red);}
+  td.adj.dn{color:var(--green);}
+  td.neg{color:var(--red); font-weight:700;}
+  td.pos{color:var(--green); font-weight:700;}
+  td.rate{font-weight:800; color:var(--navy);}
+  table.unlock tr.ok td{background:rgba(240,168,50,.16) !important; font-weight:700;}
+  table.unlock tr.ok td:first-child{border-left:3px solid var(--gold);}
+  .rulebar{display:grid; grid-template-columns:1.15fr 1fr 1fr; gap:10px; margin-bottom:10px;}
+  .rb{border-radius:10px; padding:11px 14px; color:#fff;}
+  .rb .k{font-size:11.5px; opacity:.92;}
+  .rb .v{font-size:15.5px; font-weight:800; margin-top:3px; line-height:1.4;}
+  .rb .v small{font-size:11.5px; font-weight:600; opacity:.92;}
+  .rb-navy{background:linear-gradient(135deg,#1c3a57,#0d1b2a);}
+  .rb-gold{background:linear-gradient(135deg,#e0912a,#b96f0a);}
+  .rb-red{background:linear-gradient(135deg,#c0392b,#96281b);}
+
   /* ===== 时间轴 ===== */
   .tl{list-style:none;}
   .tl li{display:flex; gap:14px; padding:8px 0; border-bottom:1px dashed var(--line); font-size:12.8px;}
@@ -258,7 +285,52 @@
   </div>
 
   <div class="sec">
-    <div class="sec-h"><span class="no">5</span><h2>三条口径，说错一句就是客诉</h2><span class="tag gray">全员背熟</span></div>
+    <div class="sec-h"><span class="no">5</span><h2>内部抓手①：月末冲刺目标调整（调增 / 调减）</h2><span class="tag">10.30 16:39 口径</span></div>
+    <p class="tbl-note">判定线 = 大区累计 <b>414 ÷ 547 = 75.7%</b>：低于线的按自身缺口全额调增，高于线的按累计目标占比分摊 124 台调减池。本表含 29、30 两天（31 号目标未下达）——<b>调增的缺口自己扛，调减的不许松劲，31 日一天定胜负。</b></p>
+    <table class="mgr">
+      <tr><th style="width:170px;">经理 · 辖区</th><th>累计目标</th><th>累计达成</th><th>达成率</th><th>自身缺口</th><th style="width:110px;">冲刺调整</th></tr>
+      <tr class="grp g-up"><td colspan="6">▲ 调增区 · 低于大区均值 75.7%，按自身缺口全额计入（合计 +124 台）</td></tr>
+      <tr><td class="mgrname">余子恩 <small>佛山</small></td><td>89</td><td>57</td><td class="rate">64.0%</td><td class="neg">−32</td><td class="adj up">+32</td></tr>
+      <tr><td class="mgrname">黄伟峰 <small>广州南&amp;广州</small></td><td>73</td><td>52</td><td class="rate">71.2%</td><td class="neg">−21</td><td class="adj up">+21</td></tr>
+      <tr><td class="mgrname">熊俊晖 <small>广州&amp;广州北</small></td><td>53</td><td>34</td><td class="rate">64.2%</td><td class="neg">−19</td><td class="adj up">+19</td></tr>
+      <tr><td class="mgrname">方任昊 <small>东莞</small></td><td>58</td><td>43</td><td class="rate">74.1%</td><td class="neg">−15</td><td class="adj up">+15</td></tr>
+      <tr><td class="mgrname">胡浩 <small>惠州</small></td><td>35</td><td>20</td><td class="rate">57.1%</td><td class="neg">−15</td><td class="adj up">+15</td></tr>
+      <tr><td class="mgrname">李传华 <small>粤西</small></td><td>43</td><td>29</td><td class="rate">67.4%</td><td class="neg">−14</td><td class="adj up">+14</td></tr>
+      <tr><td class="mgrname">陈恒惕 <small>粤东</small></td><td>23</td><td>15</td><td class="rate">65.2%</td><td class="neg">−8</td><td class="adj up">+8</td></tr>
+      <tr class="grp g-dn"><td colspan="6">▼ 调减区 · 高于大区均值，按累计目标占比分摊 124 台调减池（合计 −124 台）</td></tr>
+      <tr><td class="mgrname">秦启超 <small>中珠</small></td><td>44</td><td>53</td><td class="rate">120.5%</td><td class="pos">+9</td><td class="adj dn">−32</td></tr>
+      <tr><td class="mgrname">罗捷 <small>深圳</small></td><td>35</td><td>32</td><td class="rate">91.4%</td><td class="neg">−3</td><td class="adj dn">−25</td></tr>
+      <tr><td class="mgrname">李博恩 <small>海南</small></td><td>66</td><td>57</td><td class="rate">86.4%</td><td class="neg">−9</td><td class="adj dn">−47</td></tr>
+      <tr><td class="mgrname">贾迪赫 <small>深圳</small></td><td>28</td><td>22</td><td class="rate">78.6%</td><td class="neg">−6</td><td class="adj dn">−20</td></tr>
+    </table>
+  </div>
+
+  <div class="sec">
+    <div class="sec-h"><span class="no">6</span><h2>内部抓手②：10月华南灵活激励，冲过 85.4% 解锁</h2><span class="tag gold">前 4 名有奖</span></div>
+    <div class="rulebar">
+      <div class="rb rb-navy"><div class="k">解锁条件</div><div class="v">月度锁单达成率 ＞ 全国平均 <b style="color:#ffd98a;">85.4%</b><br><small>（全国目标 90,000 台 · 已锁 76,893 台，截至 10.29）</small></div></div>
+      <div class="rb rb-gold"><div class="k">解锁后按名次发激励</div><div class="v">第1名 4,000 · 第2名 3,000<br>第3名 2,000 · 第4名 1,000 元</div></div>
+      <div class="rb rb-red"><div class="k">当前局势（截至 10.29）</div><div class="v">11 位经理仅 1 人过线<br><small>罗捷 85.9% 已解锁；第 2 名差 0.3 个点——31 日一天，人人都有机会冲进前 4</small></div></div>
+    </div>
+    <table class="mgr unlock">
+      <tr><th style="width:150px;">经理 · 辖区</th><th>全国排名</th><th>锁单目标</th><th>净增锁单</th><th>达成率</th><th style="width:130px;">距解锁线 85.4%</th></tr>
+      <tr class="ok"><td class="mgrname">罗捷 <small>深圳</small></td><td>46</td><td>706</td><td>606</td><td class="rate" style="color:var(--green);">85.9%</td><td class="adj dn">+0.5pp ✅ 已解锁</td></tr>
+      <tr><td class="mgrname">陈恒惕 <small>粤东</small></td><td>48</td><td>451</td><td>384</td><td class="rate">85.1%</td><td class="neg">−0.3pp</td></tr>
+      <tr><td class="mgrname">李传华 <small>粤西</small></td><td>50</td><td>863</td><td>730</td><td class="rate">84.6%</td><td class="neg">−0.8pp</td></tr>
+      <tr><td class="mgrname">余子恩 <small>佛山</small></td><td>58</td><td>1794</td><td>1497</td><td class="rate">83.4%</td><td class="neg">−2.0pp</td></tr>
+      <tr><td class="mgrname">方任昊 <small>东莞</small></td><td>65</td><td>1177</td><td>957</td><td class="rate">81.3%</td><td class="neg">−4.1pp</td></tr>
+      <tr><td class="mgrname">黄伟峰 <small>广州南&amp;广州</small></td><td>70</td><td>1468</td><td>1192</td><td class="rate">81.2%</td><td class="neg">−4.2pp</td></tr>
+      <tr><td class="mgrname">秦启超 <small>中珠</small></td><td>71</td><td>888</td><td>718</td><td class="rate">80.8%</td><td class="neg">−4.6pp</td></tr>
+      <tr><td class="mgrname">熊俊晖 <small>广州&amp;广州北</small></td><td>72</td><td>1076</td><td>865</td><td class="rate">80.4%</td><td class="neg">−5.0pp</td></tr>
+      <tr><td class="mgrname">李博恩 <small>海南</small></td><td>76</td><td>1323</td><td>1055</td><td class="rate">79.8%</td><td class="neg">−5.6pp</td></tr>
+      <tr><td class="mgrname">胡浩 <small>惠州</small></td><td>81</td><td>706</td><td>553</td><td class="rate">78.3%</td><td class="neg">−7.1pp</td></tr>
+      <tr><td class="mgrname">贾迪赫 <small>深圳</small></td><td>86</td><td>566</td><td>437</td><td class="rate">77.2%</td><td class="neg">−8.2pp</td></tr>
+    </table>
+    <p class="tbl-note" style="margin-top:8px;">缺口不大、目标基数小的经理最有机会：陈恒惕目标 451 台，<b>补 2 台即过线</b>；秦启超补 41 台、罗捷再锁 1 台就能拉开身位。31 日锁单增量直接计入月度达成率——<b>冲刺目标调整 + 灵活激励两条线一起算账</b>。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sec-h"><span class="no">7</span><h2>三条口径，说错一句就是客诉</h2><span class="tag gray">全员背熟</span></div>
     <div class="caliber">
       <div class="cb hot"><b>只认锁单时间</b>31日24:00前完成锁单即可，交付可在11月；过期锁单不补。</div>
       <div class="cb"><b>券到 App 才算到账</b>尾款抵扣券发放至购车人 App，必须提醒客户查收。</div>
@@ -267,7 +339,7 @@
   </div>
 
   <div class="sec">
-    <div class="sec-h"><span class="no">6</span><h2>储备转化：逼不下来的，一个都不丢</h2><span class="tag gold">通向开门红</span></div>
+    <div class="sec-h"><span class="no">8</span><h2>储备转化：逼不下来的，一个都不丢</h2><span class="tag gold">通向开门红</span></div>
     <div class="reserve">
       <b>10.31 当晚锁不下来的客户，当场完成储备登记（四要素缺一不可）：</b>
       <ol>
@@ -280,8 +352,9 @@
   </div>
 
   <div class="sec">
-    <div class="sec-h"><span class="no">7</span><h2>周末关键节点</h2><span class="tag gray">时刻表</span></div>
+    <div class="sec-h"><span class="no">9</span><h2>周末关键节点</h2><span class="tag gray">时刻表</span></div>
     <ul class="tl">
+      <li><span class="t hot">10.31 早会</span><span class="d">点检月末调增调减目标到人；灵活激励战况通报（谁能过 85.4%、谁进前 4）</span><span class="who">小区经理</span></li>
       <li><span class="t hot">10.31 全天</span><span class="d">三张政策牌全量外呼＋邀约到店；A05 打榜最后冲刺；现车订单集中锁单</span><span class="who">全体销售 + 店长</span></li>
       <li><span class="t hot">10.31 20:00</span><span class="d">各店报数：触达数 / 到店数 / 锁单数；缺口门店店长现场调度</span><span class="who">小区经理</span></li>
       <li><span class="t hot">10.31 24:00</span><span class="d">政策全线关闸；完成全部可锁订单；储备名单当晚汇总到大区</span><span class="who">店长 + 财务</span></li>
@@ -293,12 +366,12 @@
 
   <div class="summary">
     <b class="t">一句话总结</b>
-    <p><b>10.31 抢收</b>——专项权益、A05 打榜、双月批交返利、零售运营、各板块订单考核当晚全部归零：只认锁单时间，100%档和90%档差14.52万，把能锁的单全部锁掉；</p>
+    <p><b>10.31 抢收</b>——专项权益、A05 打榜、双月批交返利、零售运营、各板块订单考核当晚全部归零：只认锁单时间，100%档和90%档差14.52万，把能锁的单全部锁掉；调增区缺口自己扛、调减区不许松劲，<b>灵活激励只差 0.3 个点就有第 2 人解锁</b>，31 日一天定名次；</p>
     <p><b>11.1 开门红</b>——逼不下来的当场转储备，四要素登记、早会分单、上午集中邀约，开门红当天把这两天攒的客户全部转化，抢占11月节奏。</p>
   </div>
 
   <footer>
-    <span>零跑汽车 · 华南大区零售管理 ｜ 依据《2026年中秋国庆双节返场专项权益通知》及 10 月各板块考核口径整理，具体以政策原文为准</span>
+    <span>零跑汽车 · 华南大区零售管理 ｜ 依据《2026年中秋国庆双节返场专项权益通知》、月末调增调减表（10.30 16:39）及灵活激励方案整理，具体以政策原文为准</span>
     <span>更新至 2026-10-30</span>
   </footer>
 </div>
