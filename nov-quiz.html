@@ -262,12 +262,12 @@
 
   <div class="q-card" id="q3">
     <div class="q-head"><div class="q-num">3</div>
-      <div class="q-title">11月豁免项（保底1600元/台）的达成率判定口径是？<span class="q-type q-type-choice">选择题</span></div></div>
+      <div class="q-title">11月豁免项（保底1600元/台）的「交付目标达成率」判定口径是？<span class="q-type q-type-choice">选择题</span></div></div>
     <div class="opt-list">
-      <label class="opt" onclick="selectOpt(this,'q3')"><input type="radio" name="q3" value="A"><span class="opt-label">A. 26年9–10月双月合并达成率 ≥100%</span></label>
-      <label class="opt" onclick="selectOpt(this,'q3')"><input type="radio" name="q3" value="B"><span class="opt-label">B. 26年11月单月达成率 ≥100%</span></label>
-      <label class="opt" onclick="selectOpt(this,'q3')"><input type="radio" name="q3" value="C"><span class="opt-label">C. 26年11–12月合并达成率 ≥80%</span></label>
-      <label class="opt" onclick="selectOpt(this,'q3')"><input type="radio" name="q3" value="D"><span class="opt-label">D. 26年10月单月达成率 ≥100%</span></label>
+      <label class="opt" onclick="selectOpt(this,'q3')"><input type="radio" name="q3" value="A"><span class="opt-label">A. 26年9–10月双月合并交付目标达成率 ≥100%</span></label>
+      <label class="opt" onclick="selectOpt(this,'q3')"><input type="radio" name="q3" value="B"><span class="opt-label">B. 26年11月单月交付目标达成率 ≥100%</span></label>
+      <label class="opt" onclick="selectOpt(this,'q3')"><input type="radio" name="q3" value="C"><span class="opt-label">C. 26年11–12月合并交付目标达成率 ≥80%</span></label>
+      <label class="opt" onclick="selectOpt(this,'q3')"><input type="radio" name="q3" value="D"><span class="opt-label">D. 26年10月单月交付目标达成率 ≥100%</span></label>
     </div>
     <div class="explain" id="explain3"></div>
   </div>
@@ -441,7 +441,7 @@
 
   <div class="q-card" id="j9">
     <div class="q-head"><div class="q-num">19</div>
-      <div class="q-title">门店收到成绩后有5个工作日可以申诉，且考核周期内提出的申诉优先受理。<span class="q-type q-type-judge">判断题</span></div></div>
+      <div class="q-title">11月新验收门店（含卫星店/社区店）首次验收当月及次月，按 1600 元/台支持。<span class="q-type q-type-judge">判断题</span></div></div>
     <div class="opt-list">
       <label class="opt" onclick="selectOpt(this,'j9')"><input type="radio" name="j9" value="A"><span class="opt-label">A. 正确</span></label>
       <label class="opt" onclick="selectOpt(this,'j9')"><input type="radio" name="j9" value="B"><span class="opt-label">B. 错误</span></label>
@@ -451,7 +451,7 @@
 
   <div class="q-card" id="j10">
     <div class="q-head"><div class="q-num">20</div>
-      <div class="q-title">11月零售运营激励的对象车型共10款，T03继续不在其中。<span class="q-type q-type-judge">判断题</span></div></div>
+      <div class="q-title">11月零售运营管理激励的实发金额，需要乘以「线下检核系数」。<span class="q-type q-type-judge">判断题</span></div></div>
     <div class="opt-list">
       <label class="opt" onclick="selectOpt(this,'j10')"><input type="radio" name="j10" value="A"><span class="opt-label">A. 正确</span></label>
       <label class="opt" onclick="selectOpt(this,'j10')"><input type="radio" name="j10" value="B"><span class="opt-label">B. 错误</span></label>
@@ -499,7 +499,7 @@ var Q_SCORE = 5;
 var QUESTIONS = {
   q1:  { ans:'C', ansText:'C. 1600 元/台', exp:'排名激励5档延续10月：一组前20%=1600、二组21–40%=1300、三组41–70%=800、四组71–95%=500、五组后5%=0 元/台。实发 = 对应组别额度 × 线下检核系数 × 零小跑系统交付台数 + 负激励。' },
   q2:  { ans:'D', ansText:'D. 0', exp:'线下检核系数：前20%=1.0、21%–40%=0.8、41%–70%=0.5、后30%=0。后30%门店当月实发直接归零，且豁免项也不豁免系数；当月未开展线下检核的门店按1.0计算。' },
-  q3:  { ans:'B', ansText:'B. 26年11月单月达成率 ≥100%', exp:'11月最大变化之一：豁免项/专项车型由10月的"双月合并"口径改回单月。同城同商26年11月交付目标达成率 ≥100% → 对应组别享1600元/台；11月目标以2026/11/5发布为准，后续调整不作为豁免达成依据。' },
+  q3:  { ans:'B', ansText:'B. 26年11月单月交付目标达成率 ≥100%', exp:'11月最大变化之一：豁免项/专项车型由10月的"双月合并"口径改回单月。同城同商26年11月交付目标达成率 ≥100% → 对应组别享1600元/台；11月目标以2026/11/5发布为准，后续调整不作为豁免达成依据。' },
   q4:  { ans:'A', ansText:'A. 80%', exp:'否决项①改为11–12月双月绑定：同城同商26年11–12月交付目标达成率 <80%，取消11–12月全部零售运营管理激励。考核车型含 D19/C16/C10/C11/B10/B01/Lafa5/Lafa5 Ultra/A10/A05/C01 全系。' },
   q5:  { ans:'C', ansText:'C. 60 分', exp:'月度计分满分100分 = 分组销售20 + 人员配备20 + 潜客到店率30 + 到店交付率30。后两项合计60分；潜客流程执行不再计入100分，改为"线下检核系数"直接乘入实发金额。' },
   q6:  { ans:'A', ansText:'A. 850 条', exp:'11月人员配备模块调整DCC考核规则：DCC专员按上季度月均线索每850条配1人 × 90%系数、向上取整；重点考核岗位须月底前完成认证，否则按缺编计。重点认证岗每缺1人扣10分，一线岗每缺1人扣5分。' },
@@ -516,8 +516,8 @@ var QUESTIONS = {
   j6:  { ans:'A', ansText:'正确', exp:'专项车型政策（+200元/台）：同城同商26年11月 A10/A05/B10/C10 全系合并达成 ≥100%，且门店11月交付目标达成 ≥100%，两个条件同时满足才额外 +200元/台；享受车型为10款对象车型。' },
   j7:  { ans:'B', ansText:'错误', exp:'新老划断：银行端金融申请时间在11/1起的总合作方案按新标准结算；10/31（含）及之前申请成功（待放款）订单按之前返佣标准正常办理结算，不是按新标准。' },
   j8:  { ans:'A', ansText:'正确', exp:'C10/A05共同口径：完成率 = 11月锁单且最终交付的该车型订单数 ÷ 11月该车型锁单目标；分子取锁单11/1–11/30且交付11/1–12/31，2027/1/1取数、未交付视为退订；重复订单不计入；按同城+同实际控制人合并考核，不允许跨城合并。' },
-  j9:  { ans:'B', ansText:'错误', exp:'申诉流程：门店收到成绩后 3 个工作日内按零售高级经理提供模板申诉，不接受考核周期内及超期申诉——不是5个工作日，也不存在"周期内优先受理"。' },
-  j10: { ans:'A', ansText:'正确', exp:'对象车型共10款：D19、D99、C16、C10、C11、C01、B10、B01、Lafa5、Lafa5 Ultra；T03继续出局。适用门店为正常运营的零跑中心/城展/商超，不含新验收、建设中、退网中门店。' }
+  j9:  { ans:'B', ansText:'错误', exp:'11月"特殊门店说明"里三个口径要分清：新验收门店（含卫星店/社区店）首次验收当月及次月是 500 元/台（也可申请提前正常参评）；只有六星门店才保底第一组 1600 元/台；未关联主店的卫星店/社区店按 800 元/台支持。所以"新验收按1600元/台"是错的。' },
+  j10: { ans:'A', ansText:'正确', exp:'实发公式 = 对应组别额度 × 线下检核系数 × 零小跑系统交付台数 + 负激励。线下检核系数按潜客流程执行得分全国排名分四档：前20%=1.0、21%–40%=0.8、41%–70%=0.5、后30%=0（当月实发直接归零）。所以检核系数一定会乘进实发金额，不能只按排名档位金额直接发放。' }
 };
 
 var Q_ORDER = ['q1','q2','q3','q4','q5','q6','q7','q8','q9','q10','j1','j2','j3','j4','j5','j6','j7','j8','j9','j10'];
