@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>零跑汽车 2026年11月 商政看板</title>
+<style>
+:root {
+  --bg: #F7F9FC;
+  --card: #FFFFFF;
+  --dark: #0A1F2E;
+  --teal: #00A4A6;
+  --teal-light: #E6F7F7;
+  --orange: #FF6B2C;
+  --orange-light: #FFF0E8;
+  --red: #E8392B;
+  --red-light: #FDECEA;
+  --green: #0EA55F;
+  --green-light: #E5F6EC;
+  --blue: #2B6CB0;
+  --blue-light: #E8F0F8;
+  --purple: #7C3AED;
+  --purple-light: #F0E8FF;
+  --gold: #F5A623;
+  --gold-light: #FFF8E8;
+  --gray: #64748B;
+  --border: #E2E8F0;
+  --shadow: 0 4px 16px rgba(10,31,46,0.06);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  background: var(--bg); color: var(--dark); line-height: 1.6;
+}
+.container { max-width: 1200px; margin: 0 auto; padding: 24px 20px 40px; }
+
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, var(--dark) 0%, #0D2E3F 55%, var(--teal) 150%);
+  color: white; border-radius: 16px; padding: 32px; margin-bottom: 24px;
+  box-shadow: var(--shadow); position: relative; overflow: hidden;
+}
+.hero::after {
+  content:''; position: absolute; right:-40px; top:-40px; width:220px; height:220px;
+  background: radial-gradient(circle, rgba(255,107,44,0.18) 0%, transparent 70%);
+}
+.hero h1 { font-size: 26px; font-weight: 900; position: relative; z-index: 1; }
+.hero .sub { font-size: 14px; opacity: 0.85; margin-top: 8px; position: relative; z-index: 1; }
+.hero-tags { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; position: relative; z-index: 1; }
+.hero-tag { background: rgba(255,255,255,0.15); padding: 5px 12px; border-radius: 20px; font-size: 13px; }
+
+/* Metrics */
+.metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+.metric-card {
+  background: var(--card); border-radius: 12px; padding: 20px; text-align: center;
+  box-shadow: var(--shadow); border: 1px solid var(--border);
+}
+.metric-num { font-size: 30px; font-weight: 900; }
+.metric-label { font-size: 12.5px; color: var(--gray); margin-top: 4px; }
+.metric-down { color: var(--red); }
+.metric-up { color: var(--green); }
+.metric-neutral { color: var(--teal); }
+.metric-orange { color: var(--orange); }
+.metric-purple { color: var(--purple); }
+
+/* Legend */
+.legend {
+  display: flex; gap: 12px; flex-wrap: wrap; align-items: center;
+  background: var(--card); padding: 14px 18px; border-radius: 12px;
+  box-shadow: var(--shadow); margin-bottom: 24px; border: 1px solid var(--border);
+}
+.legend-title { font-weight: 700; font-size: 14px; margin-right: 6px; }
+.legend-item { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--gray); }
+.legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+
+/* Section title */
+.section-title { font-size: 18px; font-weight: 800; margin: 32px 0 16px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.section-title span { font-size: 14px; color: var(--gray); font-weight: 500; }
+
+/* Generic card */
+.card {
+  background: var(--card); border-radius: 14px; box-shadow: var(--shadow);
+  border: 1px solid var(--border); padding: 20px; margin-bottom: 16px;
+}
+.card .note { font-size: 13px; color: var(--gray); margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--border); }
+.card .note b { color: var(--dark); }
+
+/* Tier grid */
+.tier-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+@media (max-width: 900px) { .tier-grid { grid-template-columns: repeat(2, 1fr); } }
+.tier { border-radius: 12px; padding: 16px 12px; text-align: center; color: white; position: relative; }
+.tier.t1 { background: linear-gradient(135deg,#E8392B,#FF6B4A); }
+.tier.t2 { background: linear-gradient(135deg,#FF6B2C,#FF8F5C); }
+.tier.t3 { background: linear-gradient(135deg,#F5A623,#F7C14B); }
+.tier.t4 { background: linear-gradient(135deg,#2B6CB0,#4A8FD6); }
+.tier.t5 { background: linear-gradient(135deg,#64748B,#94A3B8); }
+.tier .rank { font-size: 13px; font-weight: 700; opacity: 0.95; }
+.tier .amt { font-size: 24px; font-weight: 900; margin: 6px 0 2px; }
+.tier .range { font-size: 11px; opacity: 0.9; }
+
+/* Two-column layout */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 900px) { .two-col { grid-template-columns: 1fr; } }
+
+/* coefficient table */
+.coef-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.coef-table th, .coef-table td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border); }
+.coef-table th { background: var(--teal-light); color: var(--teal); font-weight: 700; }
+.coef-bar { height: 8px; border-radius: 4px; background: var(--teal); display: inline-block; vertical-align: middle; }
+
+/* scoring modules */
+.mod-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+@media (max-width: 900px) { .mod-grid { grid-template-columns: 1fr; } }
+.mod { border: 1px solid var(--border); border-radius: 12px; padding: 16px; position: relative; overflow: hidden; }
+.mod .score { position: absolute; right: 14px; top: 12px; font-size: 28px; font-weight: 900; color: var(--teal); opacity: 0.25; }
+.mod h4 { font-size: 15px; font-weight: 800; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.mod ul { margin: 10px 0 0 18px; font-size: 13px; color: var(--dark); }
+.mod ul li { margin: 3px 0; }
+
+/* small tags */
+.minitag { font-size: 11px; padding: 2px 8px; border-radius: 10px; font-weight: 700; white-space: nowrap; }
+.mt-new { background: var(--green-light); color: var(--green); }
+.mt-keep { background: var(--teal-light); color: var(--teal); }
+.mt-mod { background: var(--orange-light); color: var(--orange); }
+.mt-red { background: var(--red-light); color: var(--red); }
+
+/* veto list */
+.veto-item { display: flex; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--border); }
+.veto-item:last-child { border-bottom: none; }
+.veto-num { flex: 0 0 30px; height: 30px; border-radius: 50%; background: var(--red-light); color: var(--red); font-weight: 900; display: flex; align-items: center; justify-content: center; }
+.veto-text { font-size: 14px; }
+.veto-text b { color: var(--red); }
+
+/* change list */
+.change-item { display: flex; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--border); align-items: flex-start; }
+.change-item:last-child { border-bottom: none; }
+.change-badge { flex: 0 0 auto; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 10px; }
+.cb-del { background: var(--red-light); color: var(--red); }
+.cb-new { background: var(--green-light); color: var(--green); }
+.cb-mod { background: var(--orange-light); color: var(--orange); }
+.cb-keep { background: var(--teal-light); color: var(--teal); }
+.change-body { font-size: 14px; }
+.change-body .old { color: var(--gray); text-decoration: line-through; font-size: 13px; }
+.change-body .new { color: var(--dark); font-weight: 600; }
+
+/* insight grid */
+.insight-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 8px; }
+@media (max-width: 900px) { .insight-grid { grid-template-columns: 1fr; } }
+.insight-card { background: var(--card); border-radius: 12px; padding: 18px; box-shadow: var(--shadow); border: 1px solid var(--border); }
+.insight-card h3 { font-size: 14px; color: var(--gray); margin-bottom: 10px; font-weight: 600; }
+.insight-item { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px dashed var(--border); font-size: 13px; gap: 8px; }
+.insight-item:last-child { border-bottom: none; }
+.insight-value { font-weight: 700; text-align: right; }
+
+/* ======== 11月专项激励 ======== */
+.spec-group { margin-bottom: 18px; }
+.spec-group-head { display: flex; align-items: center; gap: 10px; margin: 0 0 12px; flex-wrap: wrap; }
+.spec-group-head h3 { font-size: 16px; font-weight: 800; }
+.flow-tag { font-size: 11.5px; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+.flow-b { background: var(--purple-light); color: var(--purple); }
+.flow-c { background: var(--blue-light); color: var(--blue); }
+.flow-p { background: var(--gold-light); color: #B76E00; }
+.flow-f { background: var(--green-light); color: var(--green); }
+
+.spec-card { background: var(--card); border-radius: 14px; box-shadow: var(--shadow); border: 1px solid var(--border); padding: 20px; margin-bottom: 16px; }
+.spec-head { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
+.spec-head h4 { font-size: 16px; font-weight: 800; color: var(--dark); }
+.spec-date { font-size: 12px; background: var(--teal-light); color: var(--teal); padding: 3px 10px; border-radius: 12px; font-weight: 700; white-space: nowrap; }
+.spec-sub { font-size: 12.8px; color: var(--gray); margin-bottom: 14px; }
+.spec-sub b { color: var(--dark); }
+
+/* ladder table (C10/A05 阶梯) */
+.ladder { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.ladder th, .ladder td { padding: 10px 12px; text-align: center; border-bottom: 1px solid var(--border); }
+.ladder th { background: var(--navy, #0A1F2E); color: #fff; font-weight: 700; font-size: 12.5px; }
+.ladder th.hl { background: #12354a; }
+.ladder td.rate { font-weight: 800; color: var(--dark); }
+.ladder td.c10 { color: var(--blue); font-weight: 800; }
+.ladder td.a05 { color: var(--orange); font-weight: 800; }
+.ladder tr:last-child td { border-bottom: none; }
+.ladder tr.hi td { background: var(--green-light); }
+
+/* 定额卡 */
+.fixed-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+@media (max-width: 900px) { .fixed-grid { grid-template-columns: 1fr; } }
+.fixed-item { border: 1px solid var(--border); border-radius: 12px; padding: 16px; background: #FAFBFC; }
+.fixed-item .top { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
+.fixed-item .models { font-size: 13.5px; color: var(--dark); font-weight: 700; line-height: 1.5; }
+.fixed-item .amt { font-size: 28px; font-weight: 900; color: var(--orange); margin: 8px 0 2px; }
+.fixed-item .amt.gold { color: #B76E00; }
+.fixed-item .amt-unit { font-size: 13px; color: var(--gray); }
+.fixed-item .kv { font-size: 12.3px; color: var(--gray); margin-top: 8px; line-height: 1.55; }
+.fixed-item .kv b { color: var(--dark); }
+
+/* 金融返佣表 */
+.fin-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.fin-table th, .fin-table td { padding: 8px 10px; text-align: center; border: 1px solid var(--border); }
+.fin-table th { background: var(--green-light); color: #0b7a47; font-weight: 800; font-size: 12px; }
+.fin-table td.period { font-weight: 700; background: #FAFBFC; }
+.fin-table .r-green { color: var(--green); font-weight: 800; }
+.fin-table .r-red { color: var(--red); font-weight: 800; }
+.fin-table td.merge { background: var(--gold-light); }
+
+.bank-line { font-size: 13px; padding: 7px 0; border-bottom: 1px dashed var(--border); }
+.bank-line:last-child { border-bottom: none; }
+.bank-line b { color: var(--dark); }
+.bank-new { color: var(--green); font-weight: 800; }
+
+.formula-box { background: #F4F8FB; border-left: 4px solid var(--teal); border-radius: 0 8px 8px 0; padding: 10px 14px; font-size: 12.8px; margin-top: 12px; line-height: 1.8; }
+.formula-box b { color: var(--teal); }
+
+.badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 3px 9px; border-radius: 20px; font-size: 12px; font-weight: 700;
+}
+.badge-new { background: var(--green-light); color: var(--green); }
+.badge-keep { background: var(--teal-light); color: var(--teal); }
+.badge-warn { background: var(--orange-light); color: var(--orange); }
+.badge-cut { background: var(--red-light); color: var(--red); }
+
+.footer { text-align: center; padding: 30px 0 10px; font-size: 12px; color: var(--gray); line-height: 1.8; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="hero">
+    <h1>零跑汽车 · 2026年11月 商政看板</h1>
+    <div class="sub">11月零售运营管理激励政策（11/1–11/30）· 6 项专项激励 · 关键月环比变化，一眼看清本月政策要点</div>
+    <div class="hero-tags">
+      <div class="hero-tag">📅 11/1–11/30 运营激励</div>
+      <div class="hero-tag">🎯 6 项专项激励（车型/金融/权益）</div>
+      <div class="hero-tag">🔁 对比 10月政策</div>
+      <div class="hero-tag">🏪 10 款对象车型 · T03 继续出局</div>
+    </div>
+  </div>
+
+  <!-- KPI -->
+  <div class="metrics">
+    <div class="metric-card">
+      <div class="metric-num metric-orange">1600</div>
+      <div class="metric-label">元/台 · 第一组排名激励（延续）</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-num metric-purple">6</div>
+      <div class="metric-label">项 · 本月专项激励政策</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-num metric-neutral">×系数</div>
+      <div class="metric-label">线下检核系数（1/0.8/0.5/0）</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-num metric-down">11–12月</div>
+      <div class="metric-label">否决项改双月合并口径</div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <div class="legend-title">变化标识说明：</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div>较10月取消/收紧</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div>较10月新增</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--orange)"></div>较10月调整口径</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--teal)"></div>基本不变</div>
+  </div>
+
+  <!-- 一、排名激励 -->
+  <div class="section-title">一、排名激励（5 档） <span class="badge badge-keep">金额与档位延续 10 月</span></div>
+  <div class="card">
+    <div class="tier-grid">
+      <div class="tier t1"><div class="rank">第一组 · 前20%</div><div class="amt">1600</div><div class="range">元/台</div></div>
+      <div class="tier t2"><div class="rank">第二组 · 21–40%</div><div class="amt">1300</div><div class="range">元/台</div></div>
+      <div class="tier t3"><div class="rank">第三组 · 41–70%</div><div class="amt">800</div><div class="range">元/台</div></div>
+      <div class="tier t4"><div class="rank">第四组 · 71–95%</div><div class="amt">500</div><div class="range">元/台</div></div>
+      <div class="tier t5"><div class="rank">第五组 · 后5%</div><div class="amt">0</div><div class="range">元/台</div></div>
+    </div>
+    <div class="note">
+      <b>实际奖励 = 对应组别激励额度 × 线下检核系数 × 考核周期零小跑系统交付台数（不含试驾车 / 大客户直销车辆 / A 系列车辆）+ 负激励。</b>
+      A 系车型不享受零售运营激励，但须纳入本通知考核。得分相同按考核周期内交付量排名。以 100 家门店为例：一组20 / 二组20 / 三组30 / 四组25 / 五组5。<br>
+      <b>对象车型（10 款）：</b>D19、D99、C16、C10、C11、C01、B10、B01、Lafa5、Lafa5 Ultra。适用门店为正常运营的零跑中心 / 城展 / 商超，不含新验收、建设中、退网中门店。
+    </div>
+  </div>
+
+  <!-- 二、三 -->
+  <div class="two-col">
+    <div class="card">
+      <div class="section-title" style="margin:0 0 14px;">二、线下检核系数 <span class="badge badge-keep">延续</span></div>
+      <p style="font-size:13px;color:var(--gray);margin-bottom:12px;">按潜客流程执行得分全国排名，计算<b>奖励乘数</b>，不占 100 分满分；直接乘入实发金额。</p>
+      <table class="coef-table">
+        <tr><th>检核成绩排名</th><th>系数</th><th>占比</th></tr>
+        <tr><td>前 20%</td><td><b>1.0</b></td><td><span class="coef-bar" style="width:100%"></span></td></tr>
+        <tr><td>21%–40%</td><td><b>0.8</b></td><td><span class="coef-bar" style="width:80%"></span></td></tr>
+        <tr><td>41%–70%</td><td><b>0.5</b></td><td><span class="coef-bar" style="width:50%"></span></td></tr>
+        <tr><td>后 30%</td><td><b>0</b></td><td><span class="coef-bar" style="width:8%"></span></td></tr>
+      </table>
+      <div class="note">当月未开展线下检核的门店，系数按 <b>1.0</b> 计算。早 9:00–晚 18:00 随机检核。<b>后 30% 门店当月实发直接归零</b>，豁免项也不豁免系数。</div>
+    </div>
+
+    <div class="card">
+      <div class="section-title" style="margin:0 0 14px;">三、豁免项 &amp; 专项车型 <span class="badge badge-warn">口径改回单月</span></div>
+      <div style="margin-bottom:14px;">
+        <div style="font-weight:800;font-size:14px;color:var(--teal);">豁免项（保底 1600）</div>
+        <p style="font-size:13px;margin-top:4px;">同城同商 <b>26年11月</b> 交付目标达成率 ≥100% → 对应组别享 <b>1600 元/台</b>。<br>
+        <span style="color:var(--gray)">A10 / A05 不享受运营激励，但纳入达成率考核。<b>11月目标以 2026/11/5 发布为准</b>，后续调整不作为豁免达成依据。</span></p>
+        <p style="font-size:12.5px;margin-top:6px;color:var(--green);">达成豁免项 → 同时豁免<b>新保线上出单率</b>负激励；<b style="color:var(--red)">但不豁免</b>销售客诉满意度负激励、线下检核系数。</p>
+      </div>
+      <div>
+        <div style="font-weight:800;font-size:14px;color:var(--orange);">专项车型政策（+200 元/台）</div>
+        <p style="font-size:13px;margin-top:4px;">同城同商 <b>26年11月</b> A10 / A05 / B10 / C10 全系（合并）达成 ≥100% <b>且</b> 门店 11月交付目标达成 ≥100% → 额外 <b>+200 元/台</b>。<br>
+        <span style="color:var(--gray)">享受车型：D19 / D99 / C16 / C10 / C11 / C01 / B10 / B01 / Lafa5 / Lafa5 Ultra。</span></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 四、计分标准 -->
+  <div class="section-title">四、月度计分标准 <span>满分 100 分 · 4 大模块 + 系数项</span></div>
+  <div class="mod-grid">
+    <div class="mod">
+      <span class="score">20</span>
+      <h4>分组销售 <span class="minitag mt-keep">延续</span></h4>
+      <ul>
+        <li>分流问询及分配（按组判定交接）— <b>10 分</b></li>
+        <li>客流登记一致（抽查一致率≥90%得5）— <b>5 分</b></li>
+        <li>可售车系标签合规（100%得5）— <b>5 分</b></li>
+        <li>每店每次抽查潜客登记 ≥10 条，每周/月 1 次</li>
+      </ul>
+    </div>
+    <div class="mod">
+      <span class="score">20</span>
+      <h4>人员配备 <span class="minitag mt-mod">11月调整 DCC 规则</span></h4>
+      <ul>
+        <li>重点认证岗（体验主管/旗舰组/展厅管理/零跑教练/DCC专员）每缺1人扣 <b>10 分</b></li>
+        <li>一线岗（体验/交付工程师）每缺1人扣 <b>5 分</b>；满编 20 分，扣完为止</li>
+        <li><b>DCC 新增量化</b>：按上季度月均线索每 850 条配 1 人 × 90% 系数、向上取整</li>
+        <li>重点考核岗位须月底前完成认证，否则按缺编计</li>
+      </ul>
+    </div>
+    <div class="mod">
+      <span class="score">30</span>
+      <h4>潜客到店率 <span class="minitag mt-keep">不变</span></h4>
+      <ul>
+        <li>到店率 = 当月到店数 / 门店当月新增潜客</li>
+        <li>得分 = 到店率 / 目标值（当月排名前10门店均值）× 30</li>
+        <li>全国排名<b>末位 15%</b> → 当月 0 分</li>
+      </ul>
+    </div>
+    <div class="mod">
+      <span class="score">30</span>
+      <h4>到店交付率 <span class="minitag mt-keep">不变</span></h4>
+      <ul>
+        <li>交付率 = 当月交付数 / 潜客到店数</li>
+        <li>得分 = 交付率 / 目标值（前10均值）× 30 + K（偏科指数扣分）</li>
+        <li>全国排名<b>末位 15%</b> → 0 分；K 值波动异常(CV≥20%)且全国前后10% 扣 10 分</li>
+      </ul>
+    </div>
+  </div>
+  <div class="card" style="margin-top:14px;">
+    <div style="font-size:13.5px;"><b>潜客流程执行 → 系数项（延续）</b>：不再计入 100 分，改为上表"线下检核系数"乘入实发金额。<b style="color:var(--gray)">销售客诉满意度、新保线上出单率为负激励，不参与计分。</b></div>
+    <div class="note"><b>申诉流程：</b>门店收到成绩后 <b>3 个工作日</b>内按零售高级经理提供模板申诉，不接受考核周期内及超期申诉。</div>
+  </div>
+
+  <!-- 五、特殊门店说明 -->
+  <div class="section-title">五、特殊门店说明 <span class="badge badge-new">11 月新增板块</span></div>
+  <div class="card">
+    <div class="insight-grid" style="margin-top:0;">
+      <div class="insight-card" style="box-shadow:none;">
+        <h3>⭐ 六星门店 · 保底第一组</h3>
+        <div style="font-size:13px;">按本月排名享对应级别；若实际不满足各模块激励考核，<b>享保底第一组 1600 元/台</b>。<br><span style="color:var(--gray);font-size:12px;">以《2026年Q3经销商门店综合运营评价结果》为准；当月触发星级降级则按实际项目考核。</span></div>
+      </div>
+      <div class="insight-card" style="box-shadow:none;">
+        <h3>🆕 新验收门店 · 500 元/台</h3>
+        <div style="font-size:13px;">含卫星店 / 社区店，按<b>首次验收当月及次月</b> 500 元/台支持；<b>可申请提前正常参评</b>。</div>
+      </div>
+      <div class="insight-card" style="box-shadow:none;">
+        <h3>🏬 卫星店 / 社区店 · 800 元/台</h3>
+        <div style="font-size:13px;">销量<b>并入关联主店</b>进行支持；<b>未关联主店</b>的卫星店/社区店按 <b>800 元/台</b>支持。</div>
+      </div>
+    </div>
+    <div class="note"><b>年度百万收官战役预告：</b>对年度百万收官战役中有突出贡献的商，将从<b>交付达成率、线下检核系数</b>维度另设激励，具体方案后续另行通知。10月按10月通知考核，11月起按本通知考核。</div>
+  </div>
+
+  <!-- 六、否决项 -->
+  <div class="section-title">六、否决项（4 条） <span class="badge badge-warn">① 改为 11–12 月合并口径</span></div>
+  <div class="card">
+    <div class="veto-item"><div class="veto-num">1</div><div class="veto-text">同城同商 <b>26年11–12月</b> 交付目标达成率 <b>&lt;80%</b> → 取消 <b>11–12月</b>全部零售运营管理激励（双月绑定）。<br><span style="color:var(--gray);font-size:13px">考核车型：D19 / C16 / C10 / C11 / B10 / B01 / Lafa5 / Lafa5 Ultra / A10 / A05 / C01 全系。</span></div></div>
+    <div class="veto-item"><div class="veto-num">2</div><div class="veto-text">违反市场销售指导规范、损害品牌形象 → <b>大区约谈投资人 + 取消</b>零售运营管理激励。</div></div>
+    <div class="veto-item"><div class="veto-num">3</div><div class="veto-text">当月门店在岗人员低于《门店人员管理规范（<b>2026年10月修订版</b>）》基础人员标准 → <b>取消当月全部</b>激励。</div></div>
+    <div class="veto-item"><div class="veto-num">4</div><div class="veto-text">线索 / 试驾 / 到店 / 订单造假、不诚信经营 → <b>全额取消当月</b>激励 + 触发诚信经营风险处置。</div></div>
+  </div>
+
+  <!-- 七、负激励 -->
+  <div class="section-title">七、负激励 <span class="badge badge-keep">标准延续 10 月</span></div>
+  <div class="two-col">
+    <div class="card">
+      <h4 style="font-size:15px;margin-bottom:10px;color:var(--red);">销售客诉满意度</h4>
+      <div class="insight-item"><span>72h 闭环率 &lt;80%</span><span class="insight-value" style="color:var(--red)">每超时单 500 元</span></div>
+      <div class="insight-item"><span>有责溢出（社交平台负面）</span><span class="insight-value" style="color:var(--red)">3000 元/单</span></div>
+      <div class="insight-item"><span>承诺未兑现（赠品/补贴等）</span><span class="insight-value" style="color:var(--red)">3000 元/单</span></div>
+      <div class="insight-item"><span>服务态度类投诉</span><span class="insight-value" style="color:var(--red)">10000 元/单</span></div>
+      <div class="insight-item"><span>D系满意度 &lt;95 分</span><span class="insight-value" style="color:var(--red)">3000 元/店</span></div>
+      <div class="note">门店销售客诉负激励 = 72h 超时工单 + 有责溢出 + 承诺未兑现 + D系满意度 + 服务态度类，五项合计。</div>
+    </div>
+    <div class="card">
+      <h4 style="font-size:15px;margin-bottom:10px;color:var(--orange);">新保线上出单率</h4>
+      <div class="insight-item"><span>目标值</span><span class="insight-value" style="color:var(--teal)">≥50%</span></div>
+      <div class="insight-item"><span>&lt;50% 每偏差 1%</span><span class="insight-value" style="color:var(--orange)">扣 1000 元</span></div>
+      <div class="insight-item"><span>扣罚上限</span><span class="insight-value" style="color:var(--red)">20000 元/店</span></div>
+      <div class="insight-item"><span>核算周期</span><span class="insight-value" style="color:var(--gray)">交付月核算·次月5号</span></div>
+      <div class="note">举例：49% → 扣 1000 元；0% → 封顶 20000 元。分子为官方渠道（APP C端 / 保险系统 B端）投保保单，其他渠道补录不计入。</div>
+    </div>
+  </div>
+
+  <!-- 八、月环比变化 -->
+  <div class="section-title">八、月环比变化（11月 vs 10月） <span>一眼看清本月调整</span></div>
+  <div class="card">
+    <div class="change-item"><span class="change-badge cb-mod">口径</span><div class="change-body"><b>豁免项 / 专项车型：双月合并 → 改回单月。</b><span class="old"> 10月按 26年9–10月 合并达成率判定</span> → <span class="new">11月按 26年11月单月达成率 ≥100% 判定，且 11月目标以 11/5 发布为准。</span></div></div>
+    <div class="change-item"><span class="change-badge cb-mod">口径</span><div class="change-body"><b>否决项①：9–10月 → 11–12月合并。</b><span class="old"> 10月「9–10月 &lt;80% 取消 9–10月激励」</span> → <span class="new">11月「11–12月 &lt;80% 取消 11–12月两个月激励」，绑定年底收官。</span></div></div>
+    <div class="change-item"><span class="change-badge cb-new">新增</span><div class="change-body"><b>特殊门店说明板块。</b><span class="new">六星门店保底第一组 1600 元/台、新验收门店 500 元/台、未关联主店卫星店 800 元/台。</span></div></div>
+    <div class="change-item"><span class="change-badge cb-mod">调整</span><div class="change-body"><b>人员配备模块调整 DCC 考核规则。</b><span class="old"> 10月仅按岗位缺编扣分</span> → <span class="new">11月明确 DCC 专员按上季度月均线索每 850 条配 1 人 × 90% 系数、向上取整；重点岗位须月底前完成认证。</span></div></div>
+    <div class="change-item"><span class="change-badge cb-new">新增</span><div class="change-body"><b>年度百万收官战役激励预告。</b><span class="new">对突出贡献的商，从交付达成率、线下检核系数维度另设激励，方案后续另行通知。</span></div></div>
+    <div class="change-item"><span class="change-badge cb-del">换版</span><div class="change-body"><b>车型专项激励全面改版。</b><span class="old"> 10月：双节返场权益 + Lafa5 专项</span> → <span class="new">11月：C10 / A05 锁单阶梯、2026款 Lafa5、D99 个人红包、限时专项权益、金融返佣 共 6 项。</span></div></div>
+    <div class="change-item"><span class="change-badge cb-keep">延续</span><div class="change-body"><b>不变项：</b><span class="new">排名 5 档金额（1600/1300/800/500/0）、线下检核系数、4 大计分模块结构、负激励标准、10 款对象车型（T03 继续出局）。</span></div></div>
+  </div>
+
+  <!-- 九、11月专项激励 -->
+  <div class="section-title">九、11月专项激励（6 项） <span>★ 按资金流向分组 · 全部 11/1–11/30 有效</span></div>
+
+  <!-- 组1：门店返利（阶梯 + 定额） -->
+  <div class="spec-group">
+    <div class="spec-group-head"><h3>① 车型专项激励 · 按锁单达成率阶梯</h3><span class="flow-tag flow-b">兑付：交付门店返利账户（B端）</span></div>
+    <div class="spec-card">
+      <div class="spec-head">
+        <h4>📊 C10 全系 / A05 全系 · 双车系阶梯激励</h4>
+        <div class="spec-date">11/1 00:00 – 11/30 24:00 锁单</div>
+      </div>
+      <div class="spec-sub">按 <b>11月锁单任务达成率</b> 分档，对 <b>11月交付</b> 的对应车型按档位兑付（返利形式 → 交付门店）。两车系<b>独立考核</b>，金额不同。</div>
+      <table class="ladder">
+        <tr><th>11月锁单任务达成率</th><th class="hl">C10 交付激励（元/台）</th><th class="hl">A05 交付激励（元/台）</th></tr>
+        <tr><td class="rate">&lt; 80%</td><td class="c10">0</td><td class="a05">0</td></tr>
+        <tr><td class="rate">【80% – 100%)</td><td class="c10">200</td><td class="a05">500</td></tr>
+        <tr><td class="rate">【100% – 120%)</td><td class="c10">400</td><td class="a05">1000</td></tr>
+        <tr class="hi"><td class="rate">≥ 120%</td><td class="c10">800</td><td class="a05">2000</td></tr>
+      </table>
+      <div class="note">
+        <b>共同口径（务必对齐）：</b>① 完成率 = 11月锁单且最终交付的该车型订单数 ÷ 11月该车型锁单目标；分子取<b>锁单 11/1–11/30 且交付 11/1–12/31</b>、最终交付车系需为对应车型，<b>2027/1/1 取数，未交付视为退订</b>；② 重复订单不计入分子；③ <b>按同城 + 同实际控制人合并为同一销售单元</b>（不允许跨城合并），杜绝集团内挪单；④ <b>开关项：同城同实控人该车型 11月交付目标达成率需 ≥80%</b>，未达标整单元不享受；⑤ 2027/1/1 核算兑付；⑥ 虚假锁单/销售一经发现，取消同一销售单元资格。
+      </div>
+    </div>
+  </div>
+
+  <div class="spec-group">
+    <div class="spec-group-head"><h3>② 车型专项激励 · 定额（按交付台数）</h3><span class="flow-tag flow-b">兑付：交付经销商返利账户（B端）</span></div>
+    <div class="spec-card">
+      <div class="fixed-grid">
+        <div class="fixed-item">
+          <div class="top"><div class="models">2026款 Lafa5（含 Ultra）</div><span class="spec-date">2026年12月兑付</span></div>
+          <div class="amt">2,000 <span class="amt-unit">元/台</span></div>
+          <div class="kv"><b>兑付条件：</b>11/1 00:00 – 11/30 24:00 完成交付的车辆。<br>
+          <b>适用对象：</b>已开通零小跑但<b>尚未验收通过</b>的门店，自验收通过之后开始返还销售返利。<br>
+          <b>兑现：</b>交付次月（12月）以返利形式兑付至交付经销商返利账户；政策期内重复交付只享一次；作假追溯回收。</div>
+        </div>
+        <div class="fixed-item" style="background:#FFFBF2; border-color:#F3E2B8;">
+          <div class="top"><div class="models">D99 全系 · 门店个人"现金红包"</div><span class="flow-tag flow-p">发给个人 👤</span></div>
+          <div class="amt gold">1,500 <span class="amt-unit">元京东卡 / 台</span></div>
+          <div class="kv"><b>激励对象：</b><b>门店体验工程师</b>（以零小跑系统在岗为准），非经销商门店！<br>
+          <b>条件：</b>11/1–11/30 下定 且 <b>12/31 24:00 前交付</b>；官方渠道下定 + 支付 <b>5000 元定金</b>且最终交付。<br>
+          <b>发放：</b>2027年1月以京东卡发至体验工程师个人；<b style="color:var(--red)">重复下单不享受</b>；作假回收已兑现激励。<br>
+          <b>范围：</b>已开通销服的经销商。</div>
+        </div>
+      </div>
+      <div class="note">⚠️ <b>易混淆点：</b>D99 的 1500 元是<b>发给体验工程师个人的京东卡</b>（个人激励），而 Lafa5 的 2000 元是<b>兑付到经销商返利账户</b>；两者对象、形式、发放时间完全不同。</div>
+    </div>
+  </div>
+
+  <!-- 组3：C端权益 -->
+  <div class="spec-group">
+    <div class="spec-group-head"><h3>③ 11月限时专项权益</h3><span class="flow-tag flow-c">发放：购车人零跑 App 账户（C端）</span></div>
+    <div class="spec-card">
+      <div class="spec-head">
+        <h4>🎁 限时专项权益 / "敢上场"基金</h4>
+        <div class="spec-date">11/1 00:00 – 11/30 24:00 下定并交付</div>
+      </div>
+      <div class="spec-sub"><b>适用车型：</b>27款 C10、27款 C11、27款 C16、26款 Lafa5、26款 Lafa5 Ultra、D19。<br>
+      <b>订单类型：</b>C端订单、经销商端大客户订单和集客订单（<b>不含</b>大客户直销订单、试驾车订单）。</div>
+      <div class="fixed-grid">
+        <div class="fixed-item">
+          <div class="models">27款 C10 / C11 / C16 全系<br>D19 全系</div>
+          <div class="amt">1,500 <span class="amt-unit">元/台</span></div>
+          <span class="flow-tag flow-c">限时专项权益 · 尾款抵扣券</span>
+        </div>
+        <div class="fixed-item">
+          <div class="models">26款 Lafa5 全系（含 Ultra）</div>
+          <div class="amt">2,000 <span class="amt-unit">元/台</span></div>
+          <span class="flow-tag flow-c">"敢上场"基金 · 尾款抵扣券</span>
+        </div>
+      </div>
+      <div class="note">以<b>尾款抵扣券</b>形式发放至购车人零跑 App 账户；可与《2026年11月 BC 端销售政策》中 <b>C端政策叠加享受</b>。<br>
+      <b style="color:var(--red)">对比 10月：</b>双节返场权益的 <b>1000 元档（27款 B01/B10）取消</b>、D99 不再列入本权益（改走个人红包），本月收缩为 1500 / 2000 两档。</div>
+    </div>
+  </div>
+
+  <!-- 组4：金融返佣 -->
+  <div class="spec-group">
+    <div class="spec-group-head"><h3>④ 11月金融返佣政策调整</h3><span class="flow-tag flow-f">结算：门店返利账户（次月）</span></div>
+    <div class="spec-card">
+      <div class="spec-head">
+        <h4>💰 金融返佣比例与结算调整</h4>
+        <div class="spec-date">11/1 起至下一次政策通知时止</div>
+      </div>
+      <div class="two-col" style="gap:18px;">
+        <div>
+          <div style="font-weight:800;font-size:13.5px;margin-bottom:8px;">合作金融机构</div>
+          <div class="bank-line"><b>0息 / 低息 / 低首付方案：</b>农业、平安、浦发、建设、工商、中信 银行</div>
+          <div class="bank-line"><b>阶梯特惠方案（5免2）：</b>浦发、农业、<span class="bank-new">建设银行（新增银行）</span></div>
+          <div class="bank-line" style="color:var(--gray);font-size:12px;">新增机构方案上线视银行内部流程批复及协议审核进度为准，详见零跑 App。</div>
+          <div class="formula-box">
+            <b>返佣计算公式</b><br>
+            低息/低首付：返佣金额 =（用户贷款金额 − 当期免息贷款上限）× 返佣比例<br>
+            阶梯特惠（5免2）：返佣金额 = 用户贷款金额 × 返佣比例
+          </div>
+        </div>
+        <div>
+          <div style="font-weight:800;font-size:13.5px;margin-bottom:8px;">返佣比例（按贷款期数）</div>
+          <table class="fin-table">
+            <tr><th>贷款期数</th><th>低息/低首付方案</th><th>阶梯特惠（5免2）</th></tr>
+            <tr><td class="period">12 / 18 / 24 期</td><td>—</td><td class="merge" rowspan="4"><span class="r-red">1.40%</span> <span style="color:#999;font-size:11px;">(红标)</span><br><span class="r-green">1.50%</span> <span style="color:#999;font-size:11px;">(绿标)</span><br><span style="font-size:11px;color:#8a6d1a;">不分期数，全档适用</span></td></tr>
+            <tr><td class="period">36 期</td><td>3.00%</td></tr>
+            <tr><td class="period">48 期</td><td>4.00%</td></tr>
+            <tr><td class="period">60 期</td><td>5.00%</td></tr>
+          </table>
+          <div style="font-size:11.5px;color:var(--gray);margin-top:6px;">* 阶梯特惠列 1.40%（红）/ 1.50%（绿）为通知原文双色标注，具体适用以零跑 App 公布方案为准。</div>
+        </div>
+      </div>
+      <div class="note">
+        <b>新老划断：</b>银行端金融申请时间在 <b>11/1 起</b>的总合作方案按新标准结算；<b>10/31（含）及之前</b>申请成功（待放款）订单按之前返佣标准正常办理结算。<b>适用车系：全车系在售</b>（A05/A10/B01/B10/Lafa5/Lafa5 Ultra/26&amp;27款C10·C11·C16/D19/D99/C01/T03）。<br>
+        <b>备注：</b>① 低息/低首付方案如贷款金额 ≤ 当期免息贷款上限 → 无返佣；② 免息方案无返佣；③ 兑付方式为本月业务次月结算。<b>结算路径：</b>政策期内下定并完成最终放款的订单，零跑次月与总对总资方核对及贴息款结算后，将金融返佣结算至<b>门店返利账户</b>。
+      </div>
+    </div>
+  </div>
+
+  <!-- 关键结论 -->
+  <div class="section-title">关键结论</div>
+  <div class="insight-grid">
+    <div class="insight-card">
+      <h3>🔴 本月最大变化</h3>
+      <div class="insight-item"><span>豁免/专项口径</span><span class="insight-value" style="color:var(--orange)">双月合并 → 单月</span></div>
+      <div class="insight-item"><span>否决项①</span><span class="insight-value" style="color:var(--red)">11–12月 双月绑定</span></div>
+      <div class="insight-item"><span>人员配备</span><span class="insight-value" style="color:var(--red)">DCC 量化到岗</span></div>
+      <div class="insight-item"><span>特殊门店</span><span class="insight-value" style="color:var(--green)">新增保底/新验收规则</span></div>
+    </div>
+    <div class="insight-card">
+      <h3>⚠️ 必守红线</h3>
+      <div class="insight-item"><span>11–12月达成率</span><span class="insight-value" style="color:var(--red)">&lt;80% 取消两月</span></div>
+      <div class="insight-item"><span>线下检核后30%</span><span class="insight-value" style="color:var(--red)">实发归零·不可豁免</span></div>
+      <div class="insight-item"><span>人员基础标准</span><span class="insight-value" style="color:var(--red)">取消当月全部</span></div>
+      <div class="insight-item"><span>数据造假</span><span class="insight-value" style="color:var(--red)">全额+诚信风险</span></div>
+    </div>
+    <div class="insight-card">
+      <h3>🚗 6 项专项激励速记</h3>
+      <div class="insight-item"><span>C10 / A05 阶梯</span><span class="insight-value" style="color:var(--blue)">最高 800 / 2000</span></div>
+      <div class="insight-item"><span>2026款 Lafa5</span><span class="insight-value" style="color:var(--purple)">2000 元/台（12月返利）</span></div>
+      <div class="insight-item"><span>D99 个人红包</span><span class="insight-value" style="color:#B76E00">1500 京东卡/台（个人）</span></div>
+      <div class="insight-item"><span>限时权益 + 金融</span><span class="insight-value" style="color:var(--teal)">1500/2000 · 建行新增</span></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    零跑汽车华南大区 · 2026年11月商政看板 · 数据源自《2026年11月零售运营管理激励政策的通知02》及 11月 D99个人红包 / 金融返佣调整 / 2026款Lafa5 / C10 / A05 / 限时专项权益 共 6 份专项通知（2026/11/1 发布）<br>
+    与主政策同为 11/1–11/30 有效；C10/A05 阶梯与 D99 红包的实际核算取数延至 2027/1/1，兑付分别至门店返利账户 / 体验工程师个人。具体以政策原文及零跑 App 公布为准。
+  </div>
+</div>
+
+</body>
+</html>
