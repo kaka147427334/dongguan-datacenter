@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>零跑汽车 2026年11月商务政策 · 知识测试20题</title>
+<style>
+  :root {
+    --bg: #F2F5F8;
+    --card-bg: #FFFFFF;
+    --dark: #0A1F2E;
+    --teal: #00A4A6;
+    --teal15: #E0F5F5;
+    --orange: #FF6B2C;
+    --orange15: #FFF0E8;
+    --gold: #F5A623;
+    --gold15: #FFF8E8;
+    --red: #E8392B;
+    --red15: #FDECEA;
+    --blue: #2B6CB0;
+    --blue15: #E8F0F8;
+    --green: #0EA55F;
+    --green15: #E5F6EC;
+    --border: #E2E8F0;
+    --text: #1E293B;
+    --text2: #64748B;
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: var(--bg); color: var(--text); line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 760px; margin: 0 auto; padding: 0 20px 40px; }
+
+  .hero {
+    background: linear-gradient(135deg, #0A1F2E 0%, #0D2E3F 55%, #00A4A6 130%);
+    color: white; padding: 36px 0 28px; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content:''; position:absolute; top:-30%; right:-10%;
+    width:360px; height:360px;
+    background: radial-gradient(circle, rgba(255,107,44,0.1) 0%, transparent 70%);
+    border-radius:50%;
+  }
+  .hero-inner { position:relative; z-index:1; max-width:760px; margin:0 auto; padding:0 20px; }
+  .hero-badge {
+    display:inline-block; background:rgba(255,255,255,0.15); backdrop-filter:blur(10px);
+    padding:4px 14px; border-radius:20px; font-size:12px; margin-bottom:10px;
+  }
+  .hero h1 { font-size:22px; font-weight:900; }
+  .hero .sub { font-size:13px; opacity:0.8; margin-top:4px; }
+
+  .score-bar {
+    position: sticky; top: 0; z-index: 100;
+    background: white; border-bottom: 1.5px solid var(--border);
+    padding: 10px 20px; box-shadow: var(--shadow-md);
+    display: flex; align-items: center; justify-content: center; gap: 14px;
+    max-width: 760px; margin: 0 auto;
+  }
+  .score-text { font-size: 14px; font-weight: 700; color: var(--dark); }
+  .score-num { font-size: 20px; font-weight: 900; color: var(--teal); }
+  .score-total { font-size: 14px; color: var(--text2); }
+  .score-bar .btn {
+    background: var(--orange); color: white; border: none;
+    padding: 6px 18px; border-radius: 8px; font-size: 13px; font-weight: 700;
+    cursor: pointer; transition: all 0.2s;
+  }
+  .score-bar .btn:hover { background: #E55A1A; transform: translateY(-1px); }
+  .score-bar .btn:disabled { background: var(--text2); cursor: not-allowed; transform:none; }
+
+  .btn-big {
+    background: linear-gradient(135deg, var(--teal), #0EA5E9);
+    color: white; border: none; border-radius: 12px;
+    padding: 16px 40px; font-size: 17px; font-weight: 800;
+    cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 14px rgba(0,164,166,0.35);
+  }
+  .btn-big:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,164,166,0.45); }
+  .btn-big:active { transform: translateY(0); }
+
+  .q-card {
+    background: white; border-radius: 12px; padding: 20px 24px;
+    box-shadow: var(--shadow-md); margin-top: 16px; border: 1px solid var(--border);
+    transition: border-color 0.3s;
+  }
+  .q-card.correct { border: 2px solid var(--green); }
+  .q-card.wrong { border: 2px solid var(--red); }
+  .q-head { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 14px; }
+  .q-num {
+    background: var(--dark); color: white;
+    width: 28px; height: 28px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700; flex-shrink: 0;
+  }
+  .q-title { font-size: 15px; font-weight: 600; line-height: 1.6; }
+  .q-type {
+    font-size: 10px; padding: 1px 8px; border-radius: 4px; font-weight: 700;
+    margin-left: 6px; vertical-align: middle;
+  }
+  .q-type-choice { background: var(--teal15); color: var(--teal); }
+  .q-type-judge { background: var(--blue15); color: var(--blue); }
+
+  .opt-list { display: flex; flex-direction: column; gap: 8px; }
+  .opt {
+    display: flex; align-items: center; gap: 10px;
+    border: 1.5px solid var(--border); border-radius: 8px;
+    padding: 10px 14px; cursor: pointer; transition: all 0.2s;
+    font-size: 14px;
+  }
+  .opt:hover { border-color: var(--teal); background: var(--teal15); }
+  .opt.selected { border-color: var(--blue); background: var(--blue15); }
+  .opt.correct-opt { border-color: var(--green); background: var(--green15); }
+  .opt.wrong-opt { border-color: var(--red); background: var(--red15); }
+  .opt input[type=radio] { width: 18px; height: 18px; accent-color: var(--blue); flex-shrink: 0; }
+  .opt-label { flex: 1; }
+
+  .explain {
+    margin-top: 12px; padding: 12px 16px; border-radius: 8px;
+    font-size: 13px; line-height: 1.7; display: none;
+  }
+  .explain.show { display: block; }
+  .explain.correct-explain { background: var(--green15); border-left: 4px solid var(--green); }
+  .explain.wrong-explain { background: var(--red15); border-left: 4px solid var(--red); }
+  .explain-tag { font-weight: 700; font-size: 12px; margin-bottom: 4px; }
+
+  .section-tag {
+    margin-top: 22px; padding: 10px 14px; border-radius: 8px;
+    font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 8px;
+  }
+  .section-tag-choice { background: var(--teal15); color: var(--teal); }
+  .section-tag-judge { background: var(--blue15); color: var(--blue); }
+
+  .result-banner {
+    margin-top: 24px; border-radius: 14px; padding: 28px;
+    text-align: center; display: none;
+  }
+  .result-banner.show { display: block; }
+  .result-banner .score-big { font-size: 44px; font-weight: 900; letter-spacing: -1px; }
+  .result-banner .score-label { font-size: 15px; margin-top: 6px; font-weight: 700; }
+  .result-banner .score-detail { margin-top:10px; font-size: 13px; color: var(--text2); }
+  .result-banner.pass { background: linear-gradient(135deg, var(--green15), #C8F0D8); border: 2px solid var(--green); }
+  .result-banner.pass .score-big { color: var(--green); }
+  .result-banner.mid { background: linear-gradient(135deg, var(--gold15), #FFE9B8); border: 2px solid var(--gold); }
+  .result-banner.mid .score-big { color: #C07B00; }
+  .result-banner.fail { background: linear-gradient(135deg, var(--blue15), #D9E8F7); border: 2px solid var(--blue); }
+  .result-banner.fail .score-big { color: var(--blue); }
+
+  /* 情绪价值 · 鼓励语卡片 */
+  .warm-card {
+    margin-top: 16px; border-radius: 14px; padding: 22px 24px;
+    background: linear-gradient(135deg, #FFFFFF 0%, #FFF8F3 100%);
+    border: 1.5px solid #F6D9C6; box-shadow: var(--shadow-md); display: none;
+  }
+  .warm-card.show { display: block; }
+  .warm-head {
+    display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    font-size: 15px; font-weight: 800; color: var(--dark); margin-bottom: 14px; flex-wrap: wrap;
+  }
+  .warm-head .warm-title { display: flex; align-items: center; gap: 8px; }
+  .warm-btn {
+    background: white; color: var(--orange); border: 1.5px solid var(--orange);
+    padding: 5px 14px; border-radius: 20px; font-size: 12px; font-weight: 700;
+    cursor: pointer; transition: all .2s; white-space: nowrap;
+  }
+  .warm-btn:hover { background: var(--orange15); transform: translateY(-1px); }
+  .warm-list { display: flex; flex-direction: column; gap: 10px; }
+  .warm-item {
+    display: flex; gap: 10px; align-items: flex-start;
+    background: white; border-radius: 10px; padding: 12px 14px;
+    font-size: 13.5px; line-height: 1.7; color: var(--text);
+    border-left: 3px solid var(--orange);
+    animation: warmIn .45s ease both;
+  }
+  .warm-item:nth-child(2) { animation-delay: .12s; border-left-color: var(--teal); }
+  .warm-item:nth-child(3) { animation-delay: .24s; border-left-color: var(--gold); }
+  .warm-item:nth-child(4) { animation-delay: .36s; border-left-color: var(--green); }
+  .warm-item .wi { font-size: 15px; flex-shrink: 0; }
+  @keyframes warmIn { from { opacity:0; transform: translateY(8px); } to { opacity:1; transform: translateY(0); } }
+  .warm-foot { margin-top: 14px; font-size: 12.5px; color: var(--text2); text-align: center; line-height: 1.7; }
+
+  .restart-wrap { text-align:center; margin: 22px 0 6px; }
+  .restart-btn {
+    background: white; color: var(--dark); border: 1.5px solid var(--border);
+    padding: 9px 22px; border-radius: 10px; font-size: 13px; font-weight: 700; cursor: pointer;
+  }
+  .restart-btn:hover { border-color: var(--teal); color: var(--teal); }
+
+  /* 彩带 */
+  .confetti { position: fixed; inset: 0; pointer-events: none; z-index: 200; overflow: hidden; }
+  .confetti i {
+    position: absolute; top: -14px; width: 8px; height: 14px; border-radius: 2px;
+    animation: fall linear forwards;
+  }
+  @keyframes fall {
+    0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(105vh) rotate(720deg); opacity: .2; }
+  }
+
+  .footer { text-align: center; padding: 20px; font-size: 12px; color: var(--text2); line-height: 1.8; }
+
+  @media (max-width: 600px) {
+    .hero { padding: 26px 0 22px; }
+    .hero h1 { font-size: 19px; }
+    .hero .sub { font-size: 12px; }
+    .score-bar { gap: 8px; padding: 9px 12px; }
+    .score-bar .btn { padding: 6px 12px; font-size: 12px; }
+    .q-card { padding: 16px; }
+    .q-title { font-size: 14px; }
+    .opt { font-size: 13.5px; padding: 9px 12px; }
+    .btn-big { width: 100%; padding: 15px 10px; font-size: 16px; }
+    .result-banner { padding: 22px 14px; }
+    .warm-card { padding: 18px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">华南大区 · 培训考核</div>
+    <h1>2026年11月商务政策 · 知识测试</h1>
+    <div class="sub">排名激励 · 检核系数 · 计分与否决 · 特殊门店 · 负激励 · 6 项专项激励</div>
+  </div>
+</div>
+
+<div class="score-bar">
+  <span class="score-text">已得分</span>
+  <span class="score-num" id="scoreNum">0</span>
+  <span class="score-total">/ 100</span>
+  <button class="btn" id="showResultBtn" onclick="submitAll()">提交并查看成绩</button>
+</div>
+
+<div class="container">
+
+  <!-- ========== 选择题 ========== -->
+  <div class="section-tag section-tag-choice">📘 一、单项选择题（10题 × 5分 = 50分）</div>
+
+  <div class="q-card" id="q1">
+    <div class="q-head"><div class="q-num">1</div>
+      <div class="q-title">11月零售运营管理激励中，排名第一组（前20%）门店的单台激励金额是？<span class="q-type q-type-choice">选择题</span></div></div>
+    <div class="opt-list">
+      <label class="opt" onclick="selectOpt(this,'q1')"><input type="radio" name="q1" value="A"><span class="opt-label">A. 800 元/台</span></label>
+      <label class="opt" onclick="selectOpt(this,'q1')"><input type="radio" name="q1" value="B"><span class="opt-label">B. 1300 元/台</span></label>
+      <label class="opt" onclick="selectOpt(this,'q1')"><input type="radio" name="q1" value="C"><span class="opt-label">C. 1600 元/台</span></label>
+      <label class="opt" onclick="selectOpt(this,'q1')"><input type="radio" name="q1" value="D"><span class="opt-label">D. 2000 元/台</span></label>
+    </div>
+    <div class="explain" id="explain1"></div>
+  </div>
+
+  <div class="q-card" id="q2">
+    <div class="q-head"><div class="q-num">2</div>
+      <div class="q-title">按潜客流程执行得分全国排名，线下检核系数中"后30%"门店的系数是多少？<span class="q-type q-type-choice">选择题</span></div></div>
+    <div class="opt-list">
+      <label class="opt" onclick="selectOpt(this,'q2')"><input type="radio" name="q2" value="A"><span class="opt-label">A. 1.0</span></label>
+      <label class="opt" onclick="selectOpt(this,'q2')"><input type="radio" name="q2" value="B"><span class="opt-label">B. 0.8</span></label>
+      <label class="opt" onclick="selectOpt(this,'q2')"><input type="radio" name="q2" value="C"><span class="opt-label">C. 0.5</span></label>
+      <label class="opt" onclick="selectOpt(this,'q2')"><input type="radio" name="q2" value="D"><span class="opt-label">D. 0</span></label>
+    </div>
+    <div class="explain" id="explain2"></div>
+  </div>
+
+  <div class="q-card" id="q3">
+    <div class="q-head"><div class="q-num">3</div>
+      <div class="q-title">11月豁免项（保底1600元/台）的达成率判定口径是？<span class="q-type q-type-choice">选择题</span></div></div>
+    <div class="opt-list">
+      <label class="opt" onclick="selectOpt(this,'q3')"><input type="radio" name="q3" value="A"><span class="opt-label">A. 26年9–10月双月合并达成率 ≥100%</span></label>
+      <label class="opt" onclick="selectOpt(this,'q3')"><input type="radio" name="q3" value="B"><span class="opt-label">B. 26年11月单月达成率 ≥100%</span></label>
+      <label class="opt" onclick="selectOpt(this,'q3')"><input type="radio" name="q3" value="C"><span class="opt-label">C. 26年11–12月合并达成率 ≥80%</span></label>
+      <label class="opt" onclick="selectOpt(this,'q3')"><input type="radio" name="q3" value="D"><span class="opt-label">D. 26年10月单月达成率 ≥100%</span></label>
+    </div>
+    <div class="explain" id="explain3"></div>
+  </div>
+
+  <div class="q-card" id="q4">
+    <div class="q-head"><div class="q-num">4</div>
+      <div class="q-title">11月否决项①：同城同商26年11–12月交付目标达成率低于多少，将取消11–12月全部零售运营管理激励？<span class="q-type q-type-choice">选择题</span></div></div>
+    <div class="opt-list">
+      <label class="opt" onclick="selectOpt(this,'q4')"><input type="radio" name="q4" value="A"><span class="opt-label">A. 80%</span></label>
+      <label class="opt" onclick="selectOpt(this,'q4')"><input type="radio" name="q4" value="B"><span class="opt-label">B. 75%</span></label>
+      <label class="opt" onclick="selectOpt(this,'q4')"><input type="radio" name="q4" value="C"><span class="opt-label">C. 85%</span></label>
+      <label class="opt" onclick="selectOpt(this,'q4')"><input type="radio" name="q4" value="D"><span class="opt-label">D. 90%</span></label>
+    </div>
+    <div class="explain" id="explain4"></div>
+  </div>
+
+  <div class="q-card" id="q5">
+    <div class="q-head"><div class="q-num">5</div>
+      <div class="q-title">月度计分标准满分100分，其中"潜客到店率"与"到店交付率"两个模块合计多少分？<span class="q-type q-type-choice">选择题</span></div></div>
+    <div class="opt-list">
+      <label class="opt" onclick="selectOpt(this,'q5')"><input type="radio" name="q5" value="A"><span class="opt-label">A. 40 分</span></label>
+      <label class="opt" onclick="selectOpt(this,'q5')"><input type="radio" name="q5" value="B"><span class="opt-label">B. 50 分</span></label>
+      <label class="opt" onclick="selectOpt(this,'q5')"><input type="radio" name="q5" value="C"><span class="opt-label">C. 60 分</span></label>
+      <label class="opt" onclick="selectOpt(this,'q5')"><input type="radio" name="q5" value="D"><span class="opt-label">D. 70 分</span></label>
+    </div>
+    <div class="explain" id="explain5"></div>
+  </div>
+
+  <div class="q-card" id="q6">
+    <div class="q-head"><div class="q-num">6</div>
+      <div class="q-title">11月人员配备模块新增DCC专员量化规则：按上季度月均线索每多少条配1人（×90%系数、向上取整）？<span class="q-type q-type-choice">选择题</span></div></div>
+    <div class="opt-list">
+      <label class="opt" onclick="selectOpt(this,'q6')"><input type="radio" name="q6" value="A"><span class="opt-label">A. 850 条</span></label>
+      <label class="opt" onclick="selectOpt(this,'q6')"><input type="radio" name="q6" value="B"><span class="opt-label">B. 500 条</span></label>
+      <label class="opt" onclick="selectOpt(this,'q6')"><input type="radio" name="q6" value="C"><span class="opt-label">C. 650 条</span></label>
+      <label class="opt" onclick="selectOpt(this,'q6')"><input type="radio" name="q6" value="D"><span class="opt-label">D. 1000 条</span></label>
+    </div>
+    <div class="explain" id="explain6"></div>
+  </div>
+
+  <div class="q-card" id="q7">
+    <div class="q-head"><div class="q-num">7</div>
+      <div class="q-title">11月新增"特殊门店说明"中，未关联主店的卫星店/社区店按多少元/台支持？<span class="q-type q-type-choice">选择题</span></div></div>
+    <div class="opt-list">
+      <label class="opt" onclick="selectOpt(this,'q7')"><input type="radio" name="q7" value="A"><span class="opt-label">A. 500 元/台</span></label>
+      <label class="opt" onclick="selectOpt(this,'q7')"><input type="radio" name="q7" value="B"><span class="opt-label">B. 800 元/台</span></label>
+      <label class="opt" onclick="selectOpt(this,'q7')"><input type="radio" name="q7" value="C"><span class="opt-label">C. 1300 元/台</span></label>
+      <label class="opt" onclick="selectOpt(this,'q7')"><input type="radio" name="q7" value="D"><span class="opt-label">D. 1600 元/台</span></label>
+    </div>
+    <div class="explain" id="explain7"></div>
+  </div>
+
+  <div class="q-card" id="q8">
+    <div class="q-head"><div class="q-num">8</div>
+      <div class="q-title">C10全系/A05全系阶梯激励中，11月锁单任务达成率 ≥120% 时，A05的交付激励是？<span class="q-type q-type-choice">选择题</span></div></div>
+    <div class="opt-list">
+      <label class="opt" onclick="selectOpt(this,'q8')"><input type="radio" name="q8" value="A"><span class="opt-label">A. 800 元/台</span></label>
+      <label class="opt" onclick="selectOpt(this,'q8')"><input type="radio" name="q8" value="B"><span class="opt-label">B. 1000 元/台</span></label>
+      <label class="opt" onclick="selectOpt(this,'q8')"><input type="radio" name="q8" value="C"><span class="opt-label">C. 1500 元/台</span></label>
+      <label class="opt" onclick="selectOpt(this,'q8')"><input type="radio" name="q8" value="D"><span class="opt-label">D. 2000 元/台</span></label>
+    </div>
+    <div class="explain" id="explain8"></div>
+  </div>
+
+  <div class="q-card" id="q9">
+    <div class="q-head"><div class="q-num">9</div>
+      <div class="q-title">D99全系"门店个人现金红包"1500元京东卡/台的激励对象是？<span class="q-type q-type-choice">选择题</span></div></div>
+    <div class="opt-list">
+      <label class="opt" onclick="selectOpt(this,'q9')"><input type="radio" name="q9" value="A"><span class="opt-label">A. 经销商门店（返利账户）</span></label>
+      <label class="opt" onclick="selectOpt(this,'q9')"><input type="radio" name="q9" value="B"><span class="opt-label">B. 购车客户（零跑App账户）</span></label>
+      <label class="opt" onclick="selectOpt(this,'q9')"><input type="radio" name="q9" value="C"><span class="opt-label">C. 门店体验工程师个人</span></label>
+      <label class="opt" onclick="selectOpt(this,'q9')"><input type="radio" name="q9" value="D"><span class="opt-label">D. 交付中心</span></label>
+    </div>
+    <div class="explain" id="explain9"></div>
+  </div>
+
+  <div class="q-card" id="q10">
+    <div class="q-head"><div class="q-num">10</div>
+      <div class="q-title">11月金融返佣政策中，"阶梯特惠（5免2）"方案新增的合作银行是？<span class="q-type q-type-choice">选择题</span></div></div>
+    <div class="opt-list">
+      <label class="opt" onclick="selectOpt(this,'q10')"><input type="radio" name="q10" value="A"><span class="opt-label">A. 农业银行</span></label>
+      <label class="opt" onclick="selectOpt(this,'q10')"><input type="radio" name="q10" value="B"><span class="opt-label">B. 平安银行</span></label>
+      <label class="opt" onclick="selectOpt(this,'q10')"><input type="radio" name="q10" value="C"><span class="opt-label">C. 浦发银行</span></label>
+      <label class="opt" onclick="selectOpt(this,'q10')"><input type="radio" name="q10" value="D"><span class="opt-label">D. 建设银行</span></label>
+    </div>
+    <div class="explain" id="explain10"></div>
+  </div>
+
+  <!-- ========== 判断题 ========== -->
+  <div class="section-tag section-tag-judge">⚖️ 二、判断题（10题 × 5分 = 50分）</div>
+
+  <div class="q-card" id="j1">
+    <div class="q-head"><div class="q-num">11</div>
+      <div class="q-title">11月限时专项权益中，27款C10/C11/C16与D19为1500元/台、26款Lafa5全系为2000元/台，均以尾款抵扣券形式发放至购车人零跑App账户。<span class="q-type q-type-judge">判断题</span></div></div>
+    <div class="opt-list">
+      <label class="opt" onclick="selectOpt(this,'j1')"><input type="radio" name="j1" value="A"><span class="opt-label">A. 正确</span></label>
+      <label class="opt" onclick="selectOpt(this,'j1')"><input type="radio" name="j1" value="B"><span class="opt-label">B. 错误</span></label>
+    </div>
+    <div class="explain" id="explain11"></div>
+  </div>
+
+  <div class="q-card" id="j2">
+    <div class="q-head"><div class="q-num">12</div>
+      <div class="q-title">2026款Lafa5的2000元/台与D99的1500元，都是兑付到经销商返利账户，只是车型和金额不同。<span class="q-type q-type-judge">判断题</span></div></div>
+    <div class="opt-list">
+      <label class="opt" onclick="selectOpt(this,'j2')"><input type="radio" name="j2" value="A"><span class="opt-label">A. 正确</span></label>
+      <label class="opt" onclick="selectOpt(this,'j2')"><input type="radio" name="j2" value="B"><span class="opt-label">B. 错误</span></label>
+    </div>
+    <div class="explain" id="explain12"></div>
+  </div>
+
+  <div class="q-card" id="j3">
+    <div class="q-head"><div class="q-num">13</div>
+      <div class="q-title">新保线上出单率负激励目标值为 ≥50%，低于50%时每偏差1%扣1000元，单店扣罚上限20000元。<span class="q-type q-type-judge">判断题</span></div></div>
+    <div class="opt-list">
+      <label class="opt" onclick="selectOpt(this,'j3')"><input type="radio" name="j3" value="A"><span class="opt-label">A. 正确</span></label>
+      <label class="opt" onclick="selectOpt(this,'j3')"><input type="radio" name="j3" value="B"><span class="opt-label">B. 错误</span></label>
+    </div>
+    <div class="explain" id="explain13"></div>
+  </div>
+
+  <div class="q-card" id="j4">
+    <div class="q-head"><div class="q-num">14</div>
+      <div class="q-title">门店达成豁免项（保底1600元/台）后，可同时豁免销售客诉满意度负激励和线下检核系数。<span class="q-type q-type-judge">判断题</span></div></div>
+    <div class="opt-list">
+      <label class="opt" onclick="selectOpt(this,'j4')"><input type="radio" name="j4" value="A"><span class="opt-label">A. 正确</span></label>
+      <label class="opt" onclick="selectOpt(this,'j4')"><input type="radio" name="j4" value="B"><span class="opt-label">B. 错误</span></label>
+    </div>
+    <div class="explain" id="explain14"></div>
+  </div>
+
+  <div class="q-card" id="j5">
+    <div class="q-head"><div class="q-num">15</div>
+      <div class="q-title">A系车型（A10/A05）不享受零售运营激励，因此也不纳入本通知的达成率考核。<span class="q-type q-type-judge">判断题</span></div></div>
+    <div class="opt-list">
+      <label class="opt" onclick="selectOpt(this,'j5')"><input type="radio" name="j5" value="A"><span class="opt-label">A. 正确</span></label>
+      <label class="opt" onclick="selectOpt(this,'j5')"><input type="radio" name="j5" value="B"><span class="opt-label">B. 错误</span></label>
+    </div>
+    <div class="explain" id="explain15"></div>
+  </div>
+
+  <div class="q-card" id="j6">
+    <div class="q-head"><div class="q-num">16</div>
+      <div class="q-title">专项车型政策（+200元/台）要求：同城同商11月A10/A05/B10/C10全系合并达成 ≥100%，且门店11月交付目标达成 ≥100%。<span class="q-type q-type-judge">判断题</span></div></div>
+    <div class="opt-list">
+      <label class="opt" onclick="selectOpt(this,'j6')"><input type="radio" name="j6" value="A"><span class="opt-label">A. 正确</span></label>
+      <label class="opt" onclick="selectOpt(this,'j6')"><input type="radio" name="j6" value="B"><span class="opt-label">B. 错误</span></label>
+    </div>
+    <div class="explain" id="explain16"></div>
+  </div>
+
+  <div class="q-card" id="j7">
+    <div class="q-head"><div class="q-num">17</div>
+      <div class="q-title">金融返佣新老划断以银行端申请时间为准，10/31（含）及之前申请成功的待放款订单，11月起统一按新返佣标准结算。<span class="q-type q-type-judge">判断题</span></div></div>
+    <div class="opt-list">
+      <label class="opt" onclick="selectOpt(this,'j7')"><input type="radio" name="j7" value="A"><span class="opt-label">A. 正确</span></label>
+      <label class="opt" onclick="selectOpt(this,'j7')"><input type="radio" name="j7" value="B"><span class="opt-label">B. 错误</span></label>
+    </div>
+    <div class="explain" id="explain17"></div>
+  </div>
+
+  <div class="q-card" id="j8">
+    <div class="q-head"><div class="q-num">18</div>
+      <div class="q-title">C10/A05阶梯激励的分子取"11/1–11/30锁单且11/1–12/31交付"的对应车型订单，2027/1/1取数，未交付视为退订。<span class="q-type q-type-judge">判断题</span></div></div>
+    <div class="opt-list">
+      <label class="opt" onclick="selectOpt(this,'j8')"><input type="radio" name="j8" value="A"><span class="opt-label">A. 正确</span></label>
+      <label class="opt" onclick="selectOpt(this,'j8')"><input type="radio" name="j8" value="B"><span class="opt-label">B. 错误</span></label>
+    </div>
+    <div class="explain" id="explain18"></div>
+  </div>
+
+  <div class="q-card" id="j9">
+    <div class="q-head"><div class="q-num">19</div>
+      <div class="q-title">门店收到成绩后有5个工作日可以申诉，且考核周期内提出的申诉优先受理。<span class="q-type q-type-judge">判断题</span></div></div>
+    <div class="opt-list">
+      <label class="opt" onclick="selectOpt(this,'j9')"><input type="radio" name="j9" value="A"><span class="opt-label">A. 正确</span></label>
+      <label class="opt" onclick="selectOpt(this,'j9')"><input type="radio" name="j9" value="B"><span class="opt-label">B. 错误</span></label>
+    </div>
+    <div class="explain" id="explain19"></div>
+  </div>
+
+  <div class="q-card" id="j10">
+    <div class="q-head"><div class="q-num">20</div>
+      <div class="q-title">11月零售运营激励的对象车型共10款，T03继续不在其中。<span class="q-type q-type-judge">判断题</span></div></div>
+    <div class="opt-list">
+      <label class="opt" onclick="selectOpt(this,'j10')"><input type="radio" name="j10" value="A"><span class="opt-label">A. 正确</span></label>
+      <label class="opt" onclick="selectOpt(this,'j10')"><input type="radio" name="j10" value="B"><span class="opt-label">B. 错误</span></label>
+    </div>
+    <div class="explain" id="explain20"></div>
+  </div>
+
+  <!-- 统一提交 -->
+  <div style="text-align:center; margin: 28px 0 10px;">
+    <button class="btn-big" onclick="submitAll()">📝 提交全部答案并查看成绩</button>
+    <div style="font-size:12px; color:var(--text2); margin-top:8px;">共 20 题 · 每题 5 分 · 做完一次提交即可自动判分并展示解析</div>
+  </div>
+
+  <!-- 结果 -->
+  <div class="result-banner" id="resultBanner">
+    <div class="score-big" id="resultScore">0 分</div>
+    <div class="score-label" id="resultLabel">-</div>
+    <div class="score-detail" id="resultDetail"></div>
+  </div>
+
+  <!-- 情绪价值 · 鼓励语 -->
+  <div class="warm-card" id="warmCard">
+    <div class="warm-head">
+      <div class="warm-title">💌 给你的几句话</div>
+      <button class="warm-btn" id="moreWarmBtn" onclick="renderWarm()">↻ 再送我一句</button>
+    </div>
+    <div class="warm-list" id="warmList"></div>
+    <div class="warm-foot">分数只是这一次的记录，认真过一遍政策的你，才是门店最稳的底气。</div>
+  </div>
+
+  <div class="restart-wrap" id="restartWrap" style="display:none;">
+    <button class="restart-btn" onclick="location.reload()">🔄 再做一次 / 清空重答</button>
+  </div>
+
+</div>
+
+<div class="footer">
+  零跑汽车华南大区 · 2026年11月商务政策知识测试 · 共20题（单项选择10题 + 判断10题，每题5分 = 100分）<br>
+  题目依据《2026年11月零售运营管理激励政策的通知02》及 6 份专项激励通知，具体以政策原文及零跑 App 公布为准。
+</div>
+
+<script>
+var Q_SCORE = 5;
+
+var QUESTIONS = {
+  q1:  { ans:'C', ansText:'C. 1600 元/台', exp:'排名激励5档延续10月：一组前20%=1600、二组21–40%=1300、三组41–70%=800、四组71–95%=500、五组后5%=0 元/台。实发 = 对应组别额度 × 线下检核系数 × 零小跑系统交付台数 + 负激励。' },
+  q2:  { ans:'D', ansText:'D. 0', exp:'线下检核系数：前20%=1.0、21%–40%=0.8、41%–70%=0.5、后30%=0。后30%门店当月实发直接归零，且豁免项也不豁免系数；当月未开展线下检核的门店按1.0计算。' },
+  q3:  { ans:'B', ansText:'B. 26年11月单月达成率 ≥100%', exp:'11月最大变化之一：豁免项/专项车型由10月的"双月合并"口径改回单月。同城同商26年11月交付目标达成率 ≥100% → 对应组别享1600元/台；11月目标以2026/11/5发布为准，后续调整不作为豁免达成依据。' },
+  q4:  { ans:'A', ansText:'A. 80%', exp:'否决项①改为11–12月双月绑定：同城同商26年11–12月交付目标达成率 <80%，取消11–12月全部零售运营管理激励。考核车型含 D19/C16/C10/C11/B10/B01/Lafa5/Lafa5 Ultra/A10/A05/C01 全系。' },
+  q5:  { ans:'C', ansText:'C. 60 分', exp:'月度计分满分100分 = 分组销售20 + 人员配备20 + 潜客到店率30 + 到店交付率30。后两项合计60分；潜客流程执行不再计入100分，改为"线下检核系数"直接乘入实发金额。' },
+  q6:  { ans:'A', ansText:'A. 850 条', exp:'11月人员配备模块调整DCC考核规则：DCC专员按上季度月均线索每850条配1人 × 90%系数、向上取整；重点考核岗位须月底前完成认证，否则按缺编计。重点认证岗每缺1人扣10分，一线岗每缺1人扣5分。' },
+  q7:  { ans:'B', ansText:'B. 800 元/台', exp:'11月新增"特殊门店说明"：六星门店享保底第一组1600元/台；新验收门店（含卫星店/社区店）首次验收当月及次月500元/台，可申请提前正常参评；卫星店/社区店销量并入关联主店，未关联主店的按800元/台支持。' },
+  q8:  { ans:'D', ansText:'D. 2000 元/台', exp:'C10/A05按11月锁单任务达成率四档，两车系独立考核：<80%=0/0；[80%,100%)=200/500；[100%,120%)=400/1000；≥120%=800/2000（C10/A05，元/台）。开关项还要求同城同实控人该车型11月交付目标达成率 ≥80%。' },
+  q9:  { ans:'C', ansText:'C. 门店体验工程师个人', exp:'D99全系1500元京东卡/台发给门店体验工程师个人（以零小跑系统在岗为准），非经销商门店；11/1–11/30下定且12/31 24:00前交付、官方渠道支付5000元定金，2027年1月以京东卡发至个人。而2026款Lafa5的2000元/台是兑付到交付经销商返利账户，两者对象与形式完全不同。' },
+  q10: { ans:'D', ansText:'D. 建设银行', exp:'11月金融返佣调整：阶梯特惠（5免2）方案在浦发、农业之外新增建设银行；0息/低息/低首付合作行为农业、平安、浦发、建设、工商、中信。阶梯特惠返佣比例1.40%（红标）/1.50%（绿标）不分期数全档适用；低息/低首付按36/48/60期分别为3.00%/4.00%/5.00%。' },
+
+  j1:  { ans:'A', ansText:'正确', exp:'11月限时专项权益：27款C10/C11/C16全系、D19全系1500元/台；26款Lafa5全系（含Ultra）2000元/台"敢上场"基金。均以尾款抵扣券发至购车人零跑App账户，可与《11月BC端销售政策》C端政策叠加。对比10月：1000元档取消、D99改走个人红包。' },
+  j2:  { ans:'B', ansText:'错误', exp:'易混淆点：D99的1500元是发给体验工程师个人的京东卡（2027年1月发至个人），2026款Lafa5的2000元是12月以返利形式兑付至交付经销商返利账户。两者对象、形式、发放时间都不同，不能混为一谈。' },
+  j3:  { ans:'A', ansText:'正确', exp:'新保线上出单率目标值 ≥50%；低于50%时每偏差1%扣1000元，单店扣罚上限20000元，交付月核算、次月5号。举例49%扣1000元，0%封顶20000元。分子为官方渠道（APP C端/保险系统B端）投保保单，其他渠道补录不计入。' },
+  j4:  { ans:'B', ansText:'错误', exp:'达成豁免项 → 只同时豁免"新保线上出单率"负激励；不豁免销售客诉满意度负激励，也不豁免线下检核系数。后30%检核系数仍会让当月实发归零。' },
+  j5:  { ans:'B', ansText:'错误', exp:'A系（A10/A05）不享受零售运营激励，但须纳入本通知考核：排名激励实发公式虽排除A系列车辆，但豁免项、否决项、专项车型政策的达成率考核均包含A10/A05。' },
+  j6:  { ans:'A', ansText:'正确', exp:'专项车型政策（+200元/台）：同城同商26年11月 A10/A05/B10/C10 全系合并达成 ≥100%，且门店11月交付目标达成 ≥100%，两个条件同时满足才额外 +200元/台；享受车型为10款对象车型。' },
+  j7:  { ans:'B', ansText:'错误', exp:'新老划断：银行端金融申请时间在11/1起的总合作方案按新标准结算；10/31（含）及之前申请成功（待放款）订单按之前返佣标准正常办理结算，不是按新标准。' },
+  j8:  { ans:'A', ansText:'正确', exp:'C10/A05共同口径：完成率 = 11月锁单且最终交付的该车型订单数 ÷ 11月该车型锁单目标；分子取锁单11/1–11/30且交付11/1–12/31，2027/1/1取数、未交付视为退订；重复订单不计入；按同城+同实际控制人合并考核，不允许跨城合并。' },
+  j9:  { ans:'B', ansText:'错误', exp:'申诉流程：门店收到成绩后 3 个工作日内按零售高级经理提供模板申诉，不接受考核周期内及超期申诉——不是5个工作日，也不存在"周期内优先受理"。' },
+  j10: { ans:'A', ansText:'正确', exp:'对象车型共10款：D19、D99、C16、C10、C11、C01、B10、B01、Lafa5、Lafa5 Ultra；T03继续出局。适用门店为正常运营的零跑中心/城展/商超，不含新验收、建设中、退网中门店。' }
+};
+
+var Q_ORDER = ['q1','q2','q3','q4','q5','q6','q7','q8','q9','q10','j1','j2','j3','j4','j5','j6','j7','j8','j9','j10'];
+
+/* ===== 鼓励语池（情绪价值） ===== */
+var WARM_HIGH = [
+  '这份卷子几乎被你拿捏了，政策细节都记在心里，门店有你很稳。',
+  '能把11月的档位、口径、红线都分清楚，是真下过功夫的人。',
+  '政策读得这么细，客户问起来你一定答得从容。',
+  '不是运气好，是你把每一条通知都认真过了一遍。',
+  '满分级别的专注，藏在你平时对数字的较真里。',
+  '你把复杂的政策，变成了团队能听懂的话，这就是本事。',
+  '别人还在翻通知，你已经能给别人讲了，这就是标杆。',
+  '细节不漏、口径不乱，这份扎实就是年底收官的底气。',
+  '认真的人自带光，这份成绩就是最好的证明。',
+  '把政策吃透的人，冲起目标来心里最有底。',
+  '你记住的不只是金额，更是背后要守的规矩，很难得。',
+  '这份答卷，配得上一句：专业，且靠谱。'
+];
+var WARM_MID = [
+  '政策点多、口径细，能记住大半已经很不容易了。',
+  '错的那几题，现在都变成了你最熟的几题。',
+  '方向对了，剩下的只是把细节再对齐一遍。',
+  '你在进步，只是政策这个月恰好换了不少口径。',
+  '不必追求一次满分，稳稳往前就是最好的节奏。',
+  '愿意花时间坐下来答完20题，本身就值得一个赞。',
+  '把解析再扫一眼，下次就是你的高光时刻。',
+  '你已经把主干抓住了，枝节慢慢补就好。',
+  '认真过一遍的人，走进门店时心里是有底的。',
+  '分数是今天的，掌握是长期的，你已经在路上了。',
+  '差的那几分，是给下一次留的惊喜。',
+  '慢一点没关系，你一直没停下，这就很棒。'
+];
+var WARM_LOW = [
+  '政策本来就密，愿意完整做一遍，比分数更值得肯定。',
+  '这不是评判，只是陪你把11月的通知再过一遍。',
+  '今天错的每一题，解析都替你标好了，慢慢看就好。',
+  '刚开始谁都会绕晕，尤其这个月口径改了好几处。',
+  '别急着给自己打分，你已经比没翻开政策的自己多走了一步。',
+  '把解析当作一页速查表，需要时回来翻翻就行。',
+  '分数会翻篇，认真不会，这份用心我们收到了。',
+  '门店的节奏已经够快了，这里不用赶，按自己的步子来。',
+  '记不住很正常，重要的是知道去哪儿查、和谁确认。',
+  '你已经把最难的那一步做完了——开始。',
+  '这一程辛苦了，先给自己一点掌声，再看解析也不迟。',
+  '政策是工具，不是考题；用得顺手，比背得满分更重要。'
+];
+var WARM_PERFECT = '满分收官！20题全对，11月政策这块你就是行走的说明书 🎉';
+var WARM_ICONS = ['💪','🌱','✨','🤝'];
+var warmPool = WARM_HIGH;
+
+function shuffle(arr){
+  var a = arr.slice();
+  for (var i = a.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var t = a[i]; a[i] = a[j]; a[j] = t;
+  }
+  return a;
+}
+function renderWarm(){
+  var list = document.getElementById('warmList');
+  var pick = shuffle(warmPool).slice(0, 3);
+  var html = '';
+  if (window.__perfect && warmPool === WARM_HIGH) {
+    html += '<div class="warm-item"><span class="wi">🏆</span><span>' + WARM_PERFECT + '</span></div>';
+  }
+  for (var i = 0; i < pick.length; i++) {
+    html += '<div class="warm-item"><span class="wi">' + WARM_ICONS[(i + 1) % WARM_ICONS.length] + '</span><span>' + pick[i] + '</span></div>';
+  }
+  list.innerHTML = html;
+}
+
+function selectOpt(el, qid) {
+  var siblings = el.parentNode.querySelectorAll('.opt');
+  siblings.forEach(function(s) { s.classList.remove('selected'); });
+  el.classList.add('selected');
+  el.querySelector('input').checked = true;
+}
+function getUserAnswer(qid) {
+  var sel = document.querySelector('input[name="' + qid + '"]:checked');
+  return sel ? sel.value : null;
+}
+function explainId(qid) {
+  return 'explain' + (qid.charAt(0) === 'q' ? qid.slice(1) : (10 + parseInt(qid.slice(1), 10)));
+}
+function gradeQuestion(qid) {
+  var q = QUESTIONS[qid];
+  var card = document.getElementById(qid);
+  var explain = document.getElementById(explainId(qid));
+  var userAns = getUserAnswer(qid);
+  card.querySelectorAll('.opt').forEach(function(opt) {
+    var input = opt.querySelector('input');
+    if (input.value === q.ans) opt.classList.add('correct-opt');
+    if (input.checked && input.value !== q.ans) opt.classList.add('wrong-opt');
+    opt.style.pointerEvents = 'none';
+  });
+  var correct = (userAns === q.ans);
+  if (correct) {
+    card.classList.add('correct');
+    explain.className = 'explain show correct-explain';
+    explain.innerHTML = '<div class="explain-tag">✅ 回答正确 (+' + Q_SCORE + '分)</div>正确答案：' + q.ansText + '<br>' + q.exp;
+    return Q_SCORE;
+  } else {
+    card.classList.add('wrong');
+    explain.className = 'explain show wrong-explain';
+    explain.innerHTML = '<div class="explain-tag">❌ 回答错误 (0分)</div>正确答案：' + q.ansText + '<br>' + q.exp;
+    return 0;
+  }
+}
+function animateScore(el, target) {
+  var start = null, dur = 900;
+  function step(ts) {
+    if (!start) start = ts;
+    var p = Math.min((ts - start) / dur, 1);
+    var ease = 1 - Math.pow(1 - p, 3);
+    el.textContent = Math.round(target * ease) + ' 分';
+    if (p < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+function confetti() {
+  var box = document.createElement('div');
+  box.className = 'confetti';
+  var colors = ['#00A4A6','#FF6B2C','#F5A623','#0EA55F','#2B6CB0','#E8392B','#7C3AED'];
+  for (var i = 0; i < 42; i++) {
+    var s = document.createElement('i');
+    s.style.left = Math.random() * 100 + 'vw';
+    s.style.background = colors[i % colors.length];
+    s.style.animationDuration = (1.8 + Math.random() * 1.6) + 's';
+    s.style.animationDelay = (Math.random() * 0.7) + 's';
+    s.style.width = (6 + Math.random() * 6) + 'px';
+    s.style.height = (10 + Math.random() * 8) + 'px';
+    box.appendChild(s);
+  }
+  document.body.appendChild(box);
+  setTimeout(function() { box.remove(); }, 4200);
+}
+
+var submitted = false;
+function submitAll() {
+  if (submitted) return;
+  for (var i = 0; i < Q_ORDER.length; i++) {
+    var k = Q_ORDER[i];
+    if (getUserAnswer(k) === null) {
+      alert('还有题目未作答，请完成全部 20 题后再提交！');
+      document.getElementById(k).scrollIntoView({ behavior:'smooth', block:'center' });
+      return;
+    }
+  }
+  var total = 0;
+  for (var i = 0; i < Q_ORDER.length; i++) total += gradeQuestion(Q_ORDER[i]);
+  document.getElementById('scoreNum').textContent = total;
+  submitted = true;
+  var topBtn = document.getElementById('showResultBtn');
+  topBtn.disabled = true; topBtn.textContent = '已交卷';
+
+  var banner = document.getElementById('resultBanner');
+  var labelEl = document.getElementById('resultLabel');
+  var detailEl = document.getElementById('resultDetail');
+  var correctCount = document.querySelectorAll('.q-card.correct').length;
+  var wrongCount = document.querySelectorAll('.q-card.wrong').length;
+
+  if (total >= 85) {
+    banner.className = 'result-banner show pass';
+    labelEl.textContent = total === 100 ? '🏆 满分！11月商政了如指掌，太强了！' : '🎉 优秀！11月商政掌握扎实，已通过考核！';
+  } else if (total >= 60) {
+    banner.className = 'result-banner show mid';
+    labelEl.textContent = '✅ 合格！主干都抓住了，再补几处细节就更稳。';
+  } else {
+    banner.className = 'result-banner show fail';
+    labelEl.textContent = '💙 没关系，解析都给你标好了，咱们再过一遍就好。';
+  }
+  detailEl.textContent = '答对 ' + correctCount + ' 题 · 答错 ' + wrongCount + ' 题 · 每题 5 分';
+  animateScore(document.getElementById('resultScore'), total);
+
+  window.__perfect = (total === 100);
+  warmPool = total >= 85 ? WARM_HIGH : (total >= 60 ? WARM_MID : WARM_LOW);
+  renderWarm();
+  document.getElementById('warmCard').classList.add('show');
+  document.getElementById('restartWrap').style.display = 'block';
+  confetti();
+  banner.scrollIntoView({ behavior:'smooth', block:'center' });
+}
+</script>
+
+</body>
+</html>
