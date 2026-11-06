@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>华南大区·周末订单冲刺（11.7–11.8）</title>
+<style>
+  :root{
+    --navy:#0d1b2a; --navy2:#152c44; --gold:#f0a832; --gold-d:#c9820e;
+    --red:#c0392b; --red-d:#96281b; --green:#1e8e5a; --teal:#0f766e;
+    --ink:#22303f; --gray:#6b7a8c; --line:#e4e9ef; --bg:#f4f6f9;
+    --purple:#5b2c8d;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif; background:var(--bg); color:var(--ink); line-height:1.65;}
+  .page{width:900px; max-width:100%; margin:0 auto; background:#fff;}
+  body.plain{background:#fff;}
+
+  /* ===== hero ===== */
+  .hero{background:linear-gradient(135deg,#0d1b2a 0%,#152c44 70%,#1c3a57 100%); color:#fff; padding:26px 34px 22px; position:relative; overflow:hidden;}
+  .hero::after{content:""; position:absolute; right:-60px; top:-60px; width:260px; height:260px; border-radius:50%; background:radial-gradient(circle,rgba(240,168,50,.25),transparent 70%);}
+  .hero h1{font-size:27px; letter-spacing:1px; display:flex; align-items:center; gap:12px; flex-wrap:wrap;}
+  .hero h1 .badge{font-size:12.5px; background:var(--gold); color:#3a2a05; font-weight:800; border-radius:6px; padding:3px 10px; letter-spacing:0;}
+  .hero .meta{margin-top:8px; font-size:12.5px; color:#9db2c7; display:flex; gap:14px; flex-wrap:wrap;}
+  .hero .meta b{color:#ffd98a;}
+  .hero .slogan{margin-top:12px; font-size:14px; color:#e8eef5;}
+  .hero .slogan b{color:var(--gold);}
+
+  /* ===== 定调条 ===== */
+  .keynote{margin:18px 34px 0; background:#fff8e8; border:1px solid #f3ddb0; border-left:5px solid var(--gold); border-radius:10px; padding:13px 18px; font-size:13.5px;}
+  .keynote b.t{color:var(--gold-d); font-size:14px;}
+  .keynote p{margin-top:5px; color:#5a4a20;}
+  .keynote p b{color:var(--red);}
+
+  /* ===== 章节标题 ===== */
+  .sec{margin:26px 34px 0;}
+  .sec-h{display:flex; align-items:center; gap:10px; border-bottom:2px solid var(--navy); padding-bottom:7px; margin-bottom:12px;}
+  .sec-h .no{background:var(--navy); color:#fff; font-weight:800; font-size:14px; border-radius:6px; padding:2px 10px;}
+  .sec-h h2{font-size:17px; color:var(--navy);}
+  .sec-h .tag{margin-left:auto; font-size:12px; color:#fff; background:var(--red); border-radius:20px; padding:3px 12px; font-weight:700;}
+  .sec-h .tag.gold{background:var(--gold); color:#3a2a05;}
+  .sec-h .tag.gray{background:#8296a9;}
+  .sec-h .tag.purple{background:var(--purple);}
+
+  /* ===== 表格 ===== */
+  table{width:100%; border-collapse:collapse; font-size:12.8px;}
+  th{background:var(--navy); color:#fff; padding:8px 10px; text-align:left; font-size:12.5px; font-weight:700;}
+  td{padding:9px 10px; border-bottom:1px solid var(--line); vertical-align:top;}
+  tr:nth-child(even) td{background:#f8fafc;}
+  td .name{font-weight:800; color:var(--navy); font-size:13px;}
+  td .win{color:var(--red); font-weight:800; white-space:nowrap;}
+  td .how{color:#3d4d5f;}
+  td .how b{color:var(--red);}
+
+  /* ===== 权益三卡 ===== */
+  .cards3{display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px;}
+  .pcard{border-radius:12px; padding:14px 16px; color:#fff; position:relative; overflow:hidden;}
+  .pcard h3{font-size:15px;}
+  .pcard .amt{font-size:29px; font-weight:800; margin:4px 0 2px;}
+  .pcard .amt small{font-size:13px; font-weight:600;}
+  .pcard .mdl{font-size:12px; opacity:.92;}
+  .pcard .mdl b{color:#ffd98a;}
+  .pcard .dl{margin-top:7px; font-size:11.5px; background:rgba(255,255,255,.18); border-radius:6px; padding:3px 8px; display:inline-block; font-weight:700;}
+  .c-red{background:linear-gradient(135deg,#c0392b,#96281b);}
+  .c-navy{background:linear-gradient(135deg,#1c3a57,#0d1b2a);}
+  .c-gold{background:linear-gradient(135deg,#e0912a,#b96f0a);}
+  .c-teal{background:linear-gradient(135deg,#0f766e,#0b544e);}
+  .pcard table.mini{width:100%; border-collapse:collapse; margin-top:8px; font-size:11.5px;}
+  .pcard table.mini th{background:rgba(255,255,255,.16); padding:4px 6px; font-size:11px; font-weight:700; color:#fff; text-align:center;}
+  .pcard table.mini td{padding:4px 6px; text-align:center; border-bottom:1px solid rgba(255,255,255,.14); color:#eaf0f6;}
+  .pcard table.mini tr:last-child td{border-bottom:none;}
+  .pcard table.mini tr:nth-child(even) td{background:rgba(255,255,255,.07);}
+  .pcard table.mini tr.hi td{background:rgba(240,168,50,.28); font-weight:800; color:#fff;}
+  .pcard table.mini tr.bad td{background:rgba(192,57,43,.42); font-weight:800; color:#ffd9d4;}
+  .pcard .note{margin-top:7px; font-size:11px; color:#ffd98a; line-height:1.5;}
+
+  /* ===== 两天对照 ===== */
+  .twodays{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  .day{border-radius:12px; overflow:hidden; border:1.5px solid var(--line);}
+  .day .dh{padding:11px 16px; color:#fff;}
+  .day .dh h3{font-size:16px;}
+  .day .dh p{font-size:12px; opacity:.92; margin-top:2px;}
+  .d77 .dh{background:linear-gradient(135deg,#c0392b,#8f2418);}
+  .d88 .dh{background:linear-gradient(135deg,#1e8e5a,#14663f);}
+  .day ul{list-style:none; padding:11px 14px; background:#fff;}
+  .day li{font-size:12.6px; padding:6px 0 6px 20px; position:relative; border-bottom:1px dashed #eef1f5;}
+  .day li:last-child{border-bottom:none;}
+  .day li::before{content:"▸"; position:absolute; left:4px; color:var(--gray);}
+  .d77 li::before{color:var(--red);}
+  .d88 li::before{color:var(--green);}
+  .day li b{color:var(--navy);}
+  .day .foot{padding:8px 14px; font-size:12px; font-weight:700;}
+  .d77 .foot{background:#fdf0ee; color:var(--red); border-top:1px solid #f3d4cf;}
+  .d88 .foot{background:#edf7f2; color:var(--green); border-top:1px solid #cfe8db;}
+
+  /* ===== 四段打法 ===== */
+  .quad{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+  .q{border:1.5px solid var(--line); border-radius:10px; padding:12px 15px; background:#fff;}
+  .q .qt{display:flex; align-items:center; gap:8px; font-weight:800; color:var(--red); font-size:13.5px;}
+  .q .qt .dot{width:9px; height:9px; border-radius:50%; background:var(--red);}
+  .q p{font-size:12.4px; color:#3d4d5f; margin-top:5px;}
+  .q .say{margin-top:6px; font-size:12.2px; background:#fdf6ec; border-left:3px solid var(--gold); padding:5px 9px; border-radius:0 6px 6px 0; color:#6a501a;}
+
+  /* ===== 口径 ===== */
+  .caliber{display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px;}
+  .cb{background:#f2f6fa; border:1px solid var(--line); border-radius:9px; padding:10px 12px; font-size:12px; color:#3d4d5f;}
+  .cb b{color:var(--navy); display:block; margin-bottom:3px; font-size:12.5px;}
+  .cb.hot{background:#fdf0ee; border-color:#f3d4cf;}
+  .cb.hot b{color:var(--red);}
+
+  /* ===== W2 节奏四卡 ===== */
+  .wgrid{display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:10px;}
+  .w{border-radius:10px; padding:11px 13px; color:#fff;}
+  .w .k{font-size:11.5px; opacity:.92;}
+  .w .v{font-size:13px; font-weight:800; margin-top:3px; line-height:1.45;}
+  .w .v small{font-size:11px; font-weight:600; opacity:.92; display:block; margin-top:2px;}
+  .w-navy{background:linear-gradient(135deg,#1c3a57,#0d1b2a);}
+  .w-gold{background:linear-gradient(135deg,#e0912a,#b96f0a);}
+  .w-red{background:linear-gradient(135deg,#c0392b,#96281b);}
+  .w-teal{background:linear-gradient(135deg,#0f766e,#0b544e);}
+
+  /* ===== 懂车帝专项 ===== */
+  .dong{border:1.5px solid #e3d3f2; border-radius:12px; overflow:hidden;}
+  .dong .dh{background:linear-gradient(135deg,#5b2c8d,#3d1c62); color:#fff; padding:12px 18px; display:flex; align-items:center; gap:10px; flex-wrap:wrap;}
+  .dong .dh h3{font-size:16px;}
+  .dong .dh .dt{font-size:12px; background:rgba(255,255,255,.18); border-radius:20px; padding:3px 12px; font-weight:700; margin-left:auto;}
+  .dong .body{display:grid; grid-template-columns:1fr 1fr; gap:12px; padding:13px; background:#faf7fd;}
+  .dcoupon{border-radius:10px; padding:13px 15px; color:#fff;}
+  .dcoupon.b01{background:linear-gradient(135deg,#c0392b,#96281b);}
+  .dcoupon.d19{background:linear-gradient(135deg,#0f766e,#0b544e);}
+  .dcoupon h4{font-size:14px;}
+  .dcoupon .amt{font-size:27px; font-weight:800; margin:4px 0 2px;}
+  .dcoupon .amt small{font-size:12px; font-weight:600;}
+  .dcoupon p{font-size:11.8px; opacity:.95; margin-top:3px; line-height:1.55;}
+  .dong .steps{grid-column:1 / -1; background:#fff; border:1px solid var(--line); border-radius:10px; padding:11px 14px;}
+  .dong .steps ol{margin:4px 0 0 18px; font-size:12.4px; color:#3d4d5f;}
+  .dong .steps li{margin-bottom:4px;}
+  .dong .steps b{color:var(--red);}
+  .dong .warn{grid-column:1 / -1; font-size:12.2px; color:#6a3f9e; background:#f4ecfb; border-left:4px solid var(--purple); border-radius:0 8px 8px 0; padding:9px 13px; margin:0 13px 13px;}
+  .dong .warn b{color:var(--purple);}
+
+  /* ===== 时间轴 ===== */
+  .tl{list-style:none;}
+  .tl li{display:flex; gap:14px; padding:8px 0; border-bottom:1px dashed var(--line); font-size:12.8px;}
+  .tl li:last-child{border-bottom:none;}
+  .tl .t{width:118px; flex-shrink:0; font-weight:800; color:var(--navy);}
+  .tl .t.hot{color:var(--red);}
+  .tl .d{flex:1;}
+  .tl .who{width:110px; flex-shrink:0; color:var(--gray); font-size:11.8px; text-align:right;}
+
+  /* ===== 储备转化 ===== */
+  .reserve{background:#f0f7f4; border:1px solid #cfe8db; border-left:5px solid var(--green); border-radius:10px; padding:13px 18px; font-size:13px; color:#2b4a3b;}
+  .reserve b{color:var(--green);}
+  .reserve ol{margin:6px 0 0 20px; font-size:12.6px;}
+  .reserve li{margin-bottom:4px;}
+
+  /* ===== 总结 ===== */
+  .summary{margin:26px 34px 0; background:var(--navy); border-radius:12px; padding:16px 20px; color:#e8eef5; font-size:13.5px;}
+  .summary b.t{color:var(--gold); font-size:14px; display:block; margin-bottom:6px;}
+  .summary p b{color:#ffd98a;}
+  .summary p{margin-bottom:4px;}
+
+  footer{padding:16px 34px 26px; display:flex; justify-content:space-between; gap:20px; font-size:11.5px; color:#8b99a8;}
+  .dn{display:none;}
+</style>
+</head>
+<body>
+<script>if (location.search.indexOf('plain=1') >= 0) document.body.classList.add('plain');</script>
+<div class="page">
+
+  <div class="hero">
+    <h1>华南大区 · 周末订单冲刺（11.7–11.8）<span class="badge">W2 × 125%提档周</span></h1>
+    <div class="meta">
+      <span>整理日 <b>2026-11-06（周五）</b></span>
+      <span>11.7（六）＝ <b>懂车帝 B01/D19 返现首日 · 领券开闸</b></span>
+      <span>11.8（日）＝ <b>W2 提档冲刺日 · 储备客户集中转化</b></span>
+    </div>
+    <div class="slogan">本周末核心定调：<b>11.7 懂车帝领券开闸抢首发名额；全周主线＝把 C10/A05 锁单达成率拉进 ≥120% 档，激励直接翻倍</b></div>
+  </div>
+
+  <div class="keynote">
+    <b class="t">10月已收官、11月政策已全量落地——这个周末是"W2 提档周"的第一个周末</b>
+    <p>10.31 政策关闸已成过去，11月按新政策考核：限时专项权益 <b>11/30 24:00 截止</b>、C10/A05 阶梯按 <b>≥120% 档兑现翻倍</b>、懂车帝返现 <b>11/7 正式启动且名额先到先得</b>。操盘日历 W2（11.7–11.13）主线是"冲刺125%提档"——周末两天的锁单增量，直接决定本月能不能站上 120% 档、以及 11–12 月双月达成率 80% 的生死线起点。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sec-h"><span class="no">1</span><h2>经销商端：三张政策牌，本月可用弹药全在这</h2><span class="tag">11/30 截止</span></div>
+    <div class="cards3">
+      <div class="pcard c-red">
+        <h3>11月限时专项权益（C端）</h3>
+        <div class="amt">1,500<small>/台 尾款抵扣券</small></div>
+        <div class="mdl">27款 C10 / C11 / C16 全系 · <b>D19 全系</b></div>
+        <div class="amt">2,000<small>/台 敢上场基金</small></div>
+        <div class="mdl">26款 Lafa5 全系（含 Ultra）</div>
+        <div class="dl">发购车人零跑 App · 可与 C端政策叠加</div>
+        <div class="note">不含大客户直销 / 试驾车订单。10月的 1000 元档（B01/B10）已取消，本月就是 1500 / 2000 两档。</div>
+      </div>
+      <div class="pcard c-gold">
+        <h3>C10 全系 / A05 全系 阶梯激励（B端）</h3>
+        <table class="mini">
+          <tr><th>11月锁单达成率</th><th>C10 元/台</th><th>A05 元/台</th></tr>
+          <tr class="bad"><td>&lt; 80%</td><td>0</td><td>0</td></tr>
+          <tr><td>80%–100%</td><td>200</td><td>500</td></tr>
+          <tr><td>100%–120%</td><td>400</td><td>1,000</td></tr>
+          <tr class="hi"><td>≥ 120%</td><td>800</td><td>2,000</td></tr>
+        </table>
+        <div class="note">分子 = 11月锁单（11/1–11/30）且最终交付（11/1–12/31）的订单；开关项：同城同实控人该车型 11月交付达成 ≥80%，未达标整单元归零。<b>周末每多锁一台，都是在往 ≥120% 档堆。</b></div>
+      </div>
+      <div class="pcard c-navy">
+        <h3>排名激励 × 检核系数 × 豁免</h3>
+        <table class="mini">
+          <tr><th>组别</th><th>元/台</th></tr>
+          <tr class="hi"><td>第一组 前20%</td><td>1,600</td></tr>
+          <tr><td>第二组 21–40%</td><td>1,300</td></tr>
+          <tr><td>第三组 41–70%</td><td>800</td></tr>
+          <tr><td>第四组 71–95%</td><td>500</td></tr>
+          <tr class="bad"><td>第五组 后5%</td><td>0</td></tr>
+        </table>
+        <div class="note">实发 = 组别额度 × <b>检核系数（1.0 / 0.8 / 0.5 / 0）</b>；后 30% 当月实发直接归零。豁免项：同城同商 <b>11月单月</b>交付目标达成率 ≥100% → 保底 <b>1,600 元/台</b>（以 11/5 发布目标为准）；豁免同时免新保负激励，<b>不豁免</b>检核系数。另有：专项车型 +200 元/台；Lafa5 交付另享 B端 2,000 元/台（12月返利兑付）；D99 下定 5,000 定金 12/31 前交付 → <b>体验工程师个人</b> 1,500 元京东卡/台。</div>
+      </div>
+    </div>
+    <table style="margin-top:12px;">
+      <tr><th style="width:130px;">政策（现状）</th><th style="width:120px;">时间窗</th><th>本周末怎么用</th></tr>
+      <tr><td><span class="name">限时专项权益</span></td><td class="win">11/30 24:00 止</td><td class="how">客户八成在等"再看看优惠"——直接讲：<b>本月下定 11月内交付，1,500 / 2,000 尾款抵扣券直接到 App</b>，可与店内 C端权益叠加，不占经销商费用。</td></tr>
+      <tr><td><span class="name">C10 / A05 提档</span></td><td class="win">11月锁单考核</td><td class="how">A05 锁一台从 500 到 2,000 差 4 倍、C10 从 400 到 800 翻倍——<b>库存现车优先卖，锁单与降库同步做</b>，周末集中清 C10/A05 在库车。</td></tr>
+      <tr><td><span class="name">Lafa5 双重激励</span></td><td>11/1–11/30</td><td class="how">C端敢上场基金 2,000 + B端交付返利 2,000，<b>同一台车两头都有</b>；广州车展新款上市前，现款 Lafa5 本月就是最后的政策高点。</td></tr>
+      <tr><td><span class="name">否决项红线</span></td><td class="win">11–12月 双月绑定</td><td class="how">同城同商 11–12月交付达成率 <b>&lt;80% 取消两个月全部运营激励</b>；11月开局单卖不稳的车型，交付排程要提前排、别把缺口全堆到 12 月。</td></tr>
+      <tr><td><span class="name">金融 5免2 · 建行新增</span></td><td>11/1 起新标准</td><td class="how">阶梯特惠方案新增<b>建设银行</b>（浦发/农业/建设），5免2 返佣不分期数全档适用；低息方案 36/48/60 期返佣 3%–5%，<b>银行申请 11/1 起按新标准结算</b>。</td></tr>
+    </table>
+  </div>
+
+  <div class="sec">
+    <div class="sec-h"><span class="no">2</span><h2>本周末加码：懂车帝 B01 / D19 领券返现，11.7 开闸</h2><span class="tag purple">首日抢名额</span></div>
+    <div class="dong">
+      <div class="dh"><h3>懂车帝 APP 活动主会场 / 品牌馆领券</h3><span class="dt">领券 11/7–11/30 · 发票上传 11/7–12/30</span></div>
+      <div class="body">
+        <div class="dcoupon b01">
+          <h4>B01 全系</h4>
+          <div class="amt">500<small> 元 · 懂车帝返现</small></div>
+          <p>发票审核通过<b>前 250 名</b>可获返现 · 发券数量不限 · <b>无需经销商验券</b>——先到先得，拼的是开票速度。</p>
+        </div>
+        <div class="dcoupon d19">
+          <h4>D19 全系</h4>
+          <div class="amt">1,000<small> 元 · 懂车帝返现</small></div>
+          <p>发票审核通过<b>前 400 名</b>可获返现 · <b>可与 11月限时专项权益 1,500 元/台叠加</b>——D19 客户最多两头拿 2,500。</p>
+        </div>
+        <div class="steps">
+          <b style="font-size:13px;">客户操作四步，门店每一步都要盯：</b>
+          <ol>
+            <li><b>11/7 起领券</b>：懂车帝 APP 活动主会场 / 品牌馆填写领券，B01 / D19 全系适用；</li>
+            <li><b>下定并开票</b>：正常走订单流程，发票信息务必准确；</li>
+            <li><b>上传发票（11/7–12/30）</b>：客户自行上传，<b>12/30 是最终核销期限</b>；</li>
+            <li><b>平台审核</b>：审核通过按先后顺序排名——B01 前 250 名 / D19 前 400 名返现到账。</li>
+          </ol>
+        </div>
+        <div class="warn"><b>门店动作（关键）：</b>① 周六早会宣贯到人，把"领券路径 + 名额规则 + 12/30 核销期限"三条话术统一；② <b>11月内锁单的客户，催开票、催上传</b>，名额按发票审核通过顺序排，越晚越拿不到；③ B01 客户重点讲"额外 500 返现"，D19 客户重点讲"1,500 券 + 1,000 返现可叠加"；④ 提醒客户留存领券记录，避免核销纠纷。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-h"><span class="no">3</span><h2>客户端：三个"本周末就锁"的理由</h2><span class="tag">11.7 专供</span></div>
+    <table>
+      <tr><th style="width:150px;">理由</th><th>跟客户怎么说</th><th style="width:110px;">紧迫度</th></tr>
+      <tr><td><span class="name">懂车帝返现先到先得</span></td><td class="how">"您在今天活动开闸后下定、开票，名额按审核顺序排——<b>B01 500、D19 1000，D19 还能和 1,500 尾款券叠加</b>，晚一周名额可能就没了。"</td><td class="win">名额限定</td></tr>
+      <tr><td><span class="name">本月权益 11/30 归零</span></td><td class="how">"11月的 1,500 / 2,000 尾款抵扣券只认本月下定，直接发到您 App 上，<b>车 11 月提政策就到手</b>——下个月政策怎么调没人敢保证。"</td><td class="win">月底关闸</td></tr>
+      <tr><td><span class="name">新款等得到，政策等不到</span></td><td class="how">等新款、等降价的客户最后一轮：现款 Lafa5 敢上场基金 2,000 全系最高，<b>新款广州车展上市后现款政策不再回来</b>。今天定，还赶得上本月交付排程。</td><td class="win">政策高点</td></tr>
+    </table>
+  </div>
+
+  <div class="sec">
+    <div class="sec-h"><span class="no">4</span><h2>两天分工：11.7 领券开闸日 vs 11.8 提档冲刺日</h2><span class="tag gold">一天一打法</span></div>
+    <div class="twodays">
+      <div class="day d77">
+        <div class="dh"><h3>11.7（六）懂车帝开闸日</h3><p>只做一件事：抢返现首发名额，把 B01/D19 的单先锁掉</p></div>
+        <ul>
+          <li><b>懂车帝活动宣贯到人</b>：领券路径、名额规则、核销期限三条话术早会过一遍</li>
+          <li><b>B01/D19 意向客户全量外呼</b>："今天领券开闸，名额先到先得"，约到店现场领券下单</li>
+          <li><b>限时权益 1,500 / 2,000 同步讲</b>：别只讲返现，C端券 + 返现一起算总账</li>
+          <li><b>C10/A05 库存现车优先锁</b>：往 ≥120% 档堆量，锁单与降库同步</li>
+          <li><b>今晚 20:00 各店报数</b>：触达数 / 到店数 / 锁单数 / 领券数</li>
+          <li><b>领券客户登记台账</b>：谁领了券、什么时候开票，一人一档</li>
+        </ul>
+        <div class="foot">口径红线：返现名额按发票审核通过顺序排 · 12/30 核销截止 · 不含大客户直销/试驾车订单</div>
+      </div>
+      <div class="day d88">
+        <div class="dh"><h3>11.8（日）提档冲刺日</h3><p>储备客户全部约回来，周末第二波冲 W2 提档</p></div>
+        <ul>
+          <li><b>储备名单早会全量分单</b>：上周逼不下来的客户逐户定人定时回访</li>
+          <li><b>上午集中邀约到店</b>：延续开门红主题，到店礼/试驾礼/订单礼三礼齐备</li>
+          <li><b>C10/A05 达成率盘中盘点</b>：对照锁单目标算缺口，缺口大的车系当天定向冲</li>
+          <li><b>Lafa5 清库收口</b>：2,000 基金 + 2,000 返利双头激励，现车优先安排试驾</li>
+          <li><b>B10 加码延续</b>：零跑基金 6,000→10,000/座（含 Ultra），W1 首发周末继续吃红利</li>
+          <li><b>18:00 各店报周末战报</b>：新增订单 / 到店 / 试驾 / 领券核销进度 / 交付排程</li>
+        </ul>
+        <div class="foot">目标：周末两天锁单增量直接计入 11 月达成率——冲 125% 提档，一天都不能松</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-h"><span class="no">5</span><h2>周末两天，按四段打</h2><span class="tag">每段结束报数</span></div>
+    <div class="quad">
+      <div class="q">
+        <div class="qt"><span class="dot"></span>周六 12:00 前</div>
+        <p>懂车帝宣贯到人；把"B01/D19 试驾过、没锁单"名单全部拉出来，主打"今天领券开闸、名额先到先得"，逐个电话约到店。</p>
+        <div class="say">"活动今天刚开始，名额按开票审核顺序排，您今天定今天开票，这 500/1000 返现就是您的。"</div>
+      </div>
+      <div class="q">
+        <div class="qt"><span class="dot"></span>周六 20:00 前</div>
+        <p>限时权益客户全部邀约到店：1,500 / 2,000 尾款抵扣券本月有效，可与 C端政策叠加；不到店的转视频看车。</p>
+        <div class="say">"11月的权益只认本月下定，券直接到您 App。您今天过来，我把'券 + 返现'的总账给您算死。"</div>
+      </div>
+      <div class="q">
+        <div class="qt"><span class="dot"></span>周日白天</div>
+        <p>储备客户集中转化 + C10/A05 缺口定向冲：现车有货的优先排试驾，锁一台往 120% 档进一步，A05 一台差 1,000 元。</p>
+        <div class="say">"车是现车，今天试驾今天定，11月提车——政策、返现两头都拿，不用再等。"</div>
+      </div>
+      <div class="q">
+        <div class="qt"><span class="dot"></span>周日 18:00 前</div>
+        <p>周末收口：领券客户台账、开票催办、交付排程三项过一遍；逼不下来的当场转储备，四要素登记不过夜。</p>
+        <div class="say">"本周末只做一件事：把能锁的单全部锁掉，把该领的券全部领掉。"</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-h"><span class="no">6</span><h2>内部抓手：W2（11.7–11.13）月度节奏四件事</h2><span class="tag gold">对照操盘日历</span></div>
+    <div class="wgrid">
+      <div class="w w-red"><div class="k">主线</div><div class="v">冲刺 125% 提档<small>C10/A05 阶梯看齐 ≥120% 档：A05 500→2,000、C10 400→800</small></div></div>
+      <div class="w w-navy"><div class="k">A 系</div><div class="v">A10 抢配额<small>A05 新媒体打女性客群 + 星愿拦截，配额先占先得</small></div></div>
+      <div class="w w-gold"><div class="k">B 系</div><div class="v">B10 加码延续<small>零跑基金 6,000→10,000/座（含 Ultra），W1 首发红利继续吃</small></div></div>
+      <div class="w w-teal"><div class="k">C 系</div><div class="v">重点冲 C11 + C16<small>1,500 尾款券主打车型，周末两波集中邀约</small></div></div>
+    </div>
+    <p class="tbl-note" style="margin-top:10px;">贯穿动作：① <b>周会盘妥保率</b>——交付排程与保险出单同步过，新保线上出单率 ≥50% 否则次月扣款；② <b>重点车型盘点</b>——10 款对象车型库存/锁单/缺口三张表每天更新；③ <b>广州车展·新店开序幕</b>已启动，新车到店前现款库存优先清；④ 检核系数随机抽查（9:00–18:00），<b>后 30% 实发归零不可豁免</b>，潜客登记/分流问询/标签合规三项日常自查。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sec-h"><span class="no">7</span><h2>四条口径，说错一句就是客诉</h2><span class="tag gray">全员背熟</span></div>
+    <div class="caliber">
+      <div class="cb hot"><b>权益只认 11 月下定</b>11/1–11/30 下定并当月交付享 1,500/2,000 券；不含大客户直销、试驾车订单。</div>
+      <div class="cb hot"><b>懂车帝名额按审核顺序</b>B01 前 250 / D19 前 400，按发票审核通过先后排名，先到先得，不保名额。</div>
+      <div class="cb"><b>券到 App 才算到账</b>尾款抵扣券发购车人零跑 App，必须提醒客户查收；懂车帝返现无需门店验券。</div>
+      <div class="cb"><b>C10/A05 分子口径</b>锁单 11/1–11/30 且最终交付 11/1–12/31，2027/1/1 取数，未交付视为退订；同城同实控人合并考核。</div>
+      <div class="cb"><b>12/30 核销生死线</b>懂车帝发票上传截止 12/30，过期不补——11月锁单的客户开票即催上传。</div>
+      <div class="cb"><b>检核系数不可豁免</b>后 30% 门店当月实发归零，豁免项也不豁免系数；随机检核时段 9:00–18:00。</div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-h"><span class="no">8</span><h2>储备转化：逼不下来的，一个都不丢</h2><span class="tag gold">通向下周末</span></div>
+    <div class="reserve">
+      <b>周末锁不下来的客户，当场完成储备登记（四要素缺一不可）：</b>
+      <ol>
+        <li><b>异议类型</b>：比价 / 等新款 / 等降价 / 商量 / 预算——如实记录；</li>
+        <li><b>回访时点</b>：约定到店/电话的具体时间（默认下周周末活动邀约）；</li>
+        <li><b>意向车型与配置</b>：现车有货的优先排；B01/D19 意向客户先引导完成懂车帝领券（先占名额，锁单可以晚一点）；</li>
+        <li><b>责任人</b>：销售顾问本人，小区经理早会逐条点检。</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-h"><span class="no">9</span><h2>周末关键节点</h2><span class="tag gray">时刻表</span></div>
+    <ul class="tl">
+      <li><span class="t hot">11.7 早会</span><span class="d">懂车帝活动三条话术宣贯到人（领券路径/名额规则/核销期限）；W2 提档缺口盘点到车系</span><span class="who">小区经理</span></li>
+      <li><span class="t hot">11.7 全天</span><span class="d">B01/D19 意向客户全量外呼邀约；限时权益 1,500/2,000 同步讲解；C10/A05 现车优先锁单</span><span class="who">全体销售 + 店长</span></li>
+      <li><span class="t hot">11.7 20:00</span><span class="d">各店报数：触达 / 到店 / 锁单 / 领券；缺口门店店长现场调度</span><span class="who">小区经理</span></li>
+      <li><span class="t">11.8 早会</span><span class="d">储备名单分单到人；C10/A05 达成率缺口复盘；领券未开票客户催办</span><span class="who">小区经理 + 店长</span></li>
+      <li><span class="t">11.8 全天</span><span class="d">储备客户集中到店试驾转化；Lafa5 / B10 双重激励收口；妥保率与新保出单周会过一遍</span><span class="who">全体</span></li>
+      <li><span class="t">11.8 18:00</span><span class="d">各店报周末战报：新增订单 / 到店 / 试驾 / 领券核销进度 / 交付排程</span><span class="who">小区经理</span></li>
+      <li><span class="t">11.9（一）</span><span class="d">周末复盘进周会：提档进度对照 125% 目标；懂车帝台账核对，未开票客户定向跟进</span><span class="who">大区 + 经理</span></li>
+    </ul>
+  </div>
+
+  <div class="summary">
+    <b class="t">一句话总结</b>
+    <p><b>11.7 懂车帝开闸</b>——B01 500 / D19 1,000 返现名额先到先得，D19 叠加 1,500 尾款券最多两头拿 2,500：领券、开票、上传三步盯到人，12/30 核销生死线提前讲；</p>
+    <p><b>全周末冲提档</b>——限时权益 11/30 归零、C10/A05 冲 ≥120% 档激励翻倍（A05 500→2,000）、Lafa5 双重 4,000、B10 基金 10,000/座继续吃，储备客户四要素登记、早会分单集中转化，<b>周末两天的锁单增量直接决定 W2 能不能站上 125% 提档线</b>。</p>
+  </div>
+
+  <footer>
+    <span>零跑汽车 · 华南大区零售管理 ｜ 依据《2026年11月零售运营管理激励政策》及 11 月 6 项专项通知、11月操盘日历（10.31–11.11）、懂车帝 B01/D19 购车返现活动细则整理，具体以政策原文及零跑 App 公布为准</span>
+    <span>更新至 2026-11-06</span>
+  </footer>
+</div>
+</body>
+</html>
