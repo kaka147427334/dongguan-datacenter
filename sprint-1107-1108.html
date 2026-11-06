@@ -139,6 +139,52 @@
   .dong .warn{grid-column:1 / -1; font-size:12.2px; color:#6a3f9e; background:#f4ecfb; border-left:4px solid var(--purple); border-radius:0 8px 8px 0; padding:9px 13px; margin:0 13px 13px;}
   .dong .warn b{color:var(--purple);}
 
+  /* ===== 能量积分（重磅） ===== */
+  .pts{border:2px solid var(--gold); border-radius:12px; overflow:hidden; background:#fffdf7;}
+  .pts .ph{background:linear-gradient(135deg,#c9820e,#f0a832); color:#fff; padding:11px 18px; display:flex; align-items:center; gap:10px; flex-wrap:wrap;}
+  .pts .ph h3{font-size:16.5px;}
+  .pts .ph .pt{margin-left:auto; font-size:12px; background:rgba(0,0,0,.2); border-radius:20px; padding:3px 12px; font-weight:700;}
+  .pts .pbody{display:grid; grid-template-columns:1fr 1fr 1.05fr; gap:12px; padding:14px;}
+  .pbig{border-radius:10px; padding:12px 15px; background:linear-gradient(135deg,#c0392b,#96281b); color:#fff;}
+  .pbig .pm{font-size:13px; font-weight:700; opacity:.95;}
+  .pbig .pn{font-size:36px; font-weight:800; line-height:1.05; margin:2px 0 1px;}
+  .pbig .pn small{font-size:13px; font-weight:700;}
+  .pbig .px{font-size:11.8px; opacity:.95;}
+  .pmid{border-radius:10px; padding:12px 15px; background:linear-gradient(135deg,#1c3a57,#0d1b2a); color:#fff;}
+  .pmid .pn{font-size:31px; font-weight:800; line-height:1.1;}
+  .pmid .pn small{font-size:12.5px; font-weight:700;}
+  .pmid .plist{font-size:12.2px; margin-top:5px; line-height:1.7; color:#dfe9f2;}
+  .pmid .plist b{color:#ffd98a;}
+  .puse{background:#fff; border:1px solid var(--line); border-radius:10px; padding:11px 14px; font-size:12.2px; color:#3d4d5f;}
+  .puse b.h{display:block; color:var(--gold-d); font-size:12.8px; margin-bottom:4px;}
+  .puse ol{margin:0 0 0 17px;}
+  .puse li{margin-bottom:3px;}
+  .puse li b{color:var(--red);}
+  .pnote{grid-column:1 / -1; background:#fff8e8; border-left:4px solid var(--gold); border-radius:0 8px 8px 0; padding:9px 13px; font-size:12.4px; color:#6a501a;}
+  .pnote b{color:var(--red);}
+
+  /* ===== 风险 ===== */
+  .risks{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+  .rk{border-radius:10px; padding:12px 15px; border:1.5px solid #f3d4cf; background:#fdf5f3;}
+  .rk .rh{display:flex; align-items:center; gap:9px; font-weight:800; font-size:14px; color:var(--red);}
+  .rk .rd{font-size:11.5px; background:var(--red); color:#fff; border-radius:20px; padding:2px 9px; font-weight:700;}
+  .rk p{font-size:12.4px; color:#4a3a37; margin-top:6px;}
+  .rk p b{color:var(--red);}
+  .rk.gld{background:#fffaf0; border-color:#f3ddb0;}
+  .rk.gld .rh{color:var(--gold-d);}
+  .rk.gld .rd{background:var(--gold); color:#3a2a05;}
+  .rk.gld p{color:#5a4a20;}
+  .rk.gld p b{color:var(--gold-d);}
+  .riskbar{grid-column:1 / -1; background:var(--navy); color:#fff; border-radius:10px; padding:11px 16px; font-size:13.2px; font-weight:700; text-align:center;}
+  .riskbar b{color:var(--gold);}
+
+  /* ===== 月度策略（简版） ===== */
+  .slim{display:grid; grid-template-columns:repeat(4,1fr); gap:9px;}
+  .slim .si{background:#f2f6fa; border:1px solid var(--line); border-radius:9px; padding:9px 12px;}
+  .slim .si b{display:block; font-size:12.8px; color:var(--navy);}
+  .slim .si b em{font-style:normal; color:var(--red);}
+  .slim .si span{font-size:11.7px; color:#4a5a6b; line-height:1.5;}
+
   /* ===== 时间轴 ===== */
   .tl{list-style:none;}
   .tl li{display:flex; gap:14px; padding:8px 0; border-bottom:1px dashed var(--line); font-size:12.8px;}
@@ -169,22 +215,68 @@
 <div class="page">
 
   <div class="hero">
-    <h1>华南大区 · 周末订单冲刺（11.7–11.8）<span class="badge">W2 × 125%提档周</span></h1>
+    <h1>华南大区 · 周末订单冲刺（11.7–11.8）<span class="badge">能量积分 11.7–11.15 · 仅 9 天</span></h1>
     <div class="meta">
       <span>整理日 <b>2026-11-06（周五）</b></span>
-      <span>11.7（六）＝ <b>懂车帝 B01/D19 返现首日 · 领券开闸</b></span>
+      <span>11.7（六）＝ <b>积分 + 懂车帝 B01/D19 返现 双开闸</b></span>
       <span>11.8（日）＝ <b>W2 提档冲刺日 · 储备客户集中转化</b></span>
     </div>
-    <div class="slogan">本周末核心定调：<b>11.7 懂车帝领券开闸抢首发名额；全周主线＝把 C10/A05 锁单达成率拉进 ≥120% 档，激励直接翻倍</b></div>
+    <div class="slogan">本周末核心定调：<b>11.7–11.15 能量积分窗口只有 9 天，本周末是唯一完整两天——11.16 深圳 APEC 管控、11.21 广州车展开幕，之后客流和客户心理全变</b></div>
   </div>
 
   <div class="keynote">
-    <b class="t">10月已收官、11月政策已全量落地——这个周末是"W2 提档周"的第一个周末</b>
-    <p>10.31 政策关闸已成过去，11月按新政策考核：限时专项权益 <b>11/30 24:00 截止</b>、C10/A05 阶梯按 <b>≥120% 档兑现翻倍</b>、懂车帝返现 <b>11/7 正式启动且名额先到先得</b>。操盘日历 W2（11.7–11.13）主线是"冲刺125%提档"——周末两天的锁单增量，直接决定本月能不能站上 120% 档、以及 11–12 月双月达成率 80% 的生死线起点。</p>
+    <b class="t">三件事叠在本周末：能量积分开闸（9天窗口）+ 懂车帝返现开闸（名额先到先得）+ 之后两周客流被切断</b>
+    <p>① <b>11.7–11.15 新增订单能量积分</b>：C10 10,000 积分、A05/B系/Lafa/C11/C16 5,000 积分——窗口只有 9 天，本周末是第一个也是唯一完整的周末；② <b>懂车帝 B01/D19 返现 11/7 开闸</b>，按发票审核顺序排名，B01 前 250、D19 前 400；③ <b>11.16 起深圳 APEC 管控（11/16–11/20）、11.21 广州车展开幕</b>——管控期到店受限、车展期客户"等车展再定"心理发酵，<b>下个周末（11/14–15）已贴着管控与车展，本周末之后再没有这样干净的窗口</b>。</p>
   </div>
 
   <div class="sec">
-    <div class="sec-h"><span class="no">1</span><h2>经销商端：三张政策牌，本月可用弹药全在这</h2><span class="tag">11/30 截止</span></div>
+    <div class="sec-h"><span class="no">1</span><h2>重磅加码：11.7–11.15 新增订单能量积分，最高 10,000 积分/台</h2><span class="tag">仅 9 天</span></div>
+    <div class="pts">
+      <div class="ph"><h3>新增订单能量积分支持 · 11/7–11/15</h3><span class="pt">11.15 24:00 关闸</span></div>
+      <div class="pbody">
+        <div class="pbig">
+          <div class="pm">C10 全系</div>
+          <div class="pn">10,000<small> 积分 / 台</small></div>
+          <div class="px">全系最高档 · 本周六日主推车型</div>
+        </div>
+        <div class="pmid">
+          <div class="pm" style="font-size:13px; font-weight:700; opacity:.95;">以下车型</div>
+          <div class="pn">5,000<small> 积分 / 台</small></div>
+          <div class="plist"><b>A05</b> · <b>B 系</b>（B01 / B10）· <b>Lafa5</b>（含 Ultra）· <b>C11</b> · <b>C16</b></div>
+        </div>
+        <div class="puse">
+          <b class="h">门店怎么用（本周六日）</b>
+          <ol>
+            <li><b>C10 优先推</b>：积分 10,000 是别的车型两倍，C10 库存车、C10 意向客户先谈；</li>
+            <li><b>三头一起算总账</b>：能量积分 + 限时权益 1,500/2,000 券 + 懂车帝返现，客户听到的是"一笔大账"；</li>
+            <li><b>当逼单工具</b>：客户犹豫就报窗口"11.15 关闸，之后不再有"；</li>
+            <li><b>只认新增订单</b>：11/7–11/15 期间新下定才享受，老订单不追溯——<b>今天不定，明天照样没有</b>。</li>
+          </ol>
+        </div>
+        <div class="pnote"><b>口径提醒：</b>积分按台发放（新增订单口径，11/7–11/15），与限时权益、懂车帝返现<b>可叠加</b>；具体发放时点与使用范围以零跑 App / 官方通知为准，<b>不要向客户承诺折现</b>。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-h"><span class="no">2</span><h2>为什么必须这个周末冲：11.16 起，两条腿一起被绊住</h2><span class="tag">时间风险</span></div>
+    <div class="risks">
+      <div class="rk">
+        <div class="rh">深圳 APEC 管控<span class="rd">11.16–11.20</span></div>
+        <p>深圳及周边区域进入会议管控期：<b>交通与安保管控、重点路段限行</b>，门店到店客流、外展外拓、试驾路线、物流与上牌交付节奏<b>全线受影响</b>。管控期内不适合安排大型活动，客户也不愿往管控区跑。</p>
+        <p><b>→ 结论：11.16 之后下手，至少损失 5 天有效到店。</b>本周末必须把能约的客户全约到店、能锁的单全锁掉。</p>
+      </div>
+      <div class="rk gld">
+        <div class="rh">广州车展开幕<span class="rd">11.21</span></div>
+        <p>11/21 广州车展开幕，<b>虹吸周边城市客流与媒体声量</b>：佛山、东莞、惠州、中山等地客户会抱着"等车展政策/等新车"的心理观望；<b>11/16 起这种观望情绪就开始发酵</b>，越临近车展越谈不下来。</p>
+        <p><b>→ 结论：车展前必须先把订单落袋。</b>车展新车上市后，现款 Lafa5 敢上场基金、本月积分与权益窗口都不再回来。</p>
+      </div>
+      <div class="riskbar">能量积分 9 天窗口里，只有 <b>11.7–11.8 这两天</b>既没有管控、也没有车展虹吸——<b>本周末砸不出订单，本月就只能靠管控期和车展期硬扛</b></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-h"><span class="no">3</span><h2>经销商端：三张政策牌，本月还能用的弹药</h2><span class="tag">11/30 截止</span></div>
     <div class="cards3">
       <div class="pcard c-red">
         <h3>11月限时专项权益（C端）</h3>
@@ -193,7 +285,7 @@
         <div class="amt">2,000<small>/台 敢上场基金</small></div>
         <div class="mdl">26款 Lafa5 全系（含 Ultra）</div>
         <div class="dl">发购车人零跑 App · 可与 C端政策叠加</div>
-        <div class="note">不含大客户直销 / 试驾车订单。10月的 1000 元档（B01/B10）已取消，本月就是 1500 / 2000 两档。</div>
+        <div class="note">不含大客户直销 / 试驾车订单。10月的 1000 元档（B01/B10）已取消，本月就是 1500 / 2000 两档。<b>另叠加：11.7–11.15 新增订单能量积分（见第 1 节）。</b></div>
       </div>
       <div class="pcard c-gold">
         <h3>C10 全系 / A05 全系 阶梯激励（B端）</h3>
@@ -230,7 +322,7 @@
   </div>
 
   <div class="sec">
-    <div class="sec-h"><span class="no">2</span><h2>本周末加码：懂车帝 B01 / D19 领券返现，11.7 开闸</h2><span class="tag purple">首日抢名额</span></div>
+    <div class="sec-h"><span class="no">4</span><h2>本周末另一开闸：懂车帝 B01 / D19 领券返现</h2><span class="tag purple">首日抢名额</span></div>
     <div class="dong">
       <div class="dh"><h3>懂车帝 APP 活动主会场 / 品牌馆领券</h3><span class="dt">领券 11/7–11/30 · 发票上传 11/7–12/30</span></div>
       <div class="body">
@@ -259,85 +351,87 @@
   </div>
 
   <div class="sec">
-    <div class="sec-h"><span class="no">3</span><h2>客户端：三个"本周末就锁"的理由</h2><span class="tag">11.7 专供</span></div>
+    <div class="sec-h"><span class="no">5</span><h2>客户端：四个"本周末就锁"的理由</h2><span class="tag">11.7 专供</span></div>
     <table>
       <tr><th style="width:150px;">理由</th><th>跟客户怎么说</th><th style="width:110px;">紧迫度</th></tr>
+      <tr><td><span class="name">能量积分 11.15 关闸</span></td><td class="how">"11.7 到 11.15 下定的新订单才有积分：<b>C10 一万积分、A05/B系/Lafa/C11/C16 五千积分</b>，按台发。就这 9 天，过了 11.15 就没有了。"</td><td class="win">9天窗口</td></tr>
       <tr><td><span class="name">懂车帝返现先到先得</span></td><td class="how">"您在今天活动开闸后下定、开票，名额按审核顺序排——<b>B01 500、D19 1000，D19 还能和 1,500 尾款券叠加</b>，晚一周名额可能就没了。"</td><td class="win">名额限定</td></tr>
       <tr><td><span class="name">本月权益 11/30 归零</span></td><td class="how">"11月的 1,500 / 2,000 尾款抵扣券只认本月下定，直接发到您 App 上，<b>车 11 月提政策就到手</b>——下个月政策怎么调没人敢保证。"</td><td class="win">月底关闸</td></tr>
-      <tr><td><span class="name">新款等得到，政策等不到</span></td><td class="how">等新款、等降价的客户最后一轮：现款 Lafa5 敢上场基金 2,000 全系最高，<b>新款广州车展上市后现款政策不再回来</b>。今天定，还赶得上本月交付排程。</td><td class="win">政策高点</td></tr>
+      <tr><td><span class="name">车展前最后一波</span></td><td class="how">"<b>11.21 广州车展</b>一开，周边客户都要等车展政策、等新车；<b>11.16 起深圳还有管控</b>，到店都不方便。您这个周末定，是本轮最省事、政策最全的时候。"</td><td class="win">车展虹吸</td></tr>
     </table>
   </div>
 
   <div class="sec">
-    <div class="sec-h"><span class="no">4</span><h2>两天分工：11.7 领券开闸日 vs 11.8 提档冲刺日</h2><span class="tag gold">一天一打法</span></div>
+    <div class="sec-h"><span class="no">6</span><h2>两天分工：11.7 双开闸日 vs 11.8 提档冲刺日</h2><span class="tag gold">一天一打法</span></div>
     <div class="twodays">
       <div class="day d77">
-        <div class="dh"><h3>11.7（六）懂车帝开闸日</h3><p>只做一件事：抢返现首发名额，把 B01/D19 的单先锁掉</p></div>
+        <div class="dh"><h3>11.7（六）双开闸日</h3><p>能量积分 + 懂车帝返现同日启动，抢窗口、抢名额、把单锁掉</p></div>
         <ul>
-          <li><b>懂车帝活动宣贯到人</b>：领券路径、名额规则、核销期限三条话术早会过一遍</li>
+          <li><b>早会宣贯新政策</b>：积分档位（C10 一万 / 其余五千）+ 懂车帝领券路径 + 11.15 与 12.30 两条关闸日</li>
+          <li><b>C10 客户全量外呼</b>："积分最高一万，全系唯一"——C10 库存车、C10 意向客户优先谈</li>
           <li><b>B01/D19 意向客户全量外呼</b>："今天领券开闸，名额先到先得"，约到店现场领券下单</li>
-          <li><b>限时权益 1,500 / 2,000 同步讲</b>：别只讲返现，C端券 + 返现一起算总账</li>
-          <li><b>C10/A05 库存现车优先锁</b>：往 ≥120% 档堆量，锁单与降库同步</li>
-          <li><b>今晚 20:00 各店报数</b>：触达数 / 到店数 / 锁单数 / 领券数</li>
-          <li><b>领券客户登记台账</b>：谁领了券、什么时候开票，一人一档</li>
+          <li><b>三头算总账</b>：积分 + 1,500/2,000 券 + 返现，一张纸给客户算到底</li>
+          <li><b>A05 / B系 / Lafa / C11 / C16 五千积分车型</b>：按库存优先级排话术，逐款配一句</li>
+          <li><b>今晚 20:00 各店报数</b>：触达 / 到店 / 锁单 / 领券 / 积分车型占比</li>
         </ul>
-        <div class="foot">口径红线：返现名额按发票审核通过顺序排 · 12/30 核销截止 · 不含大客户直销/试驾车订单</div>
+        <div class="foot">口径红线：积分只认 11.7–11.15 新增订单 · 返现按发票审核顺序排 · 12/30 核销截止</div>
       </div>
       <div class="day d88">
         <div class="dh"><h3>11.8（日）提档冲刺日</h3><p>储备客户全部约回来，周末第二波冲 W2 提档</p></div>
         <ul>
           <li><b>储备名单早会全量分单</b>：上周逼不下来的客户逐户定人定时回访</li>
-          <li><b>上午集中邀约到店</b>：延续开门红主题，到店礼/试驾礼/订单礼三礼齐备</li>
+          <li><b>上午集中邀约到店</b>：积分窗口话术 + 到店礼/试驾礼/订单礼三礼齐备</li>
           <li><b>C10/A05 达成率盘中盘点</b>：对照锁单目标算缺口，缺口大的车系当天定向冲</li>
-          <li><b>Lafa5 清库收口</b>：2,000 基金 + 2,000 返利双头激励，现车优先安排试驾</li>
-          <li><b>B10 加码延续</b>：零跑基金 6,000→10,000/座（含 Ultra），W1 首发周末继续吃红利</li>
-          <li><b>18:00 各店报周末战报</b>：新增订单 / 到店 / 试驾 / 领券核销进度 / 交付排程</li>
+          <li><b>Lafa5 清库收口</b>：积分 5,000 + C端 2,000 + B端 2,000 三重叠加，现车优先试驾</li>
+          <li><b>B10 加码延续</b>：零跑基金 6,000→10,000/座（含 Ultra）+ 积分 5,000</li>
+          <li><b>18:00 报周末战报</b>：新增订单 / 到店 / 试驾 / 领券 / 交付排程</li>
         </ul>
-        <div class="foot">目标：周末两天锁单增量直接计入 11 月达成率——冲 125% 提档，一天都不能松</div>
+        <div class="foot">目标：两天锁单直接计入 11 月达成率——<b>11.16 管控、11.21 车展前的最后完整窗口</b></div>
       </div>
     </div>
   </div>
 
   <div class="sec">
-    <div class="sec-h"><span class="no">5</span><h2>周末两天，按四段打</h2><span class="tag">每段结束报数</span></div>
+    <div class="sec-h"><span class="no">7</span><h2>周末两天，按四段打</h2><span class="tag">每段结束报数</span></div>
     <div class="quad">
       <div class="q">
         <div class="qt"><span class="dot"></span>周六 12:00 前</div>
-        <p>懂车帝宣贯到人；把"B01/D19 试驾过、没锁单"名单全部拉出来，主打"今天领券开闸、名额先到先得"，逐个电话约到店。</p>
-        <div class="say">"活动今天刚开始，名额按开票审核顺序排，您今天定今天开票，这 500/1000 返现就是您的。"</div>
+        <p>早会宣贯积分政策：C10 一万、其余五千，只认 11.7–11.15 新增订单；把 C10、B01、D19 三类意向客户名单全部拉出来逐个电话约到店。</p>
+        <div class="say">"这个窗口只有 9 天——C10 一万积分、其他车型五千，今天定才有，过了 11.15 就没有了。"</div>
       </div>
       <div class="q">
         <div class="qt"><span class="dot"></span>周六 20:00 前</div>
-        <p>限时权益客户全部邀约到店：1,500 / 2,000 尾款抵扣券本月有效，可与 C端政策叠加；不到店的转视频看车。</p>
-        <div class="say">"11月的权益只认本月下定，券直接到您 App。您今天过来，我把'券 + 返现'的总账给您算死。"</div>
+        <p>三头算总账：积分 + 限时权益 1,500/2,000 + 懂车帝返现，一张纸写清客户能拿多少；不到店的转视频看车。</p>
+        <div class="say">"11月的权益只认本月下定、积分只认 11.15 前，我把这三笔一次性给您算死。"</div>
       </div>
       <div class="q">
         <div class="qt"><span class="dot"></span>周日白天</div>
         <p>储备客户集中转化 + C10/A05 缺口定向冲：现车有货的优先排试驾，锁一台往 120% 档进一步，A05 一台差 1,000 元。</p>
-        <div class="say">"车是现车，今天试驾今天定，11月提车——政策、返现两头都拿，不用再等。"</div>
+        <div class="say">"车是现车，今天试驾今天定——政策、积分、返现三头都拿，下周末就撞管控和车展了。"</div>
       </div>
       <div class="q">
         <div class="qt"><span class="dot"></span>周日 18:00 前</div>
-        <p>周末收口：领券客户台账、开票催办、交付排程三项过一遍；逼不下来的当场转储备，四要素登记不过夜。</p>
+        <p>周末收口：领券台账、开票催办、交付排程三项过一遍；逼不下来的当场转储备，四要素登记不过夜。</p>
         <div class="say">"本周末只做一件事：把能锁的单全部锁掉，把该领的券全部领掉。"</div>
       </div>
     </div>
   </div>
 
   <div class="sec">
-    <div class="sec-h"><span class="no">6</span><h2>内部抓手：W2（11.7–11.13）月度节奏四件事</h2><span class="tag gold">对照操盘日历</span></div>
-    <div class="wgrid">
-      <div class="w w-red"><div class="k">主线</div><div class="v">冲刺 125% 提档<small>C10/A05 阶梯看齐 ≥120% 档：A05 500→2,000、C10 400→800</small></div></div>
-      <div class="w w-navy"><div class="k">A 系</div><div class="v">A10 抢配额<small>A05 新媒体打女性客群 + 星愿拦截，配额先占先得</small></div></div>
-      <div class="w w-gold"><div class="k">B 系</div><div class="v">B10 加码延续<small>零跑基金 6,000→10,000/座（含 Ultra），W1 首发红利继续吃</small></div></div>
-      <div class="w w-teal"><div class="k">C 系</div><div class="v">重点冲 C11 + C16<small>1,500 尾款券主打车型，周末两波集中邀约</small></div></div>
+    <div class="sec-h"><span class="no">8</span><h2>月度策略（简版）：一条主线，四个抓手</h2><span class="tag gray">对照操盘日历 W2</span></div>
+    <div class="slim">
+      <div class="si"><b>主线 <em>冲刺125%提档</em></b><span>C10/A05 看齐 ≥120% 档：A05 500→2,000、C10 400→800</span></div>
+      <div class="si"><b>A 系 <em>A10 抢配额</em></b><span>A05 新媒体打女性客群 + 星愿拦截，先占先得</span></div>
+      <div class="si"><b>B 系 <em>B10 加码</em></b><span>零跑基金 6,000→10,000/座（含 Ultra）+ 积分 5,000</span></div>
+      <div class="si"><b>C 系 <em>C11 + C16</em></b><span>1,500 尾款券 + 5,000 积分，周末两波集中邀约</span></div>
     </div>
-    <p class="tbl-note" style="margin-top:10px;">贯穿动作：① <b>周会盘妥保率</b>——交付排程与保险出单同步过，新保线上出单率 ≥50% 否则次月扣款；② <b>重点车型盘点</b>——10 款对象车型库存/锁单/缺口三张表每天更新；③ <b>广州车展·新店开序幕</b>已启动，新车到店前现款库存优先清；④ 检核系数随机抽查（9:00–18:00），<b>后 30% 实发归零不可豁免</b>，潜客登记/分流问询/标签合规三项日常自查。</p>
+    <p style="margin-top:9px; font-size:12.3px; color:#4a5a6b;">贯穿动作：周会盘妥保率（新保线上出单率 ≥50%）｜10 款车型库存·锁单·缺口三张表每天更新｜<b style="color:var(--red)">检核系数后 30% 实发归零、不可豁免</b>，潜客登记/分流问询/标签三项日常自查。</p>
   </div>
 
   <div class="sec">
-    <div class="sec-h"><span class="no">7</span><h2>四条口径，说错一句就是客诉</h2><span class="tag gray">全员背熟</span></div>
+    <div class="sec-h"><span class="no">9</span><h2>五条口径，说错一句就是客诉</h2><span class="tag gray">全员背熟</span></div>
     <div class="caliber">
+      <div class="cb hot"><b>积分只认 11.7–11.15</b>新增订单口径按台发：C10 10,000 积分，A05/B系/Lafa/C11/C16 5,000 积分；老订单不追溯，不承诺折现。</div>
       <div class="cb hot"><b>权益只认 11 月下定</b>11/1–11/30 下定并当月交付享 1,500/2,000 券；不含大客户直销、试驾车订单。</div>
       <div class="cb hot"><b>懂车帝名额按审核顺序</b>B01 前 250 / D19 前 400，按发票审核通过先后排名，先到先得，不保名额。</div>
       <div class="cb"><b>券到 App 才算到账</b>尾款抵扣券发购车人零跑 App，必须提醒客户查收；懂车帝返现无需门店验券。</div>
@@ -348,7 +442,7 @@
   </div>
 
   <div class="sec">
-    <div class="sec-h"><span class="no">8</span><h2>储备转化：逼不下来的，一个都不丢</h2><span class="tag gold">通向下周末</span></div>
+    <div class="sec-h"><span class="no">10</span><h2>储备转化：逼不下来的，一个都不丢</h2><span class="tag gold">通向下周末</span></div>
     <div class="reserve">
       <b>周末锁不下来的客户，当场完成储备登记（四要素缺一不可）：</b>
       <ol>
@@ -361,26 +455,28 @@
   </div>
 
   <div class="sec">
-    <div class="sec-h"><span class="no">9</span><h2>周末关键节点</h2><span class="tag gray">时刻表</span></div>
+    <div class="sec-h"><span class="no">11</span><h2>周末关键节点</h2><span class="tag gray">时刻表</span></div>
     <ul class="tl">
-      <li><span class="t hot">11.7 早会</span><span class="d">懂车帝活动三条话术宣贯到人（领券路径/名额规则/核销期限）；W2 提档缺口盘点到车系</span><span class="who">小区经理</span></li>
-      <li><span class="t hot">11.7 全天</span><span class="d">B01/D19 意向客户全量外呼邀约；限时权益 1,500/2,000 同步讲解；C10/A05 现车优先锁单</span><span class="who">全体销售 + 店长</span></li>
-      <li><span class="t hot">11.7 20:00</span><span class="d">各店报数：触达 / 到店 / 锁单 / 领券；缺口门店店长现场调度</span><span class="who">小区经理</span></li>
+      <li><span class="t hot">11.7 早会</span><span class="d">能量积分政策宣贯（C10 一万 / 其余五千 / 11.15 关闸）；懂车帝三条话术（领券路径·名额规则·12.30 核销）；W2 提档缺口盘点到车系</span><span class="who">小区经理</span></li>
+      <li><span class="t hot">11.7 全天</span><span class="d">C10 客户全量外呼（积分最高档）；B01/D19 意向客户全量外呼领券；1,500/2,000 券同步讲；三头算总账</span><span class="who">全体销售 + 店长</span></li>
+      <li><span class="t hot">11.7 20:00</span><span class="d">各店报数：触达 / 到店 / 锁单 / 领券 / 积分车型占比；缺口门店店长现场调度</span><span class="who">小区经理</span></li>
       <li><span class="t">11.8 早会</span><span class="d">储备名单分单到人；C10/A05 达成率缺口复盘；领券未开票客户催办</span><span class="who">小区经理 + 店长</span></li>
-      <li><span class="t">11.8 全天</span><span class="d">储备客户集中到店试驾转化；Lafa5 / B10 双重激励收口；妥保率与新保出单周会过一遍</span><span class="who">全体</span></li>
-      <li><span class="t">11.8 18:00</span><span class="d">各店报周末战报：新增订单 / 到店 / 试驾 / 领券核销进度 / 交付排程</span><span class="who">小区经理</span></li>
-      <li><span class="t">11.9（一）</span><span class="d">周末复盘进周会：提档进度对照 125% 目标；懂车帝台账核对，未开票客户定向跟进</span><span class="who">大区 + 经理</span></li>
+      <li><span class="t">11.8 全天</span><span class="d">储备客户集中到店试驾转化；Lafa5 / B10 三重加码收口；妥保率与新保出单周会过一遍</span><span class="who">全体</span></li>
+      <li><span class="t">11.8 18:00</span><span class="d">各店报周末战报：新增订单 / 到店 / 试驾 / 领券 / 交付排程</span><span class="who">小区经理</span></li>
+      <li><span class="t">11.9（一）</span><span class="d">周末复盘进周会：提档进度对照 125%；<b>积分窗口剩余 6 天</b>，锁单未成交客户按天排跟进</span><span class="who">大区 + 经理</span></li>
+      <li><span class="t">11.15（日）</span><span class="d">能量积分窗口 24:00 关闸；<b>11.16 起深圳 APEC 管控，活动与到店安排提前收口</b></span><span class="who">大区</span></li>
     </ul>
   </div>
 
   <div class="summary">
     <b class="t">一句话总结</b>
-    <p><b>11.7 懂车帝开闸</b>——B01 500 / D19 1,000 返现名额先到先得，D19 叠加 1,500 尾款券最多两头拿 2,500：领券、开票、上传三步盯到人，12/30 核销生死线提前讲；</p>
-    <p><b>全周末冲提档</b>——限时权益 11/30 归零、C10/A05 冲 ≥120% 档激励翻倍（A05 500→2,000）、Lafa5 双重 4,000、B10 基金 10,000/座继续吃，储备客户四要素登记、早会分单集中转化，<b>周末两天的锁单增量直接决定 W2 能不能站上 125% 提档线</b>。</p>
+    <p><b>积分窗口只有 9 天</b>——11.7–11.15 新增订单：C10 10,000 积分、A05/B系/Lafa/C11/C16 5,000 积分，<b>本周末是唯一完整窗口</b>；</p>
+    <p><b>11.16 起两条腿被绊住</b>——深圳 APEC 管控（11/16–11/20）砍到店与交付，广州车展（11/21）把周边客户"等车展"心理提前引爆；<b>这个周末砸不出订单，后面只能硬扛</b>。</p>
+    <p><b>三头算一笔账</b>——积分 + 限时权益 1,500/2,000（11/30 归零）+ 懂车帝 B01 500 / D19 1,000（名额先到先得，D19 可叠加），C10 冲 ≥120% 档（800/2,000）把提档拉起来。</p>
   </div>
 
   <footer>
-    <span>零跑汽车 · 华南大区零售管理 ｜ 依据《2026年11月零售运营管理激励政策》及 11 月 6 项专项通知、11月操盘日历（10.31–11.11）、懂车帝 B01/D19 购车返现活动细则整理，具体以政策原文及零跑 App 公布为准</span>
+    <span>零跑汽车 · 华南大区零售管理 ｜ 依据《2026年11月零售运营管理激励政策》、11 月 6 项专项通知、11月操盘日历（10.31–11.11）、11.7–11.15 新增订单能量积分支持、懂车帝 B01/D19 购车返现活动细则及 11.16 深圳 APEC 管控 / 11.21 广州车展节点整理，具体以政策原文及零跑 App 公布为准</span>
     <span>更新至 2026-11-06</span>
   </footer>
 </div>
