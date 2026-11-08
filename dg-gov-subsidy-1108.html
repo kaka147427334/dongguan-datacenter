@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>东莞政府补贴增资大字报</title>
+<style>
+  *{margin:0; padding:0; box-sizing:border-box;}
+  body{width:900px; background:#1a0503; font-family:"PingFang SC","Microsoft YaHei",sans-serif; color:#fff;}
+  .wrap{padding:44px 40px 40px; text-align:center; background:linear-gradient(180deg,#2b0a06 0%, #a3200f 34%, #7c1006 78%, #1a0503 100%);}
+
+  .cap{display:inline-block; font-size:16px; font-weight:800; letter-spacing:3px; color:#ffe9b8;
+    border:1.5px solid rgba(255,220,140,.55); border-radius:30px; padding:7px 22px; margin-bottom:18px;}
+  h1{font-size:76px; font-weight:900; letter-spacing:6px; line-height:1.12;
+    background:linear-gradient(180deg,#fff3c4,#ffd24a 55%,#e8a41e);
+    -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+    filter:drop-shadow(0 6px 14px rgba(0,0,0,.45));}
+  .sub{font-size:21px; font-weight:800; letter-spacing:2px; color:#ffe9b8; margin-top:12px;}
+  .sub b{color:#ff5a4a;}
+
+  /* 增资大数字 */
+  .fund{margin-top:26px; display:inline-block; background:linear-gradient(135deg,#ffd24a,#e8a41e);
+    border-radius:18px; padding:16px 42px; box-shadow:0 14px 34px rgba(0,0,0,.45);}
+  .fund .f1{font-size:22px; font-weight:900; color:#6b1503; letter-spacing:2px;}
+  .fund .f2{font-size:64px; font-weight:900; color:#8c0b05; line-height:1.05;}
+  .fund .f2 small{font-size:26px; color:#6b1503; font-weight:900;}
+
+  /* 三档补贴 */
+  .tiers{display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin-top:30px;}
+  .tier{background:rgba(255,255,255,.97); border-radius:16px; padding:18px 10px 16px; border-top:8px solid #e8a41e;}
+  .tier.hot{border-top-color:#c01008; background:#fff8e6;}
+  .tier .rng{font-size:15.5px; font-weight:800; color:#4a2a08; line-height:1.4;}
+  .tier .amt{font-size:52px; font-weight:900; color:#c01008; line-height:1.1; margin-top:6px;}
+  .tier .amt small{font-size:20px; font-weight:900; color:#8c0b05;}
+  .tier .lab{font-size:13px; font-weight:800; color:#8a5a00; letter-spacing:2px; margin-top:4px;}
+  .tnote{margin-top:12px; font-size:13.5px; font-weight:700; color:#ffe0b0; letter-spacing:1px;}
+
+  /* 叠加条 */
+  .plus{margin-top:26px; background:rgba(0,0,0,.32); border:1.5px dashed rgba(255,215,140,.6);
+    border-radius:14px; padding:14px 20px; font-size:17.5px; font-weight:800; line-height:1.65; color:#fff3d6;}
+  .plus b{color:#ffd24a;}
+
+  /* 提示 */
+  .tips{margin-top:22px; text-align:left; background:rgba(255,255,255,.08); border-radius:14px; padding:14px 20px;}
+  .tips p{font-size:14.5px; line-height:1.85; color:#ffe9c9;}
+  .tips p b{color:#ff5a4a;}
+
+  /* 倒计时横幅 */
+  .stop{margin-top:34px; position:relative; text-align:center;}
+  .stop .bar{display:inline-block; background:#fff; color:#111; font-size:44px; font-weight:900; letter-spacing:6px;
+    padding:16px 36px 16px 42px; border-radius:14px; border:4px solid #111; box-shadow:0 14px 40px rgba(0,0,0,.5);}
+  .stop .bar em{font-style:normal; color:#d40f0a;}
+  .seal{position:absolute; right:14px; top:-46px; transform:rotate(10deg);
+    border:5px solid #111; color:#d40f0a; border-radius:12px; padding:7px 16px;
+    font-size:27px; font-weight:900; letter-spacing:5px; background:#fff;
+    box-shadow:0 0 0 3px rgba(17,17,17,.25) inset;}
+
+  /* 行动 */
+  .act{margin-top:28px; display:inline-block; background:linear-gradient(135deg,#ffd24a,#e8a41e); color:#5a1a05;
+    font-size:25px; font-weight:900; letter-spacing:3px; border-radius:60px; padding:14px 42px;
+    box-shadow:0 12px 30px rgba(0,0,0,.4); white-space:nowrap;}
+
+  .foot{margin-top:26px; font-size:11.5px; color:rgba(255,235,205,.62); line-height:1.7;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="cap">深莞片区 · 一线速转客户</div>
+  <h1>东莞新购补贴<br>政府增资 2000 万</h1>
+  <div class="sub">11月8日 10:30 起 <b>资金已补充到位</b> —— 额度有限，用完即止</div>
+
+  <div class="fund">
+    <div class="f1">本次补充活动资金</div>
+    <div class="f2">2000<small> 万元</small></div>
+  </div>
+
+  <div class="tiers">
+    <div class="tier">
+      <div class="rng">购车价 6万（含）<br>至 8万（不含）</div>
+      <div class="amt">2000<small> 元/辆</small></div>
+      <div class="lab">政府补贴</div>
+    </div>
+    <div class="tier hot">
+      <div class="rng">购车价 8万（含）<br>至 15万（不含）</div>
+      <div class="amt">4000<small> 元/辆</small></div>
+      <div class="lab">主力档 · 最多客户适用</div>
+    </div>
+    <div class="tier">
+      <div class="rng">购车价 15万（含）<br>以上</div>
+      <div class="amt">5000<small> 元/辆</small></div>
+      <div class="lab">最高档</div>
+    </div>
+  </div>
+  <div class="tnote">按购车发票价格分三档 · 以新车销售发票含税金额为准</div>
+
+  <div class="plus">政府补贴 <b>＋</b> 门店限时权益 <b>＋</b> 厂家积分/返现，<b>三头一起省</b>——先到店算总账，一辆车能省出一台家电钱</div>
+
+  <div class="tips">
+    <p>① 补贴按购车价格分三档：购车价格为减去生产、流通环节所有优惠后的<b>最终销售价格</b>；</p>
+    <p>② <b>资金有限、先到先得</b>——上一轮额度很快用完，本轮增资后名额同样抢手；</p>
+    <p>③ 到店即帮您核对档位、核算总优惠，<b>现车开票，快人一步锁定名额</b>。</p>
+  </div>
+
+  <div class="stop">
+    <div class="seal">随时停止</div>
+    <div class="bar">政府补贴 <em>先到先得</em></div>
+  </div>
+
+  <div><span class="act">今天到店 · 锁定补贴名额</span></div>
+
+  <div class="foot">信息来源：懂车帝汽车国补官方指定平台《特别提示》（2026年11月8日发布）｜ 活动为第二轮"广东优品购"暨"乐购东莞"汽车促消费活动<br>具体补贴标准、申领流程及活动规则以官方平台公布为准 · 本图仅用于门店邀约宣传</div>
+</div>
+</body>
+</html>
