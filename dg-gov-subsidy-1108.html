@@ -24,6 +24,20 @@
   .fund .f2{font-size:64px; font-weight:900; color:#8c0b05; line-height:1.05;}
   .fund .f2 small{font-size:26px; color:#6b1503; font-weight:900;}
 
+  /* 领取进度 */
+  .prog{margin-top:22px; background:rgba(0,0,0,.35); border-radius:16px; padding:15px 20px 17px; border:1.5px solid rgba(255,215,140,.5);}
+  .prog .ph2{display:flex; align-items:baseline; justify-content:space-between; margin-bottom:9px;}
+  .prog .ph2 .l{font-size:17.5px; font-weight:900; color:#ffe9b8; letter-spacing:1px;}
+  .prog .ph2 .l b{color:#ff5a4a;}
+  .prog .ph2 .pct{font-size:40px; font-weight:900; color:#ffd24a; line-height:1;}
+  .prog .ph2 .pct small{font-size:20px;}
+  .track{height:26px; background:rgba(255,255,255,.16); border-radius:20px; overflow:hidden; position:relative;}
+  .fill{position:absolute; left:0; top:0; bottom:0; width:92%; border-radius:20px;
+    background:linear-gradient(90deg,#e8a41e,#ffd24a 60%,#fff0b0);
+    box-shadow:0 0 14px rgba(255,210,74,.6);}
+  .pnote2{margin-top:8px; font-size:14px; font-weight:800; color:#ffdca8; text-align:left;}
+  .pnote2 b{color:#ff5a4a;}
+
   /* 三档补贴 */
   .tiers{display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin-top:30px;}
   .tier{background:rgba(255,255,255,.97); border-radius:16px; padding:18px 10px 16px; border-top:8px solid #e8a41e;}
@@ -72,6 +86,15 @@
   <div class="fund">
     <div class="f1">本次补充活动资金</div>
     <div class="f2">2000<small> 万元</small></div>
+  </div>
+
+  <div class="prog">
+    <div class="ph2">
+      <span class="l">增资 2000 万 · <b>当前领取进度</b></span>
+      <span class="pct">92<small>%</small></span>
+    </div>
+    <div class="track"><div class="fill"></div></div>
+    <div class="pnote2">额度已消耗 <b>92%</b>，仅剩 <b>不到一成</b>——先开票先锁定，<b>晚一步就轮空</b></div>
   </div>
 
   <div class="tiers">
