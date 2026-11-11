@@ -254,11 +254,11 @@ tr.rm-red td{background:#fff8f6} tr.rm-gold td{background:#fffdf4}
 </div>
 
 <div class="sec">
-  <h2><span class="no">5</span>库存明细查询窗口：by 城市 · by 小区经理 · by 门店<span class="tag">线上版可交互</span></h2>
-  <p class="qhint">默认显示 22 城汇总；任选筛选条件后即切换为门店级明细。长图版显示的是 11.11 全量城市汇总快照。</p>
+  <h2><span class="no">5</span>库存明细查询窗口：by 零售经理 · by 城市 · by 门店<span class="tag">线上版可交互</span></h2>
+  <p class="qhint">先选零售高级经理（小区），再选城市、门店逐级收窄；未筛选时默认显示 22 城汇总。长图版显示的是 11.11 全量城市汇总快照。</p>
   <div class="qbar">
-    <select id="qCity" onchange="qChange('city')"><option value="">全部城市</option></select>
     <select id="qRm" onchange="qChange('rm')"><option value="">全部零售高级经理（小区）</option></select>
+    <select id="qCity" onchange="qChange('city')"><option value="">全部城市</option></select>
     <select id="qStore" onchange="qChange('store')"><option value="">全部门店</option></select>
     <button class="btn" onclick="qReset()">重置</button>
     <span class="qcnt" id="qCount"></span>
@@ -279,18 +279,19 @@ function uniq(a,d){
 }
 function init(){ opts($('qCity'),uniq(ALL,'city'),''); render(); }
 function qChange(k){
-  if(k==='city'){F.city=$('qCity').value;F.rm='';F.store='';}
-  else if(k==='rm'){F.rm=$('qRm').value;F.store='';}
+  if(k==='rm'){F.rm=$('qRm').value;F.city='';F.store='';}
+  else if(k==='city'){F.city=$('qCity').value;F.store='';}
   else{F.store=$('qStore').value;}
   sync(); render();
 }
 function sync(){
-  const f=ALL.filter(x=>(!F.city||x.city===F.city)&&(!F.rm||x.rm===F.rm));
-  const rms=uniq(f,'rm'), sts=[...new Set(f.map(x=>x.store))].sort((a,b)=>a.localeCompare(b,'zh'));
-  opts($('qRm'),rms,F.rm);
-  opts($('qStore'),sts,F.store);
+  opts($('qRm'),uniq(ALL,'rm'),F.rm);
+  const fc=ALL.filter(x=>(!F.rm||x.rm===F.rm));
+  opts($('qCity'),uniq(fc,'city'),F.city);
+  const fs=ALL.filter(x=>(!F.rm||x.rm===F.rm)&&(!F.city||x.city===F.city));
+  opts($('qStore'),uniq(fs,'store'),F.store);
 }
-function qReset(){F={city:'',rm:'',store:''};$('qCity').value='';sync();render();}
+function qReset(){F={rm:'',city:'',store:''};$('qRm').value='';sync();render();}
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
 function render(){
   const f=ALL.filter(x=>(!F.city||x.city===F.city)&&(!F.rm||x.rm===F.rm)&&(!F.store||x.store===F.store));
