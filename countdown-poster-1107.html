@@ -23,12 +23,24 @@
   .sub{margin-top:16px; font-size:26px; font-weight:800; letter-spacing:6px; color:#ffe9b8;}
   .sub b{color:#fff;}
 
-  .cd{display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:44px;}
+  .cd{margin-top:44px;}
   .cdbox{background:rgba(0,0,0,.30); border:2px solid rgba(255,210,74,.5); border-radius:18px; padding:26px 14px 22px;}
+  .cdbox.wide{border-width:3px; border-color:#ffd24a; background:rgba(0,0,0,.42); box-shadow:0 0 0 6px rgba(255,210,74,.18), 0 16px 40px rgba(0,0,0,.5); padding:30px 16px 26px;}
   .cdbox .n{font-size:96px; font-weight:900; line-height:1; color:#ffd24a; text-shadow:0 6px 20px rgba(0,0,0,.45);}
+  .cdbox.wide .n{font-size:130px; letter-spacing:4px;}
   .cdbox .n small{font-size:38px; font-weight:800;}
+  .cdbox.wide .n small{font-size:46px;}
   .cdbox .t{margin-top:10px; font-size:21px; font-weight:800; letter-spacing:2px; color:#fff;}
+  .cdbox.wide .t{font-size:26px;}
   .cdbox .d{margin-top:6px; font-size:15px; color:#ffcfa6;}
+  .cdbox.wide .d{font-size:17px;}
+  .cdbox .d b{color:#ff8a75;}
+
+  .remind{margin-top:30px; border:1.5px dashed rgba(255,217,138,.5); border-radius:14px; padding:13px 18px;
+    font-size:16px; font-weight:700; color:#ffdca4; line-height:1.6; text-align:center;}
+  .remind b{color:#ffd24a;}
+  .remind .rt{display:inline-block; background:rgba(255,210,74,.18); border-radius:20px; padding:2px 14px;
+    font-size:14px; letter-spacing:2px; margin-bottom:6px; color:#ffd98a;}
 
   .pts{margin-top:36px; background:#fff8e6; color:#5a1a05; border-radius:18px; padding:24px 22px;}
   .pts .ph{font-size:27px; font-weight:900; letter-spacing:2px; color:#8c0b05;}
@@ -88,15 +100,10 @@
   <div class="sub">补贴在手上是<b>真金白银</b>，过了窗口<b>一分都没有</b></div>
 
   <div class="cd">
-    <div class="cdbox">
+    <div class="cdbox wide">
       <div class="n">5<small> 天</small></div>
-      <div class="t">能量积分关闸（11.15）</div>
-      <div class="d">11.7–11.15 新增订单才享受 · 过期不补</div>
-    </div>
-    <div class="cdbox">
-      <div class="n">19<small> 天</small></div>
-      <div class="t">限时权益归零（11.30）</div>
-      <div class="d">1,500 / 2,000 尾款抵扣券 · 本月下定才有</div>
+      <div class="t">积分关闸 + 团购截止 · <b>本周日 11.15 双线归零</b></div>
+      <div class="d">能量积分（11.7–11.15 新增订单）· 莞深联合团购好礼 · <b>这个周日本周日 24:00 全部结束，过期不补</b></div>
     </div>
   </div>
 
@@ -151,6 +158,11 @@
 
   <div class="last">今天不定，<span>明天可能就没了</span></div>
   <div class="act">存量全量触达 · 现车优先锁单 · 当日单当日锁</div>
+
+  <div class="remind">
+    <div class="rt">本月提醒</div><br>
+    限时权益 <b>1,500 / 2,000 元尾款抵扣券</b> 11.30 归零（还有 19 天）——<b>本月下定才有</b>，别拖到月底才想起
+  </div>
 
   <div class="foot">零跑汽车 · 深莞片区零售管理 ｜ 依据 11 月零售运营管理激励政策及专项通知整理，具体政策内容与截止时间以零跑 App 及官方通知为准 · 2026.11.11</div>
 </div>
