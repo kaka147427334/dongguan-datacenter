@@ -56,6 +56,14 @@ td small{color:#7a8ba0;font-size:11px} .sub{margin-left:2px}
 .lv.red{background:#fdecea;color:#c0392b} .lv.gold{background:#fff5dd;color:#a3690a} .lv.green{background:#e7f6ee;color:#1e8a56}
 td.act{font-size:12px;color:#4a5a6b;line-height:1.55}
 tr.rm-red td{background:#fff8f6} tr.rm-gold td{background:#fffdf4}
+/* 查询窗口 */
+.qbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.qbar select{font-family:inherit;font-size:13.5px;font-weight:700;color:#12325c;border:1.5px solid #c9d6e4;border-radius:10px;padding:9px 12px;background:#f7fafc;min-width:170px;max-width:280px;outline:none}
+.qbar select:focus{border-color:#3a76b8}
+.qbar .btn{font-size:13.5px;font-weight:800;color:#fff;background:#12325c;border:none;border-radius:10px;padding:9px 18px;cursor:pointer}
+.qcnt{font-size:13px;font-weight:800;color:#8a5a00;background:#fff3d9;border-radius:20px;padding:6px 14px}
+.qhint{font-size:12px;color:#8a9ab0;margin-bottom:10px}
+@media print { .qbar,.qhint{display:none} }
 /* 打法 */
 .play{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .pl{border-radius:12px;padding:15px 17px;border:1.5px solid #e2e9f2;background:#f7fafc}
@@ -83,7 +91,7 @@ tr.rm-red td{background:#fff8f6} tr.rm-gold td{background:#fffdf4}
   <div class="pol">
     <div class="pc a"><div class="pk">B10 零跑基金加码</div><div class="pv">10,000<small> 元/台</small></div><div class="pd">6,000→10,000 顶格加码（含 Ultra），W2 延续——每台直接顶格用</div></div>
     <div class="pc b"><div class="pk">新增订单能量积分</div><div class="pv">5,000<small> 积分/台</small></div><div class="pd">11.7–11.15 下定才享受，<b>本周日关闸，剩 5 天</b>，过期不补</div></div>
-    <div class="pc c"><div class="pk">莞深联合团购</div><div class="pv">京东卡等好礼</div><div class="pd">双城同开，下订即抢，本周日 11.15 截止——与积分同日归零</div></div>
+    <div class="pc c"><div class="pk">交付加码 · 3个10</div><div class="pv">+200<small> 元/台</small></div><div class="pd">额外交付 A10 / B10 / C10，零售运营激励 +200 元/台——现在锁单、月底冲交付两头赚</div></div>
     <div class="pc d"><div class="pk">排名激励 × 检核</div><div class="pv">1,600–0<small> 元/月</small></div><div class="pd">5 档 × 检核系数；11 月豁免单月口径：达成 ≥100% 保底 1,600</div></div>
   </div>
 </div>
@@ -125,91 +133,91 @@ tr.rm-red td{background:#fff8f6} tr.rm-gold td{background:#fffdf4}
 <td class="num ">45.5</td>
 <td class="num warn">7</td>
 <td><span class="lv gold">中压</span></td>
-<td class="act">趁积分关闸前 5 天冲量：在库车按库龄倒序排展厅 C 位，B10 意向客户全量外呼报"三头总账"；团购名额限领，先到店先锁。</td></tr><tr class="rm-gold">
+<td class="act">趁积分关闸前 5 天冲量：在库车按库龄倒序排展厅 C 位，B10 意向客户全量外呼报"三头总账"；盯交付节奏，为 +200 加码提前蓄单。</td></tr><tr class="rm-gold">
 <td><span class="rmname">方任昊</span><small>主库：东莞零跑中心莞太路店（10台）</small></td>
 <td class="num b">43</td><td class="num">39</td><td class="num">4</td>
 <td class="num">6<small class="sub">（14%）</small></td>
 <td class="num ">46.1</td>
 <td class="num warn">9</td>
 <td><span class="lv gold">中压</span></td>
-<td class="act">趁积分关闸前 5 天冲量：在库车按库龄倒序排展厅 C 位，B10 意向客户全量外呼报"三头总账"；团购名额限领，先到店先锁。</td></tr><tr class="rm-red">
+<td class="act">趁积分关闸前 5 天冲量：在库车按库龄倒序排展厅 C 位，B10 意向客户全量外呼报"三头总账"；盯交付节奏，为 +200 加码提前蓄单。</td></tr><tr class="rm-red">
 <td><span class="rmname">罗捷&amp;郭天文</span><small>主库：深圳零跑中心宝运达汽车城店（6台）</small></td>
 <td class="num b">40</td><td class="num">37</td><td class="num">3</td>
 <td class="num">6<small class="sub">（15%）</small></td>
 <td class="num warn">73.1</td>
 <td class="num warn">13</td>
 <td><span class="lv red">高压</span></td>
-<td class="act">本周日 11.15 前集中打穿：>90 天清单逐台定人定客户，"基金 1 万 + 积分 5 千"一口价打包，长库龄车优先排试驾；周末前锁不掉的转团购名额登记。</td></tr><tr class="rm-red">
+<td class="act">本周日 11.15 前集中打穿：>90 天清单逐台定人定客户，"基金 1 万 + 积分 5 千"一口价打包，长库龄车优先排试驾；交付提前蓄水冲 3个10 加码。</td></tr><tr class="rm-red">
 <td><span class="rmname">余子恩&amp;高峰强</span><small>主库：佛山零跑中心海八路汽车城店（11台）</small></td>
 <td class="num b">31</td><td class="num">30</td><td class="num">1</td>
 <td class="num">4<small class="sub">（13%）</small></td>
 <td class="num warn">71.9</td>
 <td class="num warn">12</td>
 <td><span class="lv red">高压</span></td>
-<td class="act">本周日 11.15 前集中打穿：>90 天清单逐台定人定客户，"基金 1 万 + 积分 5 千"一口价打包，长库龄车优先排试驾；周末前锁不掉的转团购名额登记。</td></tr><tr class="rm-green">
+<td class="act">本周日 11.15 前集中打穿：>90 天清单逐台定人定客户，"基金 1 万 + 积分 5 千"一口价打包，长库龄车优先排试驾；交付提前蓄水冲 3个10 加码。</td></tr><tr class="rm-green">
 <td><span class="rmname">胡浩</span><small>主库：惠州零跑中心金山汽车城店（10台）</small></td>
 <td class="num b">30</td><td class="num">24</td><td class="num">6</td>
 <td class="num">4<small class="sub">（13%）</small></td>
 <td class="num ">36.1</td>
 <td class="num warn">4</td>
 <td><span class="lv green">低压</span></td>
-<td class="act">库存新鲜随销随卖：跟紧团购京东卡名额节奏，双零重力座椅体验动线全员过关，按周滚动补库建议。</td></tr><tr class="rm-red">
+<td class="act">库存新鲜随销随卖：抓交付节奏冲"3个10"+200 加码，双零重力座椅体验动线全员过关，按周滚动补库建议。</td></tr><tr class="rm-red">
 <td><span class="rmname">熊俊晖&amp;黄伟峰</span><small>主库：广州零跑中心金马汽车城店（12台）</small></td>
 <td class="num b">28</td><td class="num">27</td><td class="num">1</td>
 <td class="num">4<small class="sub">（14%）</small></td>
 <td class="num ">54.8</td>
 <td class="num warn">8</td>
 <td><span class="lv red">高压</span></td>
-<td class="act">本周日 11.15 前集中打穿：>90 天清单逐台定人定客户，"基金 1 万 + 积分 5 千"一口价打包，长库龄车优先排试驾；周末前锁不掉的转团购名额登记。</td></tr><tr class="rm-green">
+<td class="act">本周日 11.15 前集中打穿：>90 天清单逐台定人定客户，"基金 1 万 + 积分 5 千"一口价打包，长库龄车优先排试驾；交付提前蓄水冲 3个10 加码。</td></tr><tr class="rm-green">
 <td><span class="rmname">李博恩&amp;李传华</span><small>主库：海口零跑中心美安科技城店（7台）</small></td>
 <td class="num b">25</td><td class="num">12</td><td class="num">13</td>
 <td class="num">6<small class="sub">（24%）</small></td>
 <td class="num ">34.2</td>
 <td class="num warn">2</td>
 <td><span class="lv green">低压</span></td>
-<td class="act">库存新鲜随销随卖：跟紧团购京东卡名额节奏，双零重力座椅体验动线全员过关，按周滚动补库建议。</td></tr><tr class="rm-green">
+<td class="act">库存新鲜随销随卖：抓交付节奏冲"3个10"+200 加码，双零重力座椅体验动线全员过关，按周滚动补库建议。</td></tr><tr class="rm-green">
 <td><span class="rmname">秦启超</span><small>主库：中山零跑中心小榄菊城大道店（7台）</small></td>
 <td class="num b">23</td><td class="num">20</td><td class="num">3</td>
 <td class="num">5<small class="sub">（22%）</small></td>
 <td class="num ">44.1</td>
 <td class="num warn">3</td>
 <td><span class="lv green">低压</span></td>
-<td class="act">库存新鲜随销随卖：跟紧团购京东卡名额节奏，双零重力座椅体验动线全员过关，按周滚动补库建议。</td></tr><tr class="rm-red">
+<td class="act">库存新鲜随销随卖：抓交付节奏冲"3个10"+200 加码，双零重力座椅体验动线全员过关，按周滚动补库建议。</td></tr><tr class="rm-red">
 <td><span class="rmname">陈恒惕</span><small>主库：梅州零跑中心剑英大道店（8台）</small></td>
 <td class="num b">18</td><td class="num">16</td><td class="num">2</td>
 <td class="num">3<small class="sub">（17%）</small></td>
 <td class="num warn">69.9</td>
 <td class="num warn">9</td>
 <td><span class="lv red">高压</span></td>
-<td class="act">本周日 11.15 前集中打穿：>90 天清单逐台定人定客户，"基金 1 万 + 积分 5 千"一口价打包，长库龄车优先排试驾；周末前锁不掉的转团购名额登记。</td></tr><tr class="rm-green">
+<td class="act">本周日 11.15 前集中打穿：>90 天清单逐台定人定客户，"基金 1 万 + 积分 5 千"一口价打包，长库龄车优先排试驾；交付提前蓄水冲 3个10 加码。</td></tr><tr class="rm-green">
 <td><span class="rmname">李传华</span><small>主库：云浮体验中心环市中路店（3台）</small></td>
 <td class="num b">13</td><td class="num">8</td><td class="num">5</td>
 <td class="num">6<small class="sub">（46%）</small></td>
 <td class="num ">37.9</td>
 <td class="num warn">3</td>
 <td><span class="lv green">低压</span></td>
-<td class="act">库存新鲜随销随卖：跟紧团购京东卡名额节奏，双零重力座椅体验动线全员过关，按周滚动补库建议。</td></tr><tr class="rm-gold">
+<td class="act">库存新鲜随销随卖：抓交付节奏冲"3个10"+200 加码，双零重力座椅体验动线全员过关，按周滚动补库建议。</td></tr><tr class="rm-gold">
 <td><span class="rmname">余子恩</span><small>主库：韶关零跑中心沐溪大道店（3台）</small></td>
 <td class="num b">9</td><td class="num">8</td><td class="num">1</td>
 <td class="num">2<small class="sub">（22%）</small></td>
 <td class="num ">46.7</td>
 <td class="num warn">1</td>
 <td><span class="lv gold">中压</span></td>
-<td class="act">趁积分关闸前 5 天冲量：在库车按库龄倒序排展厅 C 位，B10 意向客户全量外呼报"三头总账"；团购名额限领，先到店先锁。</td></tr><tr class="rm-red">
+<td class="act">趁积分关闸前 5 天冲量：在库车按库龄倒序排展厅 C 位，B10 意向客户全量外呼报"三头总账"；盯交付节奏，为 +200 加码提前蓄单。</td></tr><tr class="rm-red">
 <td><span class="rmname">熊俊晖</span><small>主库：汕头零跑中心汕汾路店（2台）</small></td>
 <td class="num b">4</td><td class="num">4</td><td class="num">0</td>
 <td class="num">2<small class="sub">（50%）</small></td>
 <td class="num warn">63.8</td>
 <td class="num warn">1</td>
 <td><span class="lv red">高压</span></td>
-<td class="act">本周日 11.15 前集中打穿：>90 天清单逐台定人定客户，"基金 1 万 + 积分 5 千"一口价打包，长库龄车优先排试驾；周末前锁不掉的转团购名额登记。</td></tr><tr class="rm-red">
+<td class="act">本周日 11.15 前集中打穿：>90 天清单逐台定人定客户，"基金 1 万 + 积分 5 千"一口价打包，长库龄车优先排试驾；交付提前蓄水冲 3个10 加码。</td></tr><tr class="rm-red">
 <td><span class="rmname">李博恩</span><small>主库：澄迈体验中心金马大道店（2台）</small></td>
 <td class="num b">3</td><td class="num">3</td><td class="num">0</td>
 <td class="num">0<small class="sub">（0%）</small></td>
 <td class="num warn">86.3</td>
 <td class="num ">0</td>
 <td><span class="lv red">高压</span></td>
-<td class="act">本周日 11.15 前集中打穿：>90 天清单逐台定人定客户，"基金 1 万 + 积分 5 千"一口价打包，长库龄车优先排试驾；周末前锁不掉的转团购名额登记。</td></tr>
+<td class="act">本周日 11.15 前集中打穿：>90 天清单逐台定人定客户，"基金 1 万 + 积分 5 千"一口价打包，长库龄车优先排试驾；交付提前蓄水冲 3个10 加码。</td></tr>
   </table>
 </div>
 
@@ -246,11 +254,73 @@ tr.rm-red td{background:#fff8f6} tr.rm-gold td{background:#fffdf4}
 </div>
 
 <div class="sec">
-  <h2><span class="no">5</span>三段消化打法：从本周日往前倒排<span class="tag">11.11 → 11.15 → 之后</span></h2>
+  <h2><span class="no">5</span>库存明细查询窗口：by 城市 · by 小区经理 · by 门店<span class="tag">线上版可交互</span></h2>
+  <p class="qhint">默认显示 22 城汇总；任选筛选条件后即切换为门店级明细。长图版显示的是 11.11 全量城市汇总快照。</p>
+  <div class="qbar">
+    <select id="qCity" onchange="qChange('city')"><option value="">全部城市</option></select>
+    <select id="qRm" onchange="qChange('rm')"><option value="">全部零售高级经理（小区）</option></select>
+    <select id="qStore" onchange="qChange('store')"><option value="">全部门店</option></select>
+    <button class="btn" onclick="qReset()">重置</button>
+    <span class="qcnt" id="qCount"></span>
+  </div>
+  <div id="qTable"></div>
+</div>
+<script>
+const ALL=[{"city":"广州市","rm":"黄伟峰","store":"广州体验中心白云机场路店","n":12,"on":12,"tr":0,"lk":1,"avg":34.4,"old":0},{"city":"广州市","rm":"熊俊晖&黄伟峰","store":"广州零跑中心金马汽车城店","n":12,"on":12,"tr":0,"lk":1,"avg":47.8,"old":2},{"city":"佛山市","rm":"余子恩&高峰强","store":"佛山零跑中心海八路汽车城店","n":11,"on":11,"tr":0,"lk":1,"avg":67.6,"old":3},{"city":"广州市","rm":"黄伟峰","store":"广州体验中心番禺大道店","n":10,"on":10,"tr":0,"lk":2,"avg":47.8,"old":1},{"city":"东莞市","rm":"方任昊","store":"东莞零跑中心莞太路店","n":10,"on":9,"tr":1,"lk":3,"avg":40.1,"old":2},{"city":"东莞市","rm":"方任昊","store":"东莞零跑中心虎门车城店","n":10,"on":10,"tr":0,"lk":0,"avg":53.1,"old":3},{"city":"惠州市","rm":"胡浩","store":"惠州零跑中心金山汽车城店","n":10,"on":7,"tr":3,"lk":1,"avg":19.7,"old":0},{"city":"广州市","rm":"黄伟峰","store":"广州零跑中心科学城店","n":9,"on":9,"tr":0,"lk":1,"avg":50.4,"old":1},{"city":"惠州市","rm":"胡浩","store":"惠州零跑中心人民四路店","n":9,"on":8,"tr":1,"lk":3,"avg":49.8,"old":1},{"city":"梅州市","rm":"陈恒惕","store":"梅州零跑中心剑英大道店","n":8,"on":7,"tr":1,"lk":1,"avg":55.5,"old":3},{"city":"中山市","rm":"秦启超","store":"中山零跑中心小榄菊城大道店","n":7,"on":7,"tr":0,"lk":3,"avg":55.9,"old":0},{"city":"广州市","rm":"黄伟峰","store":"广州体验中心天河广汕路店","n":7,"on":7,"tr":0,"lk":0,"avg":42.1,"old":0},{"city":"惠州市","rm":"胡浩","store":"惠州零跑中心惠南汽车城店","n":7,"on":5,"tr":2,"lk":0,"avg":23.9,"old":1},{"city":"海口市","rm":"李博恩&李传华","store":"海口零跑中心美安科技城店","n":7,"on":0,"tr":7,"lk":2,"avg":11.1,"old":0},{"city":"广州市","rm":"黄伟峰","store":"广州体验中心天河汇彩路店","n":6,"on":6,"tr":0,"lk":0,"avg":53.5,"old":1},{"city":"广州市","rm":"黄伟峰","store":"广州零跑中心新塘汽车城店","n":6,"on":5,"tr":1,"lk":0,"avg":59.0,"old":2},{"city":"广州市","rm":"黄伟峰","store":"广州体验中心增城店","n":6,"on":5,"tr":1,"lk":0,"avg":29.3,"old":1},{"city":"深圳市","rm":"罗捷&郭天文","store":"深圳零跑中心宝运达汽车城店","n":6,"on":6,"tr":0,"lk":1,"avg":100.3,"old":4},{"city":"深圳市","rm":"罗捷&郭天文","store":"深圳零跑中心百世汽车城店","n":6,"on":6,"tr":0,"lk":0,"avg":78.7,"old":3},{"city":"深圳市","rm":"罗捷&郭天文","store":"深圳零跑中心万国城旗舰店","n":6,"on":6,"tr":0,"lk":0,"avg":82.8,"old":0},{"city":"佛山市","rm":"余子恩&高峰强","store":"佛山零跑中心南庄汽车城店","n":5,"on":4,"tr":1,"lk":3,"avg":40.6,"old":0},{"city":"佛山市","rm":"余子恩&高峰强","store":"佛山体验中心海八西路店","n":5,"on":5,"tr":0,"lk":0,"avg":28.2,"old":0},{"city":"广州市","rm":"熊俊晖&黄伟峰","store":"广州零跑中心花都建设路店","n":5,"on":5,"tr":0,"lk":1,"avg":93.8,"old":4},{"city":"东莞市","rm":"方任昊","store":"东莞零跑中心寮步车城店","n":5,"on":4,"tr":1,"lk":0,"avg":65.4,"old":1},{"city":"东莞市","rm":"方任昊","store":"东莞体验中心大岭山镇店","n":5,"on":5,"tr":0,"lk":1,"avg":41.6,"old":1},{"city":"中山市","rm":"秦启超","store":"中山零跑中心金宁汽车城店","n":4,"on":4,"tr":0,"lk":0,"avg":28.0,"old":0},{"city":"中山市","rm":"秦启超","store":"中山体验中心港口店","n":4,"on":3,"tr":1,"lk":1,"avg":42.2,"old":1},{"city":"广州市","rm":"熊俊晖&黄伟峰","store":"广州体验中心广花路店","n":4,"on":3,"tr":1,"lk":0,"avg":12.0,"old":0},{"city":"深圳市","rm":"罗捷&郭天文","store":"深圳零跑中心芙蓉路店","n":4,"on":3,"tr":1,"lk":1,"avg":58.0,"old":1},{"city":"汕尾市","rm":"陈恒惕","store":"汕尾体验中心汕尾大道店","n":4,"on":4,"tr":0,"lk":0,"avg":77.0,"old":2},{"city":"海口市","rm":"李博恩&李传华","store":"海口体验中心上邦百汇城店","n":4,"on":3,"tr":1,"lk":0,"avg":32.8,"old":0},{"city":"中山市","rm":"秦启超","store":"中山零跑中心中山六路店","n":3,"on":1,"tr":2,"lk":0,"avg":48.3,"old":1},{"city":"佛山市","rm":"余子恩&高峰强","store":"佛山体验中心高明荷香路店","n":3,"on":3,"tr":0,"lk":0,"avg":99.7,"old":2},{"city":"广州市","rm":"熊俊晖&黄伟峰","store":"广州零跑中心亚运大道店","n":3,"on":3,"tr":0,"lk":2,"avg":67.3,"old":1},{"city":"深圳市","rm":"罗捷&郭天文","store":"深圳体验中心龙华中心店","n":3,"on":3,"tr":0,"lk":3,"avg":39.0,"old":0},{"city":"深圳市","rm":"罗捷&郭天文","store":"深圳体验中心锦龙大道店","n":3,"on":3,"tr":0,"lk":0,"avg":85.0,"old":2},{"city":"东莞市","rm":"方任昊","store":"东莞零跑中心常朗路店","n":3,"on":3,"tr":0,"lk":1,"avg":67.7,"old":1},{"city":"东莞市","rm":"方任昊","store":"东莞体验中心松山湖店","n":3,"on":3,"tr":0,"lk":0,"avg":38.7,"old":0},{"city":"揭阳市","rm":"陈恒惕","store":"揭阳零跑中心荣通汽车城店","n":3,"on":2,"tr":1,"lk":1,"avg":86.7,"old":2},{"city":"韶关市","rm":"余子恩","store":"韶关零跑中心沐溪大道店","n":3,"on":3,"tr":0,"lk":1,"avg":30.0,"old":0},{"city":"云浮市","rm":"李传华","store":"云浮体验中心环市中路店","n":3,"on":1,"tr":2,"lk":1,"avg":5.0,"old":0},{"city":"肇庆市","rm":"李传华","store":"肇庆零跑中心肇庆大道店","n":3,"on":3,"tr":0,"lk":1,"avg":86.0,"old":2},{"city":"三亚市","rm":"李传华","store":"三亚零跑中心榆亚路店","n":3,"on":0,"tr":3,"lk":2,"avg":11.3,"old":0},{"city":"海口市","rm":"李博恩&李传华","store":"海口零跑中心南海大道店（销售）","n":3,"on":1,"tr":2,"lk":1,"avg":33.7,"old":0},{"city":"海口市","rm":"李博恩&李传华","store":"海口体验中心海甸城店","n":3,"on":3,"tr":0,"lk":1,"avg":50.7,"old":0},{"city":"江门市","rm":"余子恩","store":"江门零跑中心冈州大道店","n":2,"on":1,"tr":1,"lk":1,"avg":6.5,"old":0},{"city":"珠海市","rm":"秦启超","store":"珠海零跑中心南屏珠海大道店","n":2,"on":2,"tr":0,"lk":1,"avg":28.5,"old":0},{"city":"汕头市","rm":"熊俊晖","store":"汕头零跑中心汕汾路店","n":2,"on":2,"tr":0,"lk":2,"avg":17.5,"old":0},{"city":"深圳市","rm":"罗捷&郭天文","store":"深圳零跑中心光明车城店","n":2,"on":2,"tr":0,"lk":0,"avg":34.5,"old":0},{"city":"深圳市","rm":"罗捷&郭天文","store":"深圳零跑中心远望车城店","n":2,"on":1,"tr":1,"lk":0,"avg":24.0,"old":0},{"city":"深圳市","rm":"罗捷&郭天文","store":"深圳体验中心福田瑞鹏达店","n":2,"on":2,"tr":0,"lk":1,"avg":102.0,"old":1},{"city":"深圳市","rm":"罗捷&郭天文","store":"深圳零跑中心南山嘉进隆店","n":2,"on":2,"tr":0,"lk":0,"avg":63.5,"old":0},{"city":"深圳市","rm":"罗捷&郭天文","store":"深圳体验中心龙岗信义店","n":2,"on":2,"tr":0,"lk":0,"avg":99.0,"old":1},{"city":"东莞市","rm":"方任昊","store":"东莞体验中心厚街店","n":2,"on":2,"tr":0,"lk":1,"avg":10.0,"old":0},{"city":"东莞市","rm":"方任昊","store":"东莞体验中心石排大道店","n":2,"on":0,"tr":2,"lk":0,"avg":5.0,"old":0},{"city":"东莞市","rm":"方任昊","store":"东莞体验中心东城店","n":2,"on":2,"tr":0,"lk":0,"avg":17.0,"old":0},{"city":"揭阳市","rm":"陈恒惕","store":"揭阳体验中心普宁翔悦时代店","n":2,"on":2,"tr":0,"lk":1,"avg":63.5,"old":1},{"city":"韶关市","rm":"余子恩","store":"韶关体验中心浈江大道店","n":2,"on":2,"tr":0,"lk":0,"avg":56.5,"old":0},{"city":"海口市","rm":"李博恩&李传华","store":"海口零跑中心琼山大道店","n":2,"on":0,"tr":2,"lk":0,"avg":12.0,"old":0},{"city":"海口市","rm":"李博恩&李传华","store":"海口体验中心江东店","n":2,"on":1,"tr":1,"lk":2,"avg":47.5,"old":1},{"city":"海口市","rm":"李博恩&李传华","store":"海口零跑中心海盛路店","n":2,"on":2,"tr":0,"lk":0,"avg":48.0,"old":0},{"city":"澄迈县","rm":"李博恩","store":"澄迈体验中心金马大道店","n":2,"on":2,"tr":0,"lk":0,"avg":87.5,"old":0},{"city":"中山市","rm":"秦启超","store":"中山零跑中心彩虹大道店","n":1,"on":1,"tr":0,"lk":0,"avg":107.0,"old":1},{"city":"佛山市","rm":"余子恩&高峰强","store":"佛山零跑中心顺德大良车城店","n":1,"on":1,"tr":0,"lk":0,"avg":112.0,"old":1},{"city":"佛山市","rm":"余子恩&高峰强","store":"佛山体验中心广佛汽车城店","n":1,"on":1,"tr":0,"lk":0,"avg":92.0,"old":1},{"city":"佛山市","rm":"余子恩&高峰强","store":"佛山体验中心北滘车城店","n":1,"on":1,"tr":0,"lk":0,"avg":131.0,"old":1},{"city":"佛山市","rm":"余子恩&高峰强","store":"佛山零跑中心三水友好车城店","n":1,"on":1,"tr":0,"lk":0,"avg":131.0,"old":1},{"city":"佛山市","rm":"余子恩&高峰强","store":"佛山零跑中心狮山汽车城店","n":1,"on":1,"tr":0,"lk":0,"avg":131.0,"old":1},{"city":"佛山市","rm":"余子恩&高峰强","store":"佛山零跑中心桂澜路店","n":1,"on":1,"tr":0,"lk":0,"avg":131.0,"old":1},{"city":"佛山市","rm":"余子恩&高峰强","store":"佛山体验中心龙江店","n":1,"on":1,"tr":0,"lk":0,"avg":114.0,"old":1},{"city":"广州市","rm":"黄伟峰","store":"广州零跑中心广州南站店","n":1,"on":1,"tr":0,"lk":1,"avg":104.0,"old":1},{"city":"江门市","rm":"余子恩","store":"江门零跑中心建设路店","n":1,"on":1,"tr":0,"lk":0,"avg":120.0,"old":1},{"city":"江门市","rm":"余子恩","store":"江门体验中心开平车城店","n":1,"on":1,"tr":0,"lk":0,"avg":84.0,"old":0},{"city":"珠海市","rm":"秦启超","store":"珠海体验中心美满车城店","n":1,"on":1,"tr":0,"lk":0,"avg":12.0,"old":0},{"city":"珠海市","rm":"秦启超","store":"珠海零跑中心上冲车城店","n":1,"on":1,"tr":0,"lk":0,"avg":22.0,"old":0},{"city":"广州市","rm":"熊俊晖&黄伟峰","store":"广州零跑中心沥滘海心沙店","n":1,"on":1,"tr":0,"lk":0,"avg":86.0,"old":0},{"city":"广州市","rm":"熊俊晖&黄伟峰","store":"广州零跑中心白云大道店","n":1,"on":1,"tr":0,"lk":0,"avg":8.0,"old":0},{"city":"广州市","rm":"熊俊晖&黄伟峰","store":"广州体验中心为正车城店","n":1,"on":1,"tr":0,"lk":0,"avg":19.0,"old":0},{"city":"广州市","rm":"熊俊晖&黄伟峰","store":"广州体验中心花都北站店","n":1,"on":1,"tr":0,"lk":0,"avg":130.0,"old":1},{"city":"汕头市","rm":"熊俊晖","store":"汕头零跑中心金凤路店","n":1,"on":1,"tr":0,"lk":0,"avg":131.0,"old":1},{"city":"汕头市","rm":"熊俊晖","store":"汕头体验中心广汕路店","n":1,"on":1,"tr":0,"lk":0,"avg":89.0,"old":0},{"city":"深圳市","rm":"罗捷&郭天文","store":"深圳体验中心杰鹏车城店","n":1,"on":0,"tr":1,"lk":0,"avg":12.0,"old":0},{"city":"深圳市","rm":"罗捷&郭天文","store":"深圳体验中心启创汽车城店","n":1,"on":1,"tr":0,"lk":0,"avg":91.0,"old":1},{"city":"东莞市","rm":"方任昊","store":"东莞零跑中心长安振安东路店","n":1,"on":1,"tr":0,"lk":0,"avg":131.0,"old":1},{"city":"惠州市","rm":"胡浩","store":"惠州体验中心河南岸车城店","n":1,"on":1,"tr":0,"lk":0,"avg":108.0,"old":1},{"city":"惠州市","rm":"胡浩","store":"惠州体验中心惠东店","n":1,"on":1,"tr":0,"lk":0,"avg":24.0,"old":0},{"city":"惠州市","rm":"胡浩","store":"惠州零跑中心仲恺汽车城店","n":1,"on":1,"tr":0,"lk":0,"avg":8.0,"old":0},{"city":"惠州市","rm":"胡浩","store":"惠州体验中心大亚湾店","n":1,"on":1,"tr":0,"lk":0,"avg":131.0,"old":1},{"city":"潮州市","rm":"陈恒惕","store":"潮州零跑中心潮汕路店","n":1,"on":1,"tr":0,"lk":0,"avg":119.0,"old":1},{"city":"云浮市","rm":"李传华","store":"云浮体验中心罗定店","n":1,"on":1,"tr":0,"lk":0,"avg":30.0,"old":0},{"city":"湛江市","rm":"李传华","store":"湛江零跑中心海田车城店","n":1,"on":1,"tr":0,"lk":1,"avg":13.0,"old":0},{"city":"肇庆市","rm":"李传华","store":"肇庆体验中心四会店","n":1,"on":1,"tr":0,"lk":1,"avg":8.0,"old":0},{"city":"茂名市","rm":"李传华","store":"茂名零跑中心茂名大道店","n":1,"on":1,"tr":0,"lk":0,"avg":135.0,"old":1},{"city":"文昌市","rm":"李博恩","store":"文昌体验中心文城店","n":1,"on":1,"tr":0,"lk":0,"avg":84.0,"old":0},{"city":"海口市","rm":"李博恩&李传华","store":"海口零跑中心南海大道东店","n":1,"on":1,"tr":0,"lk":0,"avg":135.0,"old":1},{"city":"海口市","rm":"李博恩&李传华","store":"海口体验中心西秀店","n":1,"on":1,"tr":0,"lk":0,"avg":44.0,"old":0}];
+const $=id=>document.getElementById(id);
+let F={city:'',rm:'',store:''};
+function opts(sel,arr,cur){
+  const keep=sel.options[0].outerHTML;
+  sel.innerHTML=keep+arr.map(v=>`<option value="${v}"${v===cur?' selected':''}>${v}</option>`).join('');
+}
+function uniq(a,d){
+  const s=new Set();a.forEach(x=>s.add(x[d]));
+  return [...s].sort((a,b)=>a.localeCompare(b,'zh'));
+}
+function init(){ opts($('qCity'),uniq(ALL,'city'),''); render(); }
+function qChange(k){
+  if(k==='city'){F.city=$('qCity').value;F.rm='';F.store='';}
+  else if(k==='rm'){F.rm=$('qRm').value;F.store='';}
+  else{F.store=$('qStore').value;}
+  sync(); render();
+}
+function sync(){
+  const f=ALL.filter(x=>(!F.city||x.city===F.city)&&(!F.rm||x.rm===F.rm));
+  const rms=uniq(f,'rm'), sts=[...new Set(f.map(x=>x.store))].sort((a,b)=>a.localeCompare(b,'zh'));
+  opts($('qRm'),rms,F.rm);
+  opts($('qStore'),sts,F.store);
+}
+function qReset(){F={city:'',rm:'',store:''};$('qCity').value='';sync();render();}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+function render(){
+  const f=ALL.filter(x=>(!F.city||x.city===F.city)&&(!F.rm||x.rm===F.rm)&&(!F.store||x.store===F.store));
+  const T=f.length,N=f.reduce((s,x)=>s+x.n,0),ON=f.reduce((s,x)=>s+x.on,0),TR=f.reduce((s,x)=>s+x.tr,0),
+        LK=f.reduce((s,x)=>s+x.lk,0),OLD=f.reduce((s,x)=>s+x.old,0),
+        AVG=N?(f.reduce((s,x)=>s+x.avg*x.n,0)/N).toFixed(1):'0.0';
+  $('qCount').textContent=`共 ${N} 台 ｜ 在库 ${ON} · 在途 ${TR} · 已锁 ${LK} · 均龄 ${AVG} 天 · >90天 ${OLD}`;
+  const head='<tr><th>门店</th><th>城市</th><th>零售高级经理</th><th>台数</th><th>在库</th><th>在途</th><th>已锁</th><th>均龄</th><th>>90天</th></tr>';
+  if(!F.city&&!F.rm&&!F.store){
+    const m={};
+    f.forEach(x=>{const d=m[x.city]=m[x.city]||{st:new Set(),n:0,on:0,tr:0,lk:0,avgw:0,old:0};
+      d.st.add(x.store);d.n+=x.n;d.on+=x.on;d.tr+=x.tr;d.lk+=x.lk;d.avgw+=x.avg*x.n;d.old+=x.old;});
+    const rows=Object.entries(m).sort((a,b)=>b[1].n-a[1].n).map(([c,d])=>
+      `<tr><td style="font-weight:800;color:#12325c">${esc(c)}</td><td class="num">${d.st.size}</td><td class="num b">${d.n}</td><td class="num">${d.on}</td><td class="num">${d.tr}</td><td class="num">${d.lk}</td><td class="num">${(d.avgw/d.n).toFixed(1)}</td><td class="num ${d.old?'warn':''}">${d.old}</td></tr>`).join('');
+    $('qTable').innerHTML='<table><tr><th>城市</th><th>门店数</th><th>台数</th><th>在库</th><th>在途</th><th>已锁</th><th>均龄</th><th>>90天</th></tr>'+rows+'</table>';
+  }else{
+    const rows=f.sort((a,b)=>b.n-a.n).map(x=>
+      `<tr><td style="font-weight:800;color:#12325c">${esc(x.store)}</td><td>${esc(x.city)}</td><td>${esc(x.rm)}</td><td class="num b">${x.n}</td><td class="num">${x.on}</td><td class="num">${x.tr}</td><td class="num">${x.lk}</td><td class="num">${x.avg}</td><td class="num ${x.old?'warn':''}">${x.old}</td></tr>`).join('');
+    $('qTable').innerHTML='<table>'+head+rows+'</table>';
+  }
+}
+init();
+</script>
+
+<div class="sec">
+  <h2><span class="no">6</span>三段消化打法：从本周日往前倒排<span class="tag">11.11 → 11.15 → 之后</span></h2>
   <div class="play">
     <div class="pl">
       <div class="pt">① <b>现在—本周日 11.15</b>：积分窗口冲刺</div>
-      <p>全量 B10 意向客户报"三头总账"：<b>基金 10,000 + 积分 5,000 + 团购京东卡</b>，一张纸算到底；积分 11.15 24:00 关闸，只认新增订单。</p>
+      <p>全量 B10 意向客户报"三头总账"：<b>基金 10,000 + 积分 5,000 + 3个10 交付加码 200</b>，一张纸算到底；积分 11.15 24:00 关闸，只认新增订单。</p>
       <p>长库龄车（&gt;60 天）逐台定人：展厅 C 位 + 优先试驾 + 一口价特批节奏，本周日之前必须消化一批。</p>
     </div>
     <div class="pl">
@@ -267,11 +337,11 @@ tr.rm-red td{background:#fff8f6} tr.rm-gold td{background:#fffdf4}
 </div>
 
 <div class="sec">
-  <h2><span class="no">6</span>口径红线：说错一句就是客诉<span class="tag">全员背熟</span></h2>
+  <h2><span class="no">7</span>口径红线：说错一句就是客诉<span class="tag">全员背熟</span></h2>
   <div class="cal">
-    ① 零跑基金与积分均以<b>官方政策原文</b>为准，不承诺折现、不承诺现金返还；② 能量积分只认 <b>11.7–11.15 新增订单</b>，老订单不追溯；③ 莞深联合团购好礼<b>本周日 11.15 截止</b>，名额有限先到先得；④ <b>B10 不在 27 款 C 端 1,500 尾款券适用车型内</b>（适用：C10/C11/C16/D19），展厅严禁混用承诺；⑤ 检核系数后 30% 实发归零不可豁免，潜客登记/分流问询/标签三项日常自查。
+    ① 零跑基金与积分均以<b>官方政策原文</b>为准，不承诺折现、不承诺现金返还；② 能量积分只认 <b>11.7–11.15 新增订单</b>，老订单不追溯；③ <b>3个10（A10/B10/C10）交付加码 +200 元/台</b>须同时满足：同城同商 A10/A05/B10/C10 全系合并达成 ≥100% <b>且</b>门店 11 月交付目标达成 ≥100%，缺一不可，勿向客户提前承诺兑现；④ <b>B10 不在 27 款 C 端 1,500 尾款券适用车型内</b>（适用：C10/C11/C16/D19），展厅严禁混用承诺；⑤ 检核系数后 30% 实发归零不可豁免，潜客登记/分流问询/标签三项日常自查。
   </div>
 </div>
 
-<div class="foot">零跑汽车 · 华南大区零售管理 ｜ 数据：《门店库存-门店明细》（2026.11.11 11:43 导出，VIN 级明细 324 条，全部含双零重力舒适套装）｜ 政策：《2026年11月零售运营管理激励政策》及 B10 加码、能量积分、莞深联合团购等专项通知<br>具体政策内容、适用范围与截止时间以零跑 App 及官方通知为准 · 生成于 2026.11.11</div>
+<div class="foot">零跑汽车 · 华南大区零售管理 ｜ 数据：《门店库存-门店明细》（2026.11.11 11:43 导出，VIN 级明细 324 条，全部含双零重力舒适套装）｜ 政策：《2026年11月零售运营管理激励政策》及 B10 加码、能量积分、3个10 交付加码等专项通知<br>具体政策内容、适用范围与截止时间以零跑 App 及官方通知为准 · 生成于 2026.11.11</div>
 </div></body></html>
