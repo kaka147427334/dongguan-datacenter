@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8">
+<title>华南大区 B10 双零重力座椅库存消化指引</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:#f0f3f7;color:#243447}
+.page{width:1080px;margin:0 auto}
+.hero{background:linear-gradient(135deg,#12325c 0%,#0d1b2a 100%);color:#fff;padding:44px 50px 38px;border-radius:0 0 22px 22px}
+.hero .k{display:inline-block;font-size:13px;letter-spacing:3px;font-weight:800;color:#ffd98a;border:1.5px solid rgba(255,217,138,.5);border-radius:30px;padding:5px 18px;margin-bottom:14px}
+.hero h1{font-size:36px;font-weight:900;letter-spacing:2px} .hero h1 em{font-style:normal;color:#ffd24a}
+.hero p{margin-top:10px;font-size:15px;color:#c9d8e8;line-height:1.7}
+.hero .tags{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
+.hero .tags span{background:rgba(255,255,255,.1);border-radius:24px;padding:6px 16px;font-size:13.5px;font-weight:700}
+.hero .tags b{color:#ffd24a}
+.sec{background:#fff;border-radius:16px;margin-top:18px;padding:22px 26px;box-shadow:0 2px 10px rgba(20,40,70,.06)}
+.sec h2{font-size:20px;font-weight:900;color:#12325c;display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.sec h2 .no{background:#12325c;color:#ffd24a;border-radius:8px;font-size:14px;padding:3px 11px;letter-spacing:1px}
+.sec h2 .tag{margin-left:auto;font-size:12.5px;background:#fff3d9;color:#8a5a00;border-radius:20px;padding:3px 12px;font-weight:800}
+/* 政策牌 */
+.pol{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.pc{border-radius:12px;padding:14px 16px;color:#fff}
+.pc .pk{font-size:13px;font-weight:800;opacity:.92}
+.pc .pv{font-size:27px;font-weight:900;margin-top:4px} .pc .pv small{font-size:13px}
+.pc .pd{font-size:12px;margin-top:5px;opacity:.92;line-height:1.5}
+.pc.a{background:linear-gradient(135deg,#c0392b,#8e2418)} .pc.b{background:linear-gradient(135deg,#b07a10,#8a5a00)}
+.pc.c{background:linear-gradient(135deg,#5b2c8d,#3e1d63)} .pc.d{background:linear-gradient(135deg,#1c5a8e,#12325c)}
+/* 总览 */
+.ow{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:14px}
+.o{background:#f2f6fa;border:1px solid #e2e9f2;border-radius:12px;padding:13px 8px;text-align:center}
+.o .v{font-size:26px;font-weight:900;color:#12325c} .o .v small{font-size:12px;font-weight:800}
+.o .t{font-size:12px;color:#5a6b80;margin-top:3px;font-weight:700}
+.o.hot .v{color:#c0392b} .o.gold .v{color:#b07a10}
+/* 横向条 */
+.hb{display:flex;align-items:center;gap:10px;margin-bottom:7px}
+.hl{width:130px;font-size:13px;font-weight:800;color:#3d4d5f;text-align:right;flex-shrink:0}
+.hbar{flex:1;background:#eef2f7;border-radius:8px;height:26px;position:relative;overflow:hidden}
+.hfill{height:100%;border-radius:8px}
+.hbar.green .hfill{background:linear-gradient(90deg,#2e9e6b,#27855a)}
+.hbar.gold .hfill{background:linear-gradient(90deg,#e8a41e,#c9820e)}
+.hbar.red .hfill{background:linear-gradient(90deg,#e05545,#c0392b)}
+.hbar.blue .hfill{background:linear-gradient(90deg,#3a76b8,#275a90)}
+.hbar span{position:absolute;right:8px;top:0;line-height:26px;font-size:12.5px;font-weight:900;color:#33465c}
+.dual{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.dual h3{font-size:15px;font-weight:900;color:#12325c;margin-bottom:10px}
+/* 经理表 */
+table{width:100%;border-collapse:collapse}
+th{background:#12325c;color:#fff;font-size:13px;padding:9px 8px;font-weight:800}
+th:first-child{border-radius:8px 0 0 0} th:last-child{border-radius:0 8px 0 0}
+td{border-bottom:1px solid #e8edf3;padding:9px 8px;font-size:13px;vertical-align:top}
+tr:hover td{background:#f6f9fc}
+.rmname{font-weight:900;color:#12325c;font-size:13.5px;display:block}
+td small{color:#7a8ba0;font-size:11px} .sub{margin-left:2px}
+.num{text-align:center;font-weight:700} .num.b{font-size:15px;color:#12325c}
+.num.warn{color:#c0392b;font-weight:900}
+.lv{display:inline-block;border-radius:18px;padding:3px 12px;font-size:12px;font-weight:900}
+.lv.red{background:#fdecea;color:#c0392b} .lv.gold{background:#fff5dd;color:#a3690a} .lv.green{background:#e7f6ee;color:#1e8a56}
+td.act{font-size:12px;color:#4a5a6b;line-height:1.55}
+tr.rm-red td{background:#fff8f6} tr.rm-gold td{background:#fffdf4}
+/* 打法 */
+.play{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.pl{border-radius:12px;padding:15px 17px;border:1.5px solid #e2e9f2;background:#f7fafc}
+.pl .pt{font-size:15px;font-weight:900;color:#12325c;margin-bottom:7px}
+.pl .pt b{color:#c0392b}
+.pl p{font-size:12.8px;color:#4a5a6b;line-height:1.65;margin-bottom:5px}
+.pl p b{color:#12325c}
+/* 口径 */
+.cal{background:#fff8f0;border:1.5px solid #f0d9b0;border-radius:12px;padding:14px 18px;font-size:13px;color:#6a501a;line-height:1.8}
+.cal b{color:#c0392b}
+.foot{margin:18px 0 30px;font-size:12px;color:#8a9ab0;text-align:center;line-height:1.7}
+</style></head><body><div class="page">
+<div class="hero">
+  <div class="k">华南大区 · 零售运营 ｜ 2026.11.11 数据</div>
+  <h1>B10 <em>双零重力座椅</em>库存消化指引</h1>
+  <p>数据口径：《门店库存-门店明细》全量 324 台（全部为 2027 款 B10 双零重力舒适套装配置），覆盖 96 家门店、22 座城市（广东 19 城 + 海南 3 城）。本指引按大区 → 零售高级经理两级拆解，结合 11 月 B10 相关政策给出消化动作。</p>
+  <div class="tags">
+    <span>总库存 <b>324 台</b></span><span>在库 <b>283 台</b></span><span>在途/待发运 <b>41 台</b></span>
+    <span>已锁 <b>53 台（16.4%）</b></span><span>平均库龄 <b>52.2 天</b></span><span>超 90 天 <b>72 台</b></span>
+  </div>
+</div>
+
+<div class="sec">
+  <h2><span class="no">1</span>本月弹药：卖一台双零重力座椅 B10 能给客户算出多少钱<span class="tag">先背再卖</span></h2>
+  <div class="pol">
+    <div class="pc a"><div class="pk">B10 零跑基金加码</div><div class="pv">10,000<small> 元/台</small></div><div class="pd">6,000→10,000 顶格加码（含 Ultra），W2 延续——每台直接顶格用</div></div>
+    <div class="pc b"><div class="pk">新增订单能量积分</div><div class="pv">5,000<small> 积分/台</small></div><div class="pd">11.7–11.15 下定才享受，<b>本周日关闸，剩 5 天</b>，过期不补</div></div>
+    <div class="pc c"><div class="pk">莞深联合团购</div><div class="pv">京东卡等好礼</div><div class="pd">双城同开，下订即抢，本周日 11.15 截止——与积分同日归零</div></div>
+    <div class="pc d"><div class="pk">排名激励 × 检核</div><div class="pv">1,600–0<small> 元/月</small></div><div class="pd">5 档 × 检核系数；11 月豁免单月口径：达成 ≥100% 保底 1,600</div></div>
+  </div>
+</div>
+
+<div class="sec">
+  <h2><span class="no">2</span>大区总览：324 台压在哪、多新鲜<span class="tag">数据截至 11.11</span></h2>
+  <div class="ow">
+    <div class="o"><div class="v">324<small> 台</small></div><div class="t">双零重力座椅总库存</div></div>
+    <div class="o"><div class="v">283<small> 台</small></div><div class="t">在库（可售）</div></div>
+    <div class="o"><div class="v">41<small> 台</small></div><div class="t">在途/待发运</div></div>
+    <div class="o"><div class="v">53<small> 台</small></div><div class="t">已锁定（16.4%）</div></div>
+    <div class="o gold"><div class="v">52<small> 天</small></div><div class="t">平均库龄</div></div>
+    <div class="o hot"><div class="v">72<small> 台</small></div><div class="t">超 90 天（22%）</div></div>
+  </div>
+  <div class="dual">
+    <div>
+      <h3>库龄分布（台）</h3>
+      <div class="hb"><div class="hl">≤30 天</div><div class="hbar green"><div class="hfill" style="width:100.0%"></div><span>134</span></div></div>
+      <div class="hb"><div class="hl">31–60 天</div><div class="hbar gold"><div class="hfill" style="width:59.7%"></div><span>80</span></div></div>
+      <div class="hb"><div class="hl">61–90 天</div><div class="hbar gold"><div class="hfill" style="width:28.4%"></div><span>38</span></div></div>
+      <div class="hb"><div class="hl">>90 天</div><div class="hbar red"><div class="hfill" style="width:53.7%"></div><span>72</span></div></div>
+    </div>
+    <div>
+      <h3>车型配置分布（台）</h3>
+      <div class="hb"><div class="hl">B10-540 悦享版</div><div class="hbar blue"><div class="hfill" style="width:100.0%"></div><span>111</span></div></div><div class="hb"><div class="hl">B10-610 激光雷达版</div><div class="hbar blue"><div class="hfill" style="width:78.4%"></div><span>87</span></div></div><div class="hb"><div class="hl">B10-610 悦享版</div><div class="hbar blue"><div class="hfill" style="width:57.7%"></div><span>64</span></div></div><div class="hb"><div class="hl">B10-540 激光雷达版</div><div class="hbar blue"><div class="hfill" style="width:55.9%"></div><span>62</span></div></div>
+      <p style="font-size:12.5px;color:#5a6b80;margin-top:6px;">悦享版合计 <b>175 台</b>（54%）· 激光雷达版合计 <b>149 台</b>（46%）——悦享版走量、激光雷达版走价值，话术分开配。</p>
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <h2><span class="no">3</span>零售高级经理拆解：库存压在谁身上、本周怎么动<span class="tag">6 高压 · 3 中压</span></h2>
+  <table>
+    <tr><th style="width:180px">零售高级经理</th><th>台数</th><th>在库</th><th>在途</th><th>已锁</th><th>平均库龄</th><th>&gt;90天</th><th style="width:64px">压力</th><th style="width:300px">本周消化动作</th></tr>
+    <tr class="rm-gold">
+<td><span class="rmname">黄伟峰</span><small>主库：广州体验中心白云机场路店（12台）</small></td>
+<td class="num b">57</td><td class="num">55</td><td class="num">2</td>
+<td class="num">5<small class="sub">（9%）</small></td>
+<td class="num ">45.5</td>
+<td class="num warn">7</td>
+<td><span class="lv gold">中压</span></td>
+<td class="act">趁积分关闸前 5 天冲量：在库车按库龄倒序排展厅 C 位，B10 意向客户全量外呼报"三头总账"；团购名额限领，先到店先锁。</td></tr><tr class="rm-gold">
+<td><span class="rmname">方任昊</span><small>主库：东莞零跑中心莞太路店（10台）</small></td>
+<td class="num b">43</td><td class="num">39</td><td class="num">4</td>
+<td class="num">6<small class="sub">（14%）</small></td>
+<td class="num ">46.1</td>
+<td class="num warn">9</td>
+<td><span class="lv gold">中压</span></td>
+<td class="act">趁积分关闸前 5 天冲量：在库车按库龄倒序排展厅 C 位，B10 意向客户全量外呼报"三头总账"；团购名额限领，先到店先锁。</td></tr><tr class="rm-red">
+<td><span class="rmname">罗捷&amp;郭天文</span><small>主库：深圳零跑中心宝运达汽车城店（6台）</small></td>
+<td class="num b">40</td><td class="num">37</td><td class="num">3</td>
+<td class="num">6<small class="sub">（15%）</small></td>
+<td class="num warn">73.1</td>
+<td class="num warn">13</td>
+<td><span class="lv red">高压</span></td>
+<td class="act">本周日 11.15 前集中打穿：>90 天清单逐台定人定客户，"基金 1 万 + 积分 5 千"一口价打包，长库龄车优先排试驾；周末前锁不掉的转团购名额登记。</td></tr><tr class="rm-red">
+<td><span class="rmname">余子恩&amp;高峰强</span><small>主库：佛山零跑中心海八路汽车城店（11台）</small></td>
+<td class="num b">31</td><td class="num">30</td><td class="num">1</td>
+<td class="num">4<small class="sub">（13%）</small></td>
+<td class="num warn">71.9</td>
+<td class="num warn">12</td>
+<td><span class="lv red">高压</span></td>
+<td class="act">本周日 11.15 前集中打穿：>90 天清单逐台定人定客户，"基金 1 万 + 积分 5 千"一口价打包，长库龄车优先排试驾；周末前锁不掉的转团购名额登记。</td></tr><tr class="rm-green">
+<td><span class="rmname">胡浩</span><small>主库：惠州零跑中心金山汽车城店（10台）</small></td>
+<td class="num b">30</td><td class="num">24</td><td class="num">6</td>
+<td class="num">4<small class="sub">（13%）</small></td>
+<td class="num ">36.1</td>
+<td class="num warn">4</td>
+<td><span class="lv green">低压</span></td>
+<td class="act">库存新鲜随销随卖：跟紧团购京东卡名额节奏，双零重力座椅体验动线全员过关，按周滚动补库建议。</td></tr><tr class="rm-red">
+<td><span class="rmname">熊俊晖&amp;黄伟峰</span><small>主库：广州零跑中心金马汽车城店（12台）</small></td>
+<td class="num b">28</td><td class="num">27</td><td class="num">1</td>
+<td class="num">4<small class="sub">（14%）</small></td>
+<td class="num ">54.8</td>
+<td class="num warn">8</td>
+<td><span class="lv red">高压</span></td>
+<td class="act">本周日 11.15 前集中打穿：>90 天清单逐台定人定客户，"基金 1 万 + 积分 5 千"一口价打包，长库龄车优先排试驾；周末前锁不掉的转团购名额登记。</td></tr><tr class="rm-green">
+<td><span class="rmname">李博恩&amp;李传华</span><small>主库：海口零跑中心美安科技城店（7台）</small></td>
+<td class="num b">25</td><td class="num">12</td><td class="num">13</td>
+<td class="num">6<small class="sub">（24%）</small></td>
+<td class="num ">34.2</td>
+<td class="num warn">2</td>
+<td><span class="lv green">低压</span></td>
+<td class="act">库存新鲜随销随卖：跟紧团购京东卡名额节奏，双零重力座椅体验动线全员过关，按周滚动补库建议。</td></tr><tr class="rm-green">
+<td><span class="rmname">秦启超</span><small>主库：中山零跑中心小榄菊城大道店（7台）</small></td>
+<td class="num b">23</td><td class="num">20</td><td class="num">3</td>
+<td class="num">5<small class="sub">（22%）</small></td>
+<td class="num ">44.1</td>
+<td class="num warn">3</td>
+<td><span class="lv green">低压</span></td>
+<td class="act">库存新鲜随销随卖：跟紧团购京东卡名额节奏，双零重力座椅体验动线全员过关，按周滚动补库建议。</td></tr><tr class="rm-red">
+<td><span class="rmname">陈恒惕</span><small>主库：梅州零跑中心剑英大道店（8台）</small></td>
+<td class="num b">18</td><td class="num">16</td><td class="num">2</td>
+<td class="num">3<small class="sub">（17%）</small></td>
+<td class="num warn">69.9</td>
+<td class="num warn">9</td>
+<td><span class="lv red">高压</span></td>
+<td class="act">本周日 11.15 前集中打穿：>90 天清单逐台定人定客户，"基金 1 万 + 积分 5 千"一口价打包，长库龄车优先排试驾；周末前锁不掉的转团购名额登记。</td></tr><tr class="rm-green">
+<td><span class="rmname">李传华</span><small>主库：云浮体验中心环市中路店（3台）</small></td>
+<td class="num b">13</td><td class="num">8</td><td class="num">5</td>
+<td class="num">6<small class="sub">（46%）</small></td>
+<td class="num ">37.9</td>
+<td class="num warn">3</td>
+<td><span class="lv green">低压</span></td>
+<td class="act">库存新鲜随销随卖：跟紧团购京东卡名额节奏，双零重力座椅体验动线全员过关，按周滚动补库建议。</td></tr><tr class="rm-gold">
+<td><span class="rmname">余子恩</span><small>主库：韶关零跑中心沐溪大道店（3台）</small></td>
+<td class="num b">9</td><td class="num">8</td><td class="num">1</td>
+<td class="num">2<small class="sub">（22%）</small></td>
+<td class="num ">46.7</td>
+<td class="num warn">1</td>
+<td><span class="lv gold">中压</span></td>
+<td class="act">趁积分关闸前 5 天冲量：在库车按库龄倒序排展厅 C 位，B10 意向客户全量外呼报"三头总账"；团购名额限领，先到店先锁。</td></tr><tr class="rm-red">
+<td><span class="rmname">熊俊晖</span><small>主库：汕头零跑中心汕汾路店（2台）</small></td>
+<td class="num b">4</td><td class="num">4</td><td class="num">0</td>
+<td class="num">2<small class="sub">（50%）</small></td>
+<td class="num warn">63.8</td>
+<td class="num warn">1</td>
+<td><span class="lv red">高压</span></td>
+<td class="act">本周日 11.15 前集中打穿：>90 天清单逐台定人定客户，"基金 1 万 + 积分 5 千"一口价打包，长库龄车优先排试驾；周末前锁不掉的转团购名额登记。</td></tr><tr class="rm-red">
+<td><span class="rmname">李博恩</span><small>主库：澄迈体验中心金马大道店（2台）</small></td>
+<td class="num b">3</td><td class="num">3</td><td class="num">0</td>
+<td class="num">0<small class="sub">（0%）</small></td>
+<td class="num warn">86.3</td>
+<td class="num ">0</td>
+<td><span class="lv red">高压</span></td>
+<td class="act">本周日 11.15 前集中打穿：>90 天清单逐台定人定客户，"基金 1 万 + 积分 5 千"一口价打包，长库龄车优先排试驾；周末前锁不掉的转团购名额登记。</td></tr>
+  </table>
+</div>
+
+<div class="sec">
+  <h2><span class="no">4</span>重点门店 TOP12：库存最重的店，本周必盯<span class="tag">按台数排序</span></h2>
+  <table>
+    <tr><th>门店</th><th style="width:130px">零售高级经理</th><th>台数</th><th>平均库龄</th><th>&gt;90天</th><th>≤30天</th></tr>
+    <tr><td>广州体验中心白云机场路店</td><td>黄伟峰</td><td class="num b">12</td>
+<td class="num">34</td><td class="num ">0</td>
+<td class="num">6</td></tr><tr><td>广州零跑中心金马汽车城店</td><td>熊俊晖&黄伟峰</td><td class="num b">12</td>
+<td class="num">48</td><td class="num warn">2</td>
+<td class="num">4</td></tr><tr><td>佛山零跑中心海八路汽车城店</td><td>余子恩&高峰强</td><td class="num b">11</td>
+<td class="num">68</td><td class="num warn">3</td>
+<td class="num">3</td></tr><tr><td>广州体验中心番禺大道店</td><td>黄伟峰</td><td class="num b">10</td>
+<td class="num">48</td><td class="num warn">1</td>
+<td class="num">3</td></tr><tr><td>东莞零跑中心莞太路店</td><td>方任昊</td><td class="num b">10</td>
+<td class="num">40</td><td class="num warn">2</td>
+<td class="num">5</td></tr><tr><td>东莞零跑中心虎门车城店</td><td>方任昊</td><td class="num b">10</td>
+<td class="num">53</td><td class="num warn">3</td>
+<td class="num">5</td></tr><tr><td>惠州零跑中心金山汽车城店</td><td>胡浩</td><td class="num b">10</td>
+<td class="num">20</td><td class="num ">0</td>
+<td class="num">8</td></tr><tr><td>广州零跑中心科学城店</td><td>黄伟峰</td><td class="num b">9</td>
+<td class="num">50</td><td class="num warn">1</td>
+<td class="num">3</td></tr><tr><td>惠州零跑中心人民四路店</td><td>胡浩</td><td class="num b">9</td>
+<td class="num">50</td><td class="num warn">1</td>
+<td class="num">1</td></tr><tr><td>梅州零跑中心剑英大道店</td><td>陈恒惕</td><td class="num b">8</td>
+<td class="num">56</td><td class="num warn">3</td>
+<td class="num">3</td></tr><tr><td>中山零跑中心小榄菊城大道店</td><td>秦启超</td><td class="num b">7</td>
+<td class="num">56</td><td class="num ">0</td>
+<td class="num">1</td></tr><tr><td>广州体验中心天河广汕路店</td><td>黄伟峰</td><td class="num b">7</td>
+<td class="num">42</td><td class="num ">0</td>
+<td class="num">3</td></tr>
+  </table>
+</div>
+
+<div class="sec">
+  <h2><span class="no">5</span>三段消化打法：从本周日往前倒排<span class="tag">11.11 → 11.15 → 之后</span></h2>
+  <div class="play">
+    <div class="pl">
+      <div class="pt">① <b>现在—本周日 11.15</b>：积分窗口冲刺</div>
+      <p>全量 B10 意向客户报"三头总账"：<b>基金 10,000 + 积分 5,000 + 团购京东卡</b>，一张纸算到底；积分 11.15 24:00 关闸，只认新增订单。</p>
+      <p>长库龄车（&gt;60 天）逐台定人：展厅 C 位 + 优先试驾 + 一口价特批节奏，本周日之前必须消化一批。</p>
+    </div>
+    <div class="pl">
+      <div class="pt">② 展厅动线：把"坐"变成"买"</div>
+      <p>双零重力座椅是<b>体验型卖点</b>——到店必坐、试驾必调：躺平模式 / 小桌板 / 通风加热按摩逐项演示，销售话术统一过一遍。</p>
+      <p>短视频/直播拍座椅体验合集；广州车展（本月开幕）前抢占"家庭出行舒适座舱"心智，先种草先锁单。</p>
+    </div>
+    <div class="pl">
+      <div class="pt">③ <b>11.16 之后</b>：管控与车展期</div>
+      <p>深圳 APEC 管控（11.16–11.20）砍深莞到店客流；车展虹吸周边观望情绪——<b>本周末前能锁的全锁</b>，管控期转线上邀约与上门试驾。</p>
+      <p>尾款抵用券兜底：限时权益 1,500/2,000 券 11.30 归零（注：B10 不在 27 款适用车型内，勿向客户承诺），本月仍主推基金+积分。</p>
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <h2><span class="no">6</span>口径红线：说错一句就是客诉<span class="tag">全员背熟</span></h2>
+  <div class="cal">
+    ① 零跑基金与积分均以<b>官方政策原文</b>为准，不承诺折现、不承诺现金返还；② 能量积分只认 <b>11.7–11.15 新增订单</b>，老订单不追溯；③ 莞深联合团购好礼<b>本周日 11.15 截止</b>，名额有限先到先得；④ <b>B10 不在 27 款 C 端 1,500 尾款券适用车型内</b>（适用：C10/C11/C16/D19），展厅严禁混用承诺；⑤ 检核系数后 30% 实发归零不可豁免，潜客登记/分流问询/标签三项日常自查。
+  </div>
+</div>
+
+<div class="foot">零跑汽车 · 华南大区零售管理 ｜ 数据：《门店库存-门店明细》（2026.11.11 11:43 导出，VIN 级明细 324 条，全部含双零重力舒适套装）｜ 政策：《2026年11月零售运营管理激励政策》及 B10 加码、能量积分、莞深联合团购等专项通知<br>具体政策内容、适用范围与截止时间以零跑 App 及官方通知为准 · 生成于 2026.11.11</div>
+</div></body></html>
