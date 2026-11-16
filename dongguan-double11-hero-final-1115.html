@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh"><head><meta charset="utf-8"><title>双十一订单英雄总榜</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:#fff;width:900px}
+.wrap{background:linear-gradient(175deg,#a40b12 0%,#7c070d 34%,#5e0409 72%,#42030a 100%);padding:56px 46px 40px}
+.badge{text-align:center;margin-bottom:14px}
+.badge span{display:inline-block;border:1.5px solid rgba(255,209,102,.65);color:#ffd166;font-size:19px;font-weight:800;letter-spacing:6px;border-radius:30px;padding:7px 30px}
+h1{text-align:center;font-size:76px;font-weight:900;color:#fff;letter-spacing:6px;text-shadow:0 4px 18px rgba(0,0,0,.45);line-height:1.15}
+h1 em{font-style:normal;background:linear-gradient(180deg,#ffe9a8,#ffc53d);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{text-align:center;color:#ffdf9e;font-size:21px;font-weight:700;letter-spacing:2px;margin-top:14px}
+.cd{margin:26px auto 0;max-width:700px;background:linear-gradient(135deg,#3d0206,#5c060c);border:2px solid rgba(255,196,80,.7);border-radius:22px;padding:22px 26px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.cdrow{display:flex;justify-content:center;align-items:baseline;gap:18px;white-space:nowrap}
+.cd .st b{font-size:50px;font-weight:900;color:#ffd166;line-height:1.1;font-style:normal}
+.cd .st small{font-size:21px;color:#ffe9b0;font-weight:800;margin-left:6px}
+.cd .sep{align-self:center;width:2px;height:32px;background:rgba(255,196,80,.55);border-radius:2px}
+.cd .t{color:#ffe3ae;font-size:17px;font-weight:700;margin-top:10px;letter-spacing:1px}
+.sec{background:#fffdf6;border-radius:20px;padding:28px 30px;margin-top:24px;box-shadow:0 8px 26px rgba(0,0,0,.3)}
+.sec h2{font-size:27px;font-weight:900;color:#8f0d13;letter-spacing:2px;margin-bottom:6px}
+.sec .cap{font-size:14px;color:#a08662;margin-bottom:16px}
+.t3row{display:flex;gap:14px;margin-bottom:12px}
+.t3{flex:1;text-align:center;border:2px solid;border-radius:16px;padding:16px 8px 14px;background:#fff}
+.md{font-size:32px;line-height:1}
+.tname{font-size:26px;font-weight:900;color:#2b1206;margin-top:6px}
+.tn{font-size:32px;font-weight:900;margin-top:2px}
+.tn small{font-size:15px;font-weight:800}
+.trend{display:flex;gap:10px;align-items:flex-end;justify-content:space-between;height:210px;margin-top:6px}
+.dy{flex:1;text-align:center;display:flex;flex-direction:column;justify-content:flex-end;height:100%}
+.dv{font-size:20px;font-weight:900;color:#c0291f;margin-bottom:4px}
+.db{height:130px;display:flex;align-items:flex-end;justify-content:center}
+.db i{display:block;width:38px;background:linear-gradient(180deg,#f0b13a,#c0291f);border-radius:8px 8px 0 0}
+.dl{font-size:14px;font-weight:800;color:#7a5836;margin-top:6px}
+.dl small{display:block;font-size:12px;color:#a08662;font-weight:700}
+.dclist{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:4px}
+.dcday{background:#fdf3e0;border:1.5px solid #f0dbb6;border-radius:12px;padding:10px 8px;text-align:center}
+.dcd{font-size:13.5px;font-weight:900;color:#8f0d13;letter-spacing:1px}
+.dcn{font-size:17px;font-weight:900;color:#3a1c10;margin-top:4px;line-height:1.25}
+.dcc{font-size:12.5px;font-weight:800;color:#b07a2a;margin-top:3px}
+.gr{margin-top:14px}
+.glab{display:inline-block;background:#8f0d13;color:#ffe9b8;font-size:14.5px;font-weight:800;border-radius:20px;padding:4px 16px;margin-bottom:8px}
+.nms{display:flex;flex-wrap:wrap;gap:8px}
+.nm{background:#fff;border:1.5px solid #ecd9b8;border-radius:10px;padding:6px 12px;font-size:17px;font-weight:700;color:#4a2410}
+.nm b{color:#c0291f;margin-left:6px;font-size:15px}
+table{width:100%;border-collapse:collapse;margin-top:6px}
+th{background:#8f0d13;color:#ffe9b8;font-size:14.5px;padding:8px 6px;letter-spacing:1px}
+td{border-bottom:1px solid #f3e6cd;font-size:15.5px;color:#6b4a26;padding:8px 6px;text-align:center}
+.num{font-size:19px;font-weight:900;color:#c0291f;width:64px}
+.barcell{width:52%}
+.bar{background:#f3e6cd;border-radius:10px;height:14px;overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,#e8a020,#c0291f);border-radius:10px}
+.foot{text-align:center;color:rgba(255,224,170,.75);font-size:13.5px;line-height:1.8;margin-top:26px;letter-spacing:.5px}
+.rule{background:rgba(0,0,0,.28);border:1.5px dashed rgba(255,196,80,.55);border-radius:14px;padding:14px 20px;margin-top:22px;color:#ffe3ae;font-size:15.5px;font-weight:700;line-height:1.7;text-align:center}
+</style></head><body>
+<div class="wrap">
+  <div class="badge"><span>东莞区域 · 双十一收官</span></div>
+  <h1>双十一<em>订单英雄总榜</em></h1>
+  <div class="sub">11.9 – 11.15 七天全周期 · 238 单收官，感谢每一位拼到最后的英雄</div>
+  <div class="cd">
+    <div class="cdrow">
+      <span class="st"><b>238</b><small>单</small></span>
+      <span class="sep"></span>
+      <span class="st"><b>90</b><small>位销售英雄</small></span>
+      <span class="sep"></span>
+      <span class="st"><b>12</b><small>家门店</small></span>
+    </div>
+    <div class="t">七天累计 · 日均 34.0 单 ｜ 收官日 68 单创单日新高</div>
+  </div>
+
+  <div class="sec">
+    <h2>📈 七天冲刺节奏</h2>
+    <div class="cap">每日 APP 订单台数 · 周六起连续两天放量，收官日 68 单</div>
+    <div class="trend"><div class="dy"><div class="dv">21</div><div class="db"><i style="height:31%"></i></div><div class="dl">11.9<small>周一</small></div></div><div class="dy"><div class="dv">25</div><div class="db"><i style="height:37%"></i></div><div class="dl">11.10<small>周二</small></div></div><div class="dy"><div class="dv">26</div><div class="db"><i style="height:38%"></i></div><div class="dl">11.11<small>周三</small></div></div><div class="dy"><div class="dv">27</div><div class="db"><i style="height:40%"></i></div><div class="dl">11.12<small>周四</small></div></div><div class="dy"><div class="dv">25</div><div class="db"><i style="height:37%"></i></div><div class="dl">11.13<small>周五</small></div></div><div class="dy"><div class="dv">46</div><div class="db"><i style="height:68%"></i></div><div class="dl">11.14<small>周六</small></div></div><div class="dy"><div class="dv">68</div><div class="db"><i style="height:100%"></i></div><div class="dl">11.15<small>周日</small></div></div></div>
+  </div>
+
+  <div class="sec">
+    <h2>🎖 单日冠军</h2>
+    <div class="cap">每日个人最高成交台数（并列全部列出）</div>
+    <div class="dclist"><div class="dcday"><div class="dcd">11.9</div><div class="dcn">钟炜彬、胡佳媚</div><div class="dcc">2 单</div></div><div class="dcday"><div class="dcd">11.10</div><div class="dcn">梁柱辉、费凡</div><div class="dcc">2 单</div></div><div class="dcday"><div class="dcd">11.11</div><div class="dcn">刘洁芳</div><div class="dcc">2 单</div></div><div class="dcday"><div class="dcd">11.12</div><div class="dcn">梁荣健、陈东升</div><div class="dcc">2 单</div></div><div class="dcday"><div class="dcd">11.13</div><div class="dcn">叶超敏、龚瑜</div><div class="dcc">2 单</div></div><div class="dcday"><div class="dcd">11.14</div><div class="dcn">梁荣健、钟炜彬、梁浩南</div><div class="dcc">2 单</div></div><div class="dcday"><div class="dcd">11.15</div><div class="dcn">莫东江、梁浩南</div><div class="dcc">3 单</div></div></div>
+  </div>
+
+  <div class="sec">
+    <h2>🏆 个人英雄总榜 · 并列领跑</h2>
+    <div class="cap">同单数并列排名 · 金/银/铜三排为并列领跑英雄，姓名后为七天累计台数</div>
+    <div class="t3row">
+    <div class="t3" style="border-color:rgb(255,215,0); background:linear-gradient(160deg,rgba(255,215,0,.18),rgba(255,255,255,.94));">
+      <div class="md">🥇</div>
+      <div class="tname">梁浩南</div>
+      <div class="tn">9<small> 单</small></div>
+    </div></div>
+    <div class="t3row">
+    <div class="t3" style="border-color:rgb(201,214,228); background:linear-gradient(160deg,rgba(201,214,228,.18),rgba(255,255,255,.94));">
+      <div class="md">🥈</div>
+      <div class="tname">梁荣健</div>
+      <div class="tn">8<small> 单</small></div>
+    </div></div>
+    <div class="t3row">
+    <div class="t3" style="border-color:rgb(224,139,78); background:linear-gradient(160deg,rgba(224,139,78,.18),rgba(255,255,255,.94));">
+      <div class="md">🥉</div>
+      <div class="tname">李文江</div>
+      <div class="tn">7<small> 单</small></div>
+    </div>
+    <div class="t3" style="border-color:rgb(224,139,78); background:linear-gradient(160deg,rgba(224,139,78,.18),rgba(255,255,255,.94));">
+      <div class="md">🥉</div>
+      <div class="tname">钟炜彬</div>
+      <div class="tn">7<small> 单</small></div>
+    </div>
+    <div class="t3" style="border-color:rgb(224,139,78); background:linear-gradient(160deg,rgba(224,139,78,.18),rgba(255,255,255,.94));">
+      <div class="md">🥉</div>
+      <div class="tname">钱真真</div>
+      <div class="tn">7<small> 单</small></div>
+    </div>
+    <div class="t3" style="border-color:rgb(224,139,78); background:linear-gradient(160deg,rgba(224,139,78,.18),rgba(255,255,255,.94));">
+      <div class="md">🥉</div>
+      <div class="tname">阮小平</div>
+      <div class="tn">7<small> 单</small></div>
+    </div>
+    <div class="t3" style="border-color:rgb(224,139,78); background:linear-gradient(160deg,rgba(224,139,78,.18),rgba(255,255,255,.94));">
+      <div class="md">🥉</div>
+      <div class="tname">龚瑜</div>
+      <div class="tn">7<small> 单</small></div>
+    </div></div>
+    <div class="cap" style="margin-top:16px">完整名单 · 按单数分组（11.9–11.15）</div>
+    <div class="gr"><div class="glab">6 单 · 1 人</div><div class="nms"><span class="nm">胡佳媚<b>6</b></span></div></div><div class="gr"><div class="glab">5 单 · 3 人</div><div class="nms"><span class="nm">周洺健<b>5</b></span><span class="nm">明雨馨<b>5</b></span><span class="nm">梁柱辉<b>5</b></span></div></div><div class="gr"><div class="glab">4 单 · 11 人</div><div class="nms"><span class="nm">叶超敏<b>4</b></span><span class="nm">宁秋兰<b>4</b></span><span class="nm">尹志勇<b>4</b></span><span class="nm">张少劲<b>4</b></span><span class="nm">张艺科<b>4</b></span><span class="nm">彭月林<b>4</b></span><span class="nm">管浩天<b>4</b></span><span class="nm">许亚辉<b>4</b></span><span class="nm">费凡<b>4</b></span><span class="nm">陈锦鹏<b>4</b></span><span class="nm">黄耿超<b>4</b></span></div></div><div class="gr"><div class="glab">3 单 · 20 人</div><div class="nms"><span class="nm">冯阳<b>3</b></span><span class="nm">刘强<b>3</b></span><span class="nm">刘洁芳<b>3</b></span><span class="nm">刘浩<b>3</b></span><span class="nm">刘道锋<b>3</b></span><span class="nm">周晨<b>3</b></span><span class="nm">曹志<b>3</b></span><span class="nm">林宗建<b>3</b></span><span class="nm">王晓琴<b>3</b></span><span class="nm">莫东江<b>3</b></span><span class="nm">莫家浩<b>3</b></span><span class="nm">蒋政<b>3</b></span><span class="nm">许麒<b>3</b></span><span class="nm">谢雨杰<b>3</b></span><span class="nm">费重<b>3</b></span><span class="nm">钟彩琳<b>3</b></span><span class="nm">阮先凤<b>3</b></span><span class="nm">陈东升<b>3</b></span><span class="nm">陈依琪<b>3</b></span><span class="nm">黄双辉<b>3</b></span></div></div><div class="gr"><div class="glab">2 单 · 13 人</div><div class="nms"><span class="nm">叶璨锋<b>2</b></span><span class="nm">徐晶晶<b>2</b></span><span class="nm">李渊浩<b>2</b></span><span class="nm">杨鹏<b>2</b></span><span class="nm">梁琼丹<b>2</b></span><span class="nm">王文杰<b>2</b></span><span class="nm">王芳<b>2</b></span><span class="nm">覃春晓<b>2</b></span><span class="nm">郑广沛<b>2</b></span><span class="nm">郑志广<b>2</b></span><span class="nm">陈小秋<b>2</b></span><span class="nm">黄敏聪<b>2</b></span><span class="nm">黄浩枫<b>2</b></span></div></div><div class="gr"><div class="glab">1 单 · 35 人</div><div class="nms"><span class="nm">付炼<b>1</b></span><span class="nm">余庚任<b>1</b></span><span class="nm">余文希<b>1</b></span><span class="nm">刘燕<b>1</b></span><span class="nm">卢锦茹<b>1</b></span><span class="nm">周乐<b>1</b></span><span class="nm">周明建<b>1</b></span><span class="nm">周杰<b>1</b></span><span class="nm">张勇<b>1</b></span><span class="nm">张宏英<b>1</b></span><span class="nm">张建顺<b>1</b></span><span class="nm">张超群<b>1</b></span><span class="nm">彭志勇<b>1</b></span><span class="nm">李思茹<b>1</b></span><span class="nm">李石华<b>1</b></span><span class="nm">杜家乐<b>1</b></span><span class="nm">林万峰<b>1</b></span><span class="nm">林记伟<b>1</b></span><span class="nm">植中胜<b>1</b></span><span class="nm">王其驰<b>1</b></span><span class="nm">王静茹<b>1</b></span><span class="nm">罗流强<b>1</b></span><span class="nm">蒙志闯<b>1</b></span><span class="nm">袁镜汶<b>1</b></span><span class="nm">邱海帆<b>1</b></span><span class="nm">邱鑫<b>1</b></span><span class="nm">郑珠珠<b>1</b></span><span class="nm">钟伟彬<b>1</b></span><span class="nm">钟浩潮<b>1</b></span><span class="nm">陈国强<b>1</b></span><span class="nm">陈峰<b>1</b></span><span class="nm">陈杰<b>1</b></span><span class="nm">陈树伟<b>1</b></span><span class="nm">黄文智<b>1</b></span><span class="nm">黎柱添<b>1</b></span></div></div>
+  </div>
+
+  <div class="sec">
+    <h2>🏪 门店英雄贡献榜</h2>
+    <div class="cap">七天累计，按台数排序</div>
+    <table><tr><th style="text-align:left">门店</th><th>累计</th><th style="text-align:left">占比</th></tr><tr><td style="text-align:left;font-weight:700;color:#3a1c10">莞太路店</td><td class="num"><b>51</b></td><td class="barcell"><div class="bar"><i style="width:100%"></i></div></td></tr><tr><td style="text-align:left;font-weight:700;color:#3a1c10">寮步车城店</td><td class="num"><b>49</b></td><td class="barcell"><div class="bar"><i style="width:96%"></i></div></td></tr><tr><td style="text-align:left;font-weight:700;color:#3a1c10">虎门车城店</td><td class="num"><b>26</b></td><td class="barcell"><div class="bar"><i style="width:51%"></i></div></td></tr><tr><td style="text-align:left;font-weight:700;color:#3a1c10">东城店</td><td class="num"><b>25</b></td><td class="barcell"><div class="bar"><i style="width:49%"></i></div></td></tr><tr><td style="text-align:left;font-weight:700;color:#3a1c10">常朗路店</td><td class="num"><b>24</b></td><td class="barcell"><div class="bar"><i style="width:47%"></i></div></td></tr><tr><td style="text-align:left;font-weight:700;color:#3a1c10">松山湖店</td><td class="num"><b>14</b></td><td class="barcell"><div class="bar"><i style="width:27%"></i></div></td></tr><tr><td style="text-align:left;font-weight:700;color:#3a1c10">石排大道店</td><td class="num"><b>13</b></td><td class="barcell"><div class="bar"><i style="width:25%"></i></div></td></tr><tr><td style="text-align:left;font-weight:700;color:#3a1c10">长安振安东路店</td><td class="num"><b>10</b></td><td class="barcell"><div class="bar"><i style="width:20%"></i></div></td></tr><tr><td style="text-align:left;font-weight:700;color:#3a1c10">大岭山镇店</td><td class="num"><b>10</b></td><td class="barcell"><div class="bar"><i style="width:20%"></i></div></td></tr><tr><td style="text-align:left;font-weight:700;color:#3a1c10">企石店</td><td class="num"><b>9</b></td><td class="barcell"><div class="bar"><i style="width:18%"></i></div></td></tr><tr><td style="text-align:left;font-weight:700;color:#3a1c10">厚街店</td><td class="num"><b>6</b></td><td class="barcell"><div class="bar"><i style="width:12%"></i></div></td></tr><tr><td style="text-align:left;font-weight:700;color:#3a1c10">高胜车城店</td><td class="num"><b>1</b></td><td class="barcell"><div class="bar"><i style="width:2%"></i></div></td></tr></table>
+  </div>
+
+  <div class="rule">诚信红线：所有上榜订单以 APP 真实订单为准，如有作假，直通投资人诚信处理，店长连坐</div>
+  <div class="foot">零跑汽车 · 东莞区域 ｜ 双十一订单英雄总榜（2026.11.9 – 11.15）｜ 数据：《东莞区域 双十一销售英雄榜》门店填报<br>最终解释以区域零售管理口径为准 · 双十一收官，感谢每一位英雄</div>
+</div>
+</body></html>
