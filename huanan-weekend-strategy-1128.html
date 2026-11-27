@@ -1,0 +1,211 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><title>华南大区 · 本周末冲单策略 11.28—11.29</title><style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:#d8d8dc}
+.page{width:900px;margin:0 auto;background:#f5f6f8;color:#2b2b2b;padding-bottom:26px;overflow:hidden}
+.hd{background:linear-gradient(90deg,#8a2429 0%,#8a2429 83%,#9c3235 100%);padding:38px 44px 34px;color:#fff}
+.kick{font-size:13px;font-weight:800;letter-spacing:5px;color:#f3c46a;margin-bottom:14px}
+.hd h1{font-size:43px;font-weight:900;letter-spacing:2px;line-height:1.2}
+.hd .sub{margin-top:14px;font-size:15.5px;font-weight:700;color:#f7d493;letter-spacing:.5px;line-height:1.6}
+.hd .sub b{color:#fff}
+.wrap{padding:0 40px}
+.why{margin-top:26px;background:#fdf4f1;border:1px solid #f0d6ce;border-radius:8px;padding:20px 24px 18px}
+.whyhead{display:flex;justify-content:space-between;align-items:center;font-size:17px;font-weight:900;color:#8a2429;margin-bottom:12px}
+.whytag{flex:none;background:#8a2429;color:#ffe9c2;font-size:11.5px;font-weight:800;letter-spacing:.5px;border-radius:20px;padding:5px 13px}
+.why p{font-size:14px;line-height:1.85;color:#5c3a33;margin-top:8px}
+.why p b{color:#b3312a;font-weight:900}
+.mod{margin-top:22px;background:#fff;border:1px solid #e8e9ed;border-radius:8px;padding:20px 22px 22px;
+  box-shadow:0 2px 10px rgba(30,20,20,.035)}
+.modhead{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:16px}
+.modtitle{display:flex;align-items:center;gap:11px;font-size:19px;font-weight:900;color:#2b2b2b;letter-spacing:.3px}
+.modtitle.red{color:#b12b22}
+.num{flex:none;width:27px;height:27px;border-radius:6px;color:#fff;font-size:16px;font-weight:900;
+  display:flex;align-items:center;justify-content:center}
+.n1{background:#2e6b4f}.n2{background:#a2631e}.n3{background:#2e6b4f}.n4{background:#203c63}.n5{background:#b12b22}
+.pill{flex:none;background:#f5a623;color:#fff;font-size:11.5px;font-weight:900;letter-spacing:.5px;
+  border-radius:20px;padding:5px 14px;white-space:nowrap}
+/* 两栏对比 */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.col{border-radius:7px;padding:14px 16px 15px}
+.col.hot{background:#fff8e9;border:1px solid #f0dcb0}
+.col.cold{background:#f5f7f9;border:1px solid #e2e7ec}
+.colh{font-size:15px;font-weight:900;letter-spacing:.3px}
+.col.hot .colh{color:#a2631e}.col.cold .colh{color:#6b7783}
+.colp{margin-top:9px;font-size:13.2px;line-height:1.8;color:#5a4a40}
+.col.cold .colp{color:#5b6670}
+.colp b{color:#b3312a}
+.col.cold .colp b{color:#42505c}
+.sweet{margin-top:14px;background:#eef6f1;border:1px solid #cfe4d6;border-radius:7px;padding:15px 18px}
+.sweeth{font-size:15.5px;font-weight:900;color:#2e6b4f}
+.sweetp{margin-top:8px;font-size:13.2px;line-height:1.8;color:#3c5a49}
+.sweetp b{color:#b3312a}
+/* 表格 */
+table{width:100%;border-collapse:collapse;table-layout:fixed}
+th{font-size:13px;font-weight:900;color:#fff;text-align:left;padding:10px 11px;letter-spacing:.5px}
+th.c1{width:19%}th.c2{width:22%}th.c3{width:29%}th.c4{width:30%}
+.thead2 th{background:#a2631e}.thead4 th{background:#203c63}
+td{font-size:12.7px;line-height:1.72;color:#3c3c3c;padding:11px 11px;vertical-align:top;
+  border-bottom:1px solid #eceef1}
+tr:last-child td{border-bottom:none}
+tbody tr:nth-child(even){background:#fafbfc}
+td b{color:#8a2429;font-weight:900}
+td .pn{font-size:13.2px;font-weight:900;color:#b3312a;line-height:1.5}
+td .pn2{font-size:12px;font-weight:700;color:#7a7a7a;line-height:1.5}
+tr.newrow{background:#fff6e5 !important}
+tr.newrow td{border-left:3px solid #e08a1e}
+tr.newrow td:first-child{border-left:3px solid #e08a1e}
+.tagnew{display:inline-block;margin-top:5px;background:#c01008;color:#fff;font-size:10.5px;font-weight:900;
+  letter-spacing:.5px;border-radius:4px;padding:2px 7px}
+/* 机制框 */
+.mech{background:#eef6f1;border:1px solid #cfe4d6;border-radius:7px;padding:16px 18px}
+.formula{font-size:15px;font-weight:900;color:#2e6b4f;line-height:1.6}
+.mech p{margin-top:9px;font-size:13.2px;line-height:1.8;color:#3c5a49}
+.mech p b{color:#b3312a}
+/* 红线 */
+.reds{display:grid;grid-template-columns:1fr 1fr;column-gap:26px;row-gap:11px}
+.reditem{display:flex;gap:9px;font-size:13.2px;line-height:1.72;color:#5c3a33}
+.reditem i{flex:none;font-style:normal;font-weight:900;color:#b12b22;font-size:13.5px}
+/* 底部 */
+.final{margin-top:22px;background:#8a2429;border-radius:8px;padding:20px 26px 22px;color:#fff}
+.finalh{font-size:13px;font-weight:900;color:#f3c46a;letter-spacing:3px;margin-bottom:10px}
+.finalp{font-size:15.5px;font-weight:800;line-height:1.85;color:#ffeee0}
+.finalp b{color:#ffd166}
+.foot{margin-top:16px;padding:0 40px;font-size:11.5px;line-height:1.8;color:#8b8b90}
+.footb{margin-top:10px;display:flex;justify-content:space-between;font-size:11.5px;color:#8b8b90;font-weight:700}
+</style></head><body><div class="page">
+ <div class="hd">
+   <div class="kick">零跑汽车 · 华南大区 · 11 月收官冲刺</div>
+   <h1>本周末冲单策略 · 11.28 — 11.29</h1>
+   <div class="sub">距 <b>11.30 24:00</b> 关闸仅剩 <b>4 天</b> ｜ 全新 Lafa 上市首周末 × 政策吃满 × 批交冲 100%</div>
+ </div>
+
+ <div class="wrap">
+  <div class="why">
+    <div class="whyhead">先讲清这个周末为什么贵<span class="whytag">距 11.30 关闸 · 最后 4 天</span></div>
+    <p><b>11.28—11.29 是 11 月政策关闸前最后一个完整周末</b>；11.30 24:00 一过，3C 交强险 950 元/台、B10 万元舒适套装、A05 / C10 锁单阶梯、D99 红包、11 月限时尾款权益、全新 Lafa 本月大定 10,000 能量积分，<b>全部清零，过期不补、不追溯</b>。</p>
+    <p>更关键的是：11—12 月全车系批售目标达成率 &lt;100%，2027 年 1—6 月新品认证直接不通过。未通过认证的门店，2027 年上半年交付的对应车辆只能拿 1500 元/台的交付激励，其他 B 端激励一律没有（2027.7.1 起才解除）。</p>
+    <p>这不是少拿一笔返利，是明年上半年没有车卖、没有钱赚。所以 2026 收官最大的目标只有一个字——<b>降库</b>。站在 12.31 回头看今天：哪些车那时候还在库里？这个周末就要清掉。</p>
+    <p><b>全新 Lafa 今天（11.27）正式上市，本月大定再享 10,000 能量积分（不与盲订同享）</b>——上市首周末的自然到店客流，是本周最便宜的一批量，必须一台不漏地转成 11 月锁单。</p>
+  </div>
+
+  <div class="mod">
+    <div class="modhead"><div class="modtitle"><span class="num n1">1</span>时间节奏：这个周末和 12 月，性质完全不同</div><span class="pill">讲给经销商听的</span></div>
+    <div class="two">
+      <div class="col hot">
+        <div class="colh">11.28—11.29（本周末）｜ 能锁进 11 月</div>
+        <div class="colp">下定后 7—10 天可开票交付，赶得上 11 月最后一批锁单口径。这两天的锁单，直接决定本月交付档位、决定 A05 / C10 阶梯拿到哪一档、决定 11—12 月批售达成率能不能压在 100% 线上；<b>12.31 前交付，照样计入 11 月锁单分子</b>。</div>
+      </div>
+      <div class="col cold">
+        <div class="colh">12.1 起（下月）｜ 只剩 12 月的账</div>
+        <div class="colp">11.30 24:00 关闸，11 月全部限时权益清零，抵扣券不补发、不追溯。那时候再冲，是替 12 月做量，<b>救不了 11 月的档位和认证开关</b>；全新 Lafa 的大定积分口径也随月切换。</div>
+      </div>
+    </div>
+    <div class="sweet">
+      <div class="sweeth">还有一个甜头，必须一起讲：做到 105%，五类考核全免</div>
+      <div class="sweetp">11—12 月批售与交付综合达成率 (B+D)÷2 ≥105%，且批售、交付各自 ≥90%，可豁免：零售运营管理激励中的负激励项、渠道运营内运营风险考核、阶梯垂媒考核、DCC 考核负激励、新媒体投放线上培训与负向激励。双月做成 105% 比单月死磕更容易——<b>但前提是 11 月这一档先锁住，12 月才有力气冲 105%</b>。</div>
+    </div>
+  </div>
+
+  <div class="mod">
+    <div class="modhead"><div class="modtitle"><span class="num n2">2</span>八张牌：本周末能用的全部弹药</div><span class="pill">一台车一句话</span></div>
+    <table>
+      <thead class="thead2"><tr><th class="c1">政策</th><th class="c2">力度</th><th class="c3">适用 / 门槛</th><th class="c4">怎么打</th></tr></thead>
+      <tbody>
+        <tr class="newrow">
+          <td><div class="pn">全新 Lafa 正式上市</div><div class="pn2">本月大定加赠</div><span class="tagnew">11.27 上市 · 新增</span></td>
+          <td>本月大定 <b>10,000 能量积分</b><br>（不与盲订同享）</td>
+          <td>11.30 24:00 前完成大定；<b>盲订权益与该积分不叠加、二选一</b>；叠加 Lafa5 门店打榜赛 200/400/600/800 元/台京东卡，须 12.31 前交付</td>
+          <td>上市首周末到店客流即增量，一台车一句话——「<b>今天大定，多拿 1 万能量积分</b>」；<b>盲订客户转大定必须讲清二选一，不得重复承诺</b>。</td>
+        </tr>
+        <tr>
+          <td><div class="pn">C10 / C11 / C16</div><div class="pn2">限时交强险</div></td>
+          <td><b>950 元/台</b><br>尾款抵扣券发至下定人零跑 App 账户</td>
+          <td>11.19 00:00—11.30 24:00 下定且最终交付；C 端、经销商大客户、集客订单（<b>不含</b>大客户直销、试驾车订单）</td>
+          <td>本周末第一成交抓手：可与 11 月 C 端权益<b>叠加享受</b>，客户听得懂"省 950"，不用算账就能开口。</td>
+        </tr>
+        <tr>
+          <td><div class="pn">B10</div><div class="pn2">双零重力舒适套装</div></td>
+          <td>价值 <b>10,000 元</b><br>不选可折 <b>2,000 元</b>尾款抵扣</td>
+          <td>本月限时，下定即锁定；<b>二选一</b>，逾期不补、不追溯</td>
+          <td>二选一话术最好逼单——今天定就把套装锁住，过了 11.30 两套方案一起没有。</td>
+        </tr>
+        <tr>
+          <td><div class="pn">A05</div><div class="pn2">锁单阶梯 · 专项激励</div></td>
+          <td>80—100%：<b>500</b> / 100—120%：<b>1000</b> / ≥120%：<b>2000 元/台</b>（&lt;80% 0 元）</td>
+          <td>按 11 月锁单任务达成率分档；开关项：<b>11 月 A05 交付达成率 ≥80%</b></td>
+          <td>A05 冲 120% 档——从 1000 到 2000 是一倍；先保交付 80% 开关，再冲锁单档位。</td>
+        </tr>
+        <tr>
+          <td><div class="pn">C10</div><div class="pn2">打榜赛 · 专项激励</div></td>
+          <td>80—100%：<b>200</b> / 100—120%：<b>400</b> / ≥120%：<b>800 元/台</b>（&lt;80% 0 元）</td>
+          <td>含新老款；开关项：<b>C10 交付目标达成率 ≥80%</b></td>
+          <td>C10 <b>三重叠加</b>：交强险 950 + 阶梯 800 + C 端权益，全店第一主推车型。</td>
+        </tr>
+        <tr>
+          <td><div class="pn">D99 门店红包</div><div class="pn2">＋ 11 月尾款权益</div></td>
+          <td>D99 <b>1500 元京东卡/台</b>；27 款 C10/C11/C16 ＋ D19 <b>1500 元/台</b>；26 款 Lafa5「敢上场」基金 <b>2000 元/台</b></td>
+          <td>官方渠道下定、付 5000 元定金且 <b>12.31 前交付</b>；尾款抵扣券发至购车人零跑 App，叠加 11 月 C 端政策</td>
+          <td>红包发给门店体验工程师，一线最有动力；把 12.31 交付倒排进本周末签约话术。</td>
+        </tr>
+        <tr>
+          <td><div class="pn">垂媒尾款券</div><div class="pn2">B01 / B10 / D19</div></td>
+          <td>已领券客户<br>本月开票核销</td>
+          <td>门店已领券、客户未核销</td>
+          <td><b>把已领券名单拉出来逐个打</b>，券不用就作废；这是本周末最容易成交的一批客户，不用重新获客。</td>
+        </tr>
+        <tr>
+          <td><div class="pn">车展 8 重礼</div><div class="pn2">广州 + 分会场</div></td>
+          <td>广州车展周末政策开打</td>
+          <td>广州门店用区域下发的 8 重礼；其他城市挂"2026 广州车展大湾区分会场"，包装本地八重礼</td>
+          <td>有由头才好邀约；<b>八重礼按区域下发版本执行，门店不得自行增删</b>。</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mod">
+    <div class="modhead"><div class="modtitle"><span class="num n3">3</span>一条最容易被讲错的机制：本周锁单，12 月交付照样算数</div><span class="pill">讲错就白干</span></div>
+    <div class="mech">
+      <div class="formula">A05 / C10 锁单任务完成率的分子 ＝ 11.1—11.30 锁单、且 11.1—12.31 交付的车辆数</div>
+      <p>也就是说：本周末锁的单，只要在 <b>12 月 31 日前交付</b>，一样计进分子，不是白干；未交付订单才视为退订、不计激励。</p>
+      <p>对经销商讲：这周锁单不亏，12 月交付照样拿档位，<b>别把单压到 12 月再说</b>。</p>
+      <p>对客户讲：现在定，锁住 950 交强险（11.30 截止）、B10 万元套装、全新 Lafa 大定 1 万积分，<b>12 月提车不影响任何权益</b>。</p>
+      <p>全新 Lafa 单列：大定 10,000 能量积分按<b>大定时间</b>判定，11.30 24:00 后大定不再享受本月积分；<b>不与盲订权益同享</b>。</p>
+    </div>
+  </div>
+
+  <div class="mod">
+    <div class="modhead"><div class="modtitle"><span class="num n4">4</span>三天动作：今天出名单，周六冲单，周日收口</div><span class="pill">不等周一</span></div>
+    <table>
+      <thead class="thead4"><tr><th class="c1">时点</th><th class="c4" style="width:59%">动作</th><th class="c3" style="width:22%">交付物</th></tr></thead>
+      <tbody>
+        <tr><td><b>11.27</b>（五）今天</td><td>出三张名单：A/B 级潜客、已领券未核销、11 月已到店未成交；按 12.31 倒排，库里超 60 天的车挂"本周转价"标签，当天定清库明细；全店贯标八张牌，一台车一句话；<b>全新 Lafa 上市首周末到店客户单独建档</b>。</td><td>《周末必签名单》＋《超龄库存清单》＋《Lafa 首周末到店台账》</td></tr>
+        <tr><td><b>11.28</b>（六）</td><td>全员在岗不轮休。<b>C10 第一主推</b>（交强险＋阶梯＋C 端三重），A05 冲 120% 档；全新 Lafa 设上市专区，大定 1 万积分一台一讲；08:30 报目标、12:00 报数、18:00 出小区排名。</td><td>分时锁单报数</td></tr>
+        <tr><td><b>11.29</b>（日）</td><td>16:00 对未成交客户二次上门或电话；20:00 全区复盘，锁单、交付逐店对账，落后门店当晚补动作，<b>不把问题带到周一</b>。</td><td>《周末复盘表》＋ 12 月降库计划</td></tr>
+        <tr><td><b>11.30</b>（一）24:00 关闸</td><td>所有限时权益最后一轮核对，未锁单客户当晚清零前最后一通电话；<b>过期不补、不追溯</b>。11.30 之后只做交付，不再追 11 月的量。</td><td>《11.30 关闸清单》</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mod">
+    <div class="modhead"><div class="modtitle red"><span class="num n5">5</span>六条红线：这几条踩了，量做了也白做</div><span class="pill">照着念</span></div>
+    <div class="reds">
+      <div class="reditem"><i>一</i><span>不得口头承诺政策外权益，交强险以 App 尾款券为准。</span></div>
+      <div class="reditem"><i>二</i><span>不得跨城拼单，考核口径是同城 ＋ 同实际控制人。</span></div>
+      <div class="reditem"><i>三</i><span>不得虚假锁单、虚假销售，一经发现取消整个销售单元激励资格。</span></div>
+      <div class="reditem"><i>四</i><span>全新 Lafa 大定 1 万积分不与盲订同享，不得对盲订客户重复承诺或叠加发声。</span></div>
+      <div class="reditem"><i>五</i><span>降库不许只报数不挪车，超龄库存必须当周有处置动作。</span></div>
+      <div class="reditem"><i>六</i><span>不得把本周末的单压到 12 月做，压单就是压自己的档位，11.30 24:00 关闸不补。</span></div>
+    </div>
+  </div>
+
+  <div class="final">
+    <div class="finalh">一 句 话</div>
+    <div class="finalp">这个周末不是"再冲一波"，是 11 月政策关闸前最后一张能锁进 11 月的订单窗口。本周不下定，12.31 就只剩算账的份——<b>批售没到 100%，明年上半年连新车认证都拿不到</b>。全新 Lafa 今天上市、本月大定再送 1 万积分，把库降下去，把档位抢回来，把该清的客户这个周末清完。</div>
+  </div>
+
+  <div class="foot">
+    政策依据：11—12 月批售考核政策（11.12）、11—12 月批售&交付完成率豁免政策（11.10）、C10/C11/C16 限时交强险权益（11.19）、B10 本月限时舒适套装、11 月 A05 专项激励、11 月 C10 专项激励、Lafa5 盲订及门店打榜赛、全新 Lafa 上市及本月大定 10,000 能量积分（11.27）、D99 门店个人红包、11 月限时专项权益、垂媒尾款券、广州车展 8 重礼；具体条目以区域下发版本为准。
+    <div class="footb"><span>零跑汽车 · 华南大区零售管理</span><span>2026年11月27日</span></div>
+  </div>
+ </div>
+</div></body></html>
